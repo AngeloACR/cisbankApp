@@ -35,26 +35,26 @@
       </li>
     </a>
     <div class="lBox" [ngClass]="aBox1">
-		<a
-        [routerLinkActive]="['active']"
-        [routerLinkActiveOptions]="{ exact: true }"
-        [routerLink]="['/mod2c']"
-      >
-        <li class="navChild">Directorio</li>
-      </a>
-	  <a
-	  [routerLinkActive]="['active']"
-	  [routerLinkActiveOptions]="{ exact: true }"
-	  [routerLink]="['/mod2']"
-	>
-	  <li class="navChild">Resumen Cuentas T</li>
-	</a>
       <a
         [routerLinkActive]="['active']"
         [routerLinkActiveOptions]="{ exact: true }"
         [routerLink]="['/mod2b']"
       >
         <li class="navChild">Movimientos diarios</li>
+      </a>
+      <a
+      [routerLinkActive]="['active']"
+      [routerLinkActiveOptions]="{ exact: true }"
+      [routerLink]="['/mod2']"
+    >
+      <li class="navChild">Resumen Cuentas T</li>
+    </a>
+		<a
+        [routerLinkActive]="['active']"
+        [routerLinkActiveOptions]="{ exact: true }"
+        [routerLink]="['/mod2c']"
+      >
+        <li class="navChild">Directorio</li>
       </a>
     </div>
     <a
