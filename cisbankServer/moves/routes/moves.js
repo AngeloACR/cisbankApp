@@ -15,7 +15,7 @@ moveRouter.post("/cMove", (req, res, next) => {
   const mSign = req.body.mSign;
   const mDesc = req.body.mDesc;
   const mDate = req.body.mDate;
-
+  console.log(req.body);
   let newMove = new Move({
     mAmmount: mAmmount,
     mBAcc: mBAcc,
@@ -78,7 +78,7 @@ moveRouter.post("/cMove", (req, res, next) => {
         });
 
         updateProcess.on("close", (code) => {
-            console.log(code)
+          console.log(code);
           return res.json({
             success: true,
             msg: myData,

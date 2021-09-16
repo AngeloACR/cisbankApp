@@ -1,5 +1,4 @@
-#!/usr/bin/python2.7
-
+#!/usr/bin/python3.6.9
 from pymongo import MongoClient
 import sys
 
