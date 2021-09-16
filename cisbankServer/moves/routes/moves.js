@@ -138,7 +138,6 @@ moveRouter.get("/gMoves", (req, res, next) => {
     if (err) throw err;
     var mMap = [{}];
     var i = 0;
-    console.log(moves);
     if (moves && moves.length) {
       moves.forEach(function (move) {
         mMap[i] = move;
