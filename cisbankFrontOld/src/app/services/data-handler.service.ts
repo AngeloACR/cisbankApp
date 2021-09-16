@@ -15,8 +15,8 @@ export class DataHandlerService {
   addressMoves = "/moves";
   addressMTAccs = "/mtaccs";
 
-  //mySource = this.testSource;
-  mySource = this.prodSource
+  mySource = this.testSource;
+  //mySource = this.prodSource
 
   constructor(
     private papa: Papa,
@@ -196,7 +196,6 @@ export class DataHandlerService {
   }
 
   getServerAccs() {
-
     let headers = new HttpHeaders();
     headers.append("Content-Type", "application/json");
 
@@ -241,8 +240,17 @@ export class DataHandlerService {
     let headers = new HttpHeaders();
     headers.append("Content-Type", "application/json");
 
-    return this.http.get(this.mySource + this.addressTAccs + "/gmTAccs", {
-      headers: headers,
+    let address = this.mySource + this.addressTAccs + "/gmTAccs";
+    return new Promise<any>((resolve, reject) => {
+      this.http.get(address, { headers: headers }).subscribe((data: any) => {
+        // data is already a JSON object
+        if (data["status"]) {
+          this.storeBanks(data["mtAccs"]);
+          resolve(data.tAccs);
+        } else {
+          localStorage.removeItem("mtAccs");
+        }
+      });
     });
   }
 
@@ -254,8 +262,8 @@ export class DataHandlerService {
   createMove(move, today) {
     let headers = new HttpHeaders();
     headers.append("Content-Type", "application/json");
-    let mDate = today
-    if(move.mDate) mDate = move.mDate
+    let mDate = today;
+    if (move.mDate) mDate = move.mDate;
     var body = {
       mAmmount: move.mAmmount,
       mBAcc: move.mBAcc,
@@ -306,7 +314,6 @@ export class DataHandlerService {
   }
 
   getServerMoves() {
-
     let headers = new HttpHeaders();
     headers.append("Content-Type", "application/json");
     let address = this.mySource + this.addressMoves + "/gMoves";
@@ -406,18 +413,11 @@ export class DataHandlerService {
   }
 
   updateTs() {
-    this.getServerAccs()
+    this.getServerAccs();
   }
 
   updateMTs() {
-    this.getServerMAccs().subscribe((data) => {
-      // data is already a JSON object
-      if (data["status"]) {
-        this.storeMAccs(data["mtAccs"]);
-      } else {
-        localStorage.removeItem("mtAccs");
-      }
-    });
+    this.getServerMAccs()
   }
 
   updateBs() {
@@ -425,6 +425,6 @@ export class DataHandlerService {
   }
 
   updateMs() {
-    this.getServerMoves()
+    this.getServerMoves();
   }
 }

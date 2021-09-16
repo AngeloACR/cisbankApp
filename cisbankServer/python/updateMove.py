@@ -114,12 +114,12 @@ def updateT(tId, mId, myDB, newAmmount):
 			newDebe = tacc['tDebe'] - move['mAmmount'] + newAmmount
 			tDebe = {"$set": {"tDebe": newDebe}}
 			taccs.update_one(tQuery, tDebe)
-			newBalance = newDebe - tacc['tHaber']
+			newBalance =  tacc['tHaber']-newDebe
 		else:
 			newHaber = tacc['tHaber'] - move['mAmmount'] + newAmmount
 			tHaber = {"$set": {"tHaber": newHaber}}
 			taccs.update_one(tQuery, tHaber)
-			newBalance = tacc['tDebe'] - newHaber
+			newBalance = newHaber-tacc['tDebe']
 
 		tBalance = { "$set": { "tBalance": newBalance } }
 		
