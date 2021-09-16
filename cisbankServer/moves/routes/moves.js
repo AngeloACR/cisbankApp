@@ -73,7 +73,7 @@ moveRouter.post("/cMove", (req, res, next) => {
           console.log(data);
           myData = data;
         });
-        updateProcess.stdout.on("error", (error) => {
+        updateProcess.on("error", (error) => {
           console.log(error);
         });
 
