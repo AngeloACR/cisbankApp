@@ -60,6 +60,7 @@ moveRouter.post("/cMove", (req, res, next) => {
         //			const mDay = mDate;
 
         const updatePath = "./python/updateBalance.py";
+        console.log(updatePath);
 
         //			const updateOptions = [updatePath, bId, tId, mId, mDay];
         const updateOptions = [updatePath, bId, tId, mId];
@@ -67,6 +68,7 @@ moveRouter.post("/cMove", (req, res, next) => {
         const updateProcess = spawn("python3", updateOptions);
 
         var myData;
+        console.log(updateProcess);
 
         updateProcess.stdout.on("data", (data) => {
           console.log(data);
