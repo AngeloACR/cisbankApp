@@ -68,11 +68,13 @@ moveRouter.post("/cMove", (req, res, next) => {
         const updateProcess = spawn("python3", updateOptions);
 
         var myData;
-        console.log(updateProcess);
 
         updateProcess.stdout.on("data", (data) => {
           console.log(data);
           myData = data;
+        });
+        updateProcess.stdout.on("error", (error) => {
+          console.log(error);
         });
 
         updateProcess.on("close", (code) => {
