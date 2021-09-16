@@ -1,0 +1,78 @@
+<div class="modBox">
+    <div class="titleBox">
+        <h1>{{title}}</h1>
+    </div>
+    <div class="innerBox" *ngIf="isListarUsuarios || isListarRoles">
+        <table>
+            <tr class="listBox">
+                <th class="listTitle" *ngFor="let field of fields; let i = index">
+                    {{field}}
+                </th>
+                <th class="listButton"></th>
+            </tr>
+            <tr class="bItem" *ngFor="let value of values;">
+                <td class="listTitle" *ngFor="let field of fields">
+                    {{value[field.toLowerCase()]}}
+                </td>
+                <td class="listButton">
+                    <button type="button" id="closeB" (click)="deleteItem($event, value)">
+            X
+          </button>
+                    <img id="updateB" src="/assets/tuerca.png" (click)="openUpdate($event, value)" />
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="innerBox" *ngIf="isCrearUsuarios">
+        <div class="formBox">
+            <form [formGroup]="registroUser" (ngSubmit)="createUser()">
+                <div class="formContent">
+                    <div class="formInput">
+                        <label for="">Nombre</label>
+                        <input class="lInput" type="text" formControlName="nombre" name="nombre" />
+                    </div>
+                    <div class="formInput">
+                        <label for="">Apellido</label>
+                        <input class="lInput" type="text" formControlName="apellido" name="apellido" />
+                    </div>
+                    <div class="formInput">
+                        <label for="">Usuario</label>
+                        <input class="lInput" type="text" formControlName="username" name="username" />
+                    </div>
+                    <div class="formInput">
+                        <label for="">Correo Electrónico</label>
+                        <input class="lInput" type="text" formControlName="mail" name="mail" />
+                    </div>
+                    <div class="formInput">
+                        <label for="">Contraseña</label>
+                        <input class="lInput" type="password" formControlName="password" name="password" />
+                    </div>
+                    <div class="formInput">
+                        <label for="">Confirmar contraseña</label>
+                        <input class="lInput" type="password" formControlName="cpassword" name="cpassword" />
+                    </div>
+                </div>
+                <button style="align-self: center;" type="submit" class="formButton" (click)="endRegistro()">
+          <p>CREAR USUARIO</p>
+        </button>
+            </form>
+        </div>
+    </div>
+    <div class="innerBox" *ngIf="isCrearRoles">
+        <form [formGroup]="registroRol" (ngSubmit)="createRol()">
+            <div class="formContent">
+                <div class="formInput">
+                    <label for="">Nombre Rol</label>
+                    <input class="lInput" type="text" formControlName="rol" name="rol" />
+                </div>
+            </div>
+            <button style="align-self: center;" type="submit" class="formButton" (click)="endRegistro()">
+        <p>CREAR ROL</p>
+      </button>
+        </form>
+    </div>
+    <div class="innerBox" *ngIf="isAsignarPermisos"></div>
+</div>
+
+<div class="blackBox" [ngClass]="openBox" (click)="tBox()"></div>
+<div class="addBox" [ngClass]="openBox"></div>

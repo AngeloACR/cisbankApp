@@ -1,0 +1,112 @@
+<div class="modBox">
+	<div class="buttonsBox">
+		<div class="buttonBox" (click)="openAdd()">
+			<p>Agregar cuenta T</p>
+		</div>
+		<div class="buttonBox" (click)="tCsv()">
+			<p>Agregar desde CSV</p>
+		</div>
+	</div>
+
+	<div class="titleBox">
+		<p>Cuentas T</p>
+	</div>
+
+	<div class="showBox">
+		<div class="listBox">
+			<p class="listButton"></p>
+			<p class="listTitle">Nombre</p>
+			<p class="listTitle">Tipo</p>
+		</div>
+		<ul id="mainT" class="bList" *ngIf="showT">
+			<li class="bItem" *ngFor="let acc of accs;">
+				<div class="listButton">
+					<button id="closeT" (click)="deleteAcc($event, acc)">X</button>
+					<img id="updateT" src="/assets/tuerca.png" (click)="openUpdate($event, acc)">
+				</div>
+				<p class="listTitle">{{acc.tName}}</p>
+				<p class="listTitle">{{acc.tType}}</p>
+			</li>
+		</ul>			
+	</div>
+
+</div>
+
+<div class="blackBox" [ngClass]="openBox" (click)="tBox()">
+</div>
+
+<div class="addBox" [ngClass]="openBox">
+	<div class="closeButton">
+		<button class="closeB" (click)="tBox()">X</button>
+	</div>
+
+	<div class="formHeader">
+		<h1>Agregar cuenta</h1>
+	</div>
+	<form *ngIf="addT" [formGroup]="acc" (ngSubmit)="addAcc()">	
+		<div class="formContent">
+			
+			<label for="desc">Descripción: 
+				<input type="text" class="lInput" formControlName="desc" name="desc" placeHolder="Nombre">
+			</label>
+			<label for="tipo">Codigo clasificador:
+				<select class="lInput" name="tipo" formControlName="tipo" >
+					<option value="Activo">1.- Activo</option>
+					<option value="Pasivo">2.- Pasivo</option>
+					<option value="Capital">3.- Capital</option>
+					<option value="Ingresos">4.- Ingresos</option>
+					<option value="Costos">5.- Costos</option>
+					<option value="Gastos">6.- Gastos</option>
+					<option value="Otros Ingresos">7.- Otros Ingresos</option>
+					<option value="Otros Egresos">8.- Otros Egresos</option>
+				</select>
+			</label>
+
+			<button type="submit" class="formButton">
+				<p>Aceptar</p>
+			</button>
+				
+		</div>
+	</form>
+
+	<form *ngIf="updateT" [formGroup]="acc" (ngSubmit)="updateAcc()">	
+		<div class="formContent">
+			
+			<label for="desc">Descripción: 
+				<input type="text" class="lInput" formControlName="desc" name="desc" placeHolder="Nombre">
+			</label>
+			<label for="tipo">Codigo clasificador:
+				<select class="lInput" name="tipo" formControlName="tipo" >
+					<option value="Activo">1.- Activo</option>
+					<option value="Pasivo">2.- Pasivo</option>
+					<option value="Capital">3.- Capital</option>
+					<option value="Ingresos">4.- Ingresos</option>
+					<option value="Costos">5.- Costos</option>
+					<option value="Gastos">6.- Gastos</option>
+					<option value="Otros Ingresos">7.- Otros Ingresos</option>
+					<option value="Otros Egresos">8.- Otros Egresos</option>
+				</select>
+			</label>
+			<button type="submit" class="formButton">
+				<p>Aceptar</p>
+			</button>
+		</div>
+	</form>
+
+</div>
+
+<div class="blackBox" [ngClass]="openBox2" (click)="tCsv()">
+</div>
+
+<div class="addBox" [ngClass]="openBox2">
+
+	<div class="formHeader">
+		<h1>Agregar cuenta desde CSV</h1>
+	</div>
+	<div class="formContent">
+		<input class="form-control" type='file' id='fileInput' #input>
+	</div>
+	<div class="formButton" (click)="addCsv(input)">
+		<p>Aceptar</p>
+	</div>
+</div>	

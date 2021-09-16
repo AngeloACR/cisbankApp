@@ -1,0 +1,52 @@
+.appBox{
+	display: flex;
+	height: 100%;
+	justify-content: space-between;
+	flex-wrap: nowrap;
+	flex-direction: row;
+	align-items: flex-start;
+}
+
+.headerBox{
+	width: 100%;
+	height: 64px;
+}
+
+.menuBox{
+	width: 0%;
+	transition: width 0.2s ease-out;
+}
+
+.aMenu{
+	width: 216px;
+	padding-right: 23px;
+}
+
+.contentBox{
+	width: 100%;
+}
+
+.panelBox{
+	flex-basis: 100%;
+	display: flex;
+	height: 100%;
+	justify-content: space-around;
+	flex-wrap: wrap;
+	flex-direction: column;
+	align-items: center;
+}
+
+.menuHeader{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 64px;
+	width: 100%;
+	background: #607d8b;
+	padding-left: 13px;
+	padding-right: 13px;
+}
+
+.menuHeader img{
+	width: 160px;
+}

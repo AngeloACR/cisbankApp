@@ -1,0 +1,567 @@
+.pageBox {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 200;
+    background-image: url('/assets/relleno2.jpg');
+    background-size: cover;
+}
+
+.logoBox {
+    width: 30%;
+}
+
+.logoBox img {
+    width: 100%;
+}
+
+.lLabel {
+    margin-bottom: 0;
+    margin-top: 5px;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.selectionBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 50%;
+    flex-wrap: nowrap;
+    background-color: white;
+    /*     height: 100%;
+ */
+}
+
+.headerBox {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: #0072b9;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    width: 100%;
+    height: 60px;
+}
+
+.optionsBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 5%;
+    color: black;
+    height: 100%;
+    background-size: cover;
+    width: 100%;
+}
+
+.iconsBox {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+}
+
+.iconsBox h1 {
+    margin-bottom: 42px;
+}
+
+.iconBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.iconBox p {
+    font-weight: bold;
+    color: black;
+    font-size: 23px;
+}
+
+.formInput {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: nowrap;
+    margin-bottom: 10px;
+    width: 100%;
+    align-self: center;
+}
+
+.formInput label {
+    white-space: nowrap;
+    margin-right: 15px;
+}
+
+.formSide {
+    /* 
+display: flex;
+flex-direction: row;
+align-items: center;
+justify-content: space-evenly; */
+    width: 16%;
+    font-size: 32px;
+    font-weight: bold;
+    height: 200px;
+    margin: auto;
+    margin-top: 42px;
+    color: #0072b9;
+}
+
+.formSide img {
+    width: 100%;
+}
+
+.tagBox {
+    font-size: 10px;
+}
+
+.lCheck {
+    width: 90px;
+}
+
+.lInput {
+    flex-basis: 100%;
+    font-size: 16px;
+    padding-left: 16px;
+    border-radius: 42px;
+    height: 33px;
+    border: none;
+    background-image: none;
+    background-color: #ffffc5;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    border-style: solid;
+    border-color: #0072b9;
+    border-width: 2px;
+    box-shadow: none;
+}
+
+.formBox {
+    width: 60%;
+    margin: auto;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+}
+
+.logBox {
+    background-color: #ffffff;
+    border-radius: 3px;
+    height: 0;
+    max-height: 80%;
+    align-self: center;
+    display: flex;
+    flex-direction: row;
+    position: fixed;
+    overflow: hidden;
+    overflow-y: scroll;
+    width: 90%;
+}
+
+.blackBox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    transition: height 0.2s ease-out;
+    overflow: hidden;
+    background-color: rgba(155, 155, 155, 0.5);
+    border: none;
+}
+
+.formAct {
+    height: auto;
+}
+
+.blackAct {
+    height: 100%;
+}
+
+.formContent {
+    display: flex;
+    width: 100%;
+    margin-top: 10px;
+    padding-right: 5px;
+    padding-left: 5px;
+    height: auto;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+
+/* 
+.formButton {
+width: 104px;
+height: 36px;
+background: white;
+color: black;
+font-size: 14px;
+text-align: center;
+border-radius: 5px;
+}
+
+.formButton p {
+margin: 0;
+}
+*/
+
+.formButton {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 52px;
+    width: 30%;
+    color: white;
+    background-color: #0084b6;
+    margin: auto;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+    border-style: solid;
+    border-width: 3px;
+    border-color: #0084b6;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.formButton:hover {
+    color: #0084b6;
+    background-color: white;
+}
+
+.formButton:active {
+    color: #0084b6;
+    background-color: white;
+}
+
+.formButton p {
+    color: white;
+    margin: 0;
+    font-size: 23px;
+    font-weight: bold;
+    width: 100%;
+    text-decoration: none !important;
+}
+
+.formButton:hover p {
+    color: #0084b6;
+}
+
+.buttonBox {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.formImg {
+    width: 128px;
+}
+
+.iconImg {
+    height: 18vh;
+    cursor: pointer;
+}
+
+.formInput select {
+    border: 3px solid #0072b9;
+    color: #0072b9;
+    background-color: white;
+}
+
+
+/* The checkContainer */
+
+.checkContainer {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+
+/* Hide the browser's default checkbox */
+
+.checkContainer input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+
+/* Create a custom checkbox */
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: white;
+    border-color: #0072b9;
+    border-width: 3px;
+    border-style: solid;
+    border-radius: 8px;
+}
+
+
+/* On mouse-over, add a grey background color */
+
+.checkContainer:hover input~.checkmark {
+    background-color: #ccc;
+}
+
+
+/* When the checkbox is checked, add a blue background */
+
+.checkContainer input:checked~.checkmark {
+    background-color: #0072b9;
+}
+
+
+/* Create the checkmark/indicator (hidden when not checked) */
+
+.checkmark:after {
+    content: '';
+    position: absolute;
+    display: none;
+}
+
+
+/* Show the checkmark when checked */
+
+.checkContainer input:checked~.checkmark:after {
+    display: block;
+}
+
+
+/* Style the checkmark/indicator */
+
+.checkContainer .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.formImagenes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.formImagenes h3 {
+    color: white;
+    background-color: #0084b6;
+    font-weight: bold;
+    padding: 8px;
+}
+
+.formFiles {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.formFile {
+    display: flex;
+    flex-direction: column;
+}
+
+.formFile label {
+    width: 10vw;
+    height: 10vw;
+    margin-left: 23px;
+    margin-right: 23px;
+    cursor: pointer;
+    background-image: none;
+    background-color: #ffffc5;
+    border-style: solid;
+    border-color: #0072b9;
+    border-width: 2px;
+    border-radius: 23px;
+}
+
+.formFile input {
+    opacity: 0;
+    overflow: hidden;
+    z-index: -1;
+    position: absolute;
+}
+
+.formDescripcion {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+}
+
+.formDescripcion label {
+    margin-bottom: 10px;
+}
+
+.formDescripcion textarea {
+    width: 100%;
+    border-width: 2px;
+    padding-left: 16px;
+    border-color: #0072b9;
+    border-radius: 23px;
+    background-color: #ffffc5;
+}
+
+.fileName {
+    padding-top: 10px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.closeButton {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 23px;
+    height: 23px;
+}
+
+.closeButton .closeB {
+    background: transparent;
+    width: 100%;
+    height: 100%;
+    z-index: 2000;
+    color: red;
+    font-weight: bold;
+    margin: 0 auto;
+    text-align: center;
+    border: 2px solid red;
+    border-radius: 3px;
+    cursor: pointer;
+    padding: 0;
+}
+
+.closeButton .closeB:hover {
+    background-color: red;
+    color: white;
+}
+
+@media only screen and (max-width: 600px) {
+    .selectionBox {
+        width: 100%;
+        height: 100%;
+        display: block;
+    }
+    .pageBox {
+        overflow: hidden;
+        height: auto;
+    }
+    .formImg {
+        width: 25%;
+    }
+    .optionsBox h1 {
+        text-align: center;
+        font-size: 23px;
+    }
+    .optionsBox {
+        flex-basis: 100%;
+        overflow-y: scroll;
+    }
+    .iconsBox {
+        flex-wrap: wrap;
+    }
+    .iconBox {
+        width: 42%;
+    }
+    .iconBox img {
+        width: 100%;
+        height: auto;
+    }
+    .iconBox p {
+        font-size: 16px;
+    }
+    .formBox {
+        order: 2;
+        margin: 0;
+        width: 100%;
+    }
+    .formContent {
+        padding: 0;
+    }
+    .formSide {
+        width: 31%;
+        height: auto;
+    }
+    .logBox {
+        flex-wrap: wrap;
+        width: 100%;
+        max-height: 100%;
+    }
+    .formInput {
+        width: 80%;
+        margin-bottom: 15px;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
+    .formDescripcion {
+        width: 80%;
+        margin: auto;
+    }
+    .formImagenes {
+        width: 80%;
+        margin: auto;
+    }
+    .formImagenes h3 {
+        font-size: 16px;
+        text-align: center;
+    }
+    .formButton {
+        width: 60%;
+        margin-top: 2vh;
+        margin-bottom: 2vh;
+    }
+    .formButton p {
+        font-size: 18x;
+    }
+    .fileName {
+        font-size: 8px;
+    }
+    .formFile label {
+        border-radius: 8px;
+    }
+    .lInput {
+        height: 23px;
+    }
+    .formAct {
+        height: 100%;
+    }
+}

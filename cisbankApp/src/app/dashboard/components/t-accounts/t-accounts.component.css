@@ -1,0 +1,355 @@
+.modBox {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.titleBox {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 5vh;
+    margin-bottom: 3vh;
+    color: white;
+    text-align: center;
+    background: #1f6bae;
+}
+
+.titleMenu {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    justify-content: center;
+    margin: 0;
+    flex-basis: 100%;
+    text-align: center;
+    font-size: 14px;
+    color: white;
+    cursor: pointer;
+}
+
+.titleMenu:active {
+    background: rgba(255, 255, 255, 0.3);
+    opacity: 0.5;
+    filter: alpha(opacity=20);
+}
+
+.menuAct {
+    border-bottom-style: solid;
+    border-bottom-width: 2px;
+    border-bottom-color: #03bbf2;
+}
+
+.listBox {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 5vh;
+    margin-top: 0;
+    background: #1f6bae;
+    color: white;
+    text-align: center;
+}
+
+.titleColumn {
+    width: 33%;
+}
+
+.listBox .listTitle {
+    font-weight: bold;
+}
+
+.listTitle {
+    width: 25%;
+}
+
+.buttonBox {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+    height: 5vh;
+    margin-top: 3vh;
+    background: #029ced;
+    color: white;
+    text-align: center;
+    border-radius: 3px;
+    cursor: pointer;
+    border: solid;
+    border-color: #029ced;
+    border-width: 1px;
+}
+
+.buttonBox:hover {
+    background: white;
+    color: #029ced;
+    font-weight: bold;
+}
+
+.blackBox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    transition: height 0.2s ease-out;
+    overflow: hidden;
+    background-color: rgba(155, 155, 155, 0.5);
+    border: none;
+}
+
+.addBox {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: 0;
+    max-height: 80vh;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.oBox {
+    height: 100%;
+    overflow: hidden;
+}
+
+.showBox {
+    width: 84%;
+    border-style: solid;
+    border-width: 23px;
+    border-radius: 23px;
+    border-color: #d8d8d8;
+}
+
+.bList {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.bItem {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.formHeader {
+    height: 12vh;
+    width: 100%;
+    background: #029ced;
+    color: white;
+    text-align: center;
+}
+
+.addBox form {
+    width: 100%;
+}
+
+.formContent {
+    display: flex;
+    width: 100%;
+    margin-top: 10px;
+    padding-right: 5px;
+    padding-left: 5px;
+    height: auto;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.formButton {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 52px;
+    width: 50%;
+    color: white;
+    background-color: #0084b6;
+    margin: auto;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+    border-style: solid;
+    border-width: 3px;
+    border-color: #0084b6;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.formButton:hover {
+    color: #0084b6;
+    background-color: white;
+}
+
+.formButton:active {
+    color: #0084b6;
+    background-color: white;
+}
+
+.formButton p {
+    color: white;
+    margin: 0;
+    font-size: 23px;
+    font-weight: bold;
+    width: 100%;
+    text-decoration: none !important;
+}
+
+.formButton:hover p {
+    color: #0084b6;
+}
+
+.listButton {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 10%;
+}
+
+.listButton #closeB {
+    background: transparent;
+    color: red;
+    font-weight: bold;
+    width: 27px;
+    height: 27px;
+    margin: 0 auto;
+    text-align: center;
+    border: 2px solid red;
+    border-radius: 3px;
+    cursor: pointer;
+    padding: 0;
+}
+
+.listButton #updateB {
+    background: transparent;
+    color: red;
+    font-weight: bold;
+    width: 23px;
+    height: 23px;
+    margin: 0 auto;
+    text-align: center;
+    border: 2px solid grey;
+    border-radius: 3px;
+    cursor: pointer;
+    padding: 0;
+}
+
+.listButton #closeB:hover {
+    background-color: red;
+    color: white;
+}
+
+.closeButton {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 23px;
+    height: 23px;
+}
+
+.closeButton .closeB {
+    background: transparent;
+    width: 100%;
+    height: 100%;
+    z-index: 2000;
+    color: red;
+    font-weight: bold;
+    margin: 0 auto;
+    text-align: center;
+    border: 2px solid red;
+    border-radius: 3px;
+    cursor: pointer;
+    padding: 0;
+}
+
+.closeButton .closeB:hover {
+    background-color: red;
+    color: white;
+}
+
+.showRow {
+    max-height: 500px !important;
+}
+
+.formItem {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    max-height: 0;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out;
+}
+
+.lInput {
+    flex-basis: 100%;
+    margin-top: 5px;
+    font-size: 16px;
+    padding-left: 16px;
+    border-radius: 42px;
+    height: 33px;
+    border: none;
+    background-image: none;
+    background-color: #ffffc5;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    border-style: solid;
+    border-color: #0072b9;
+    border-width: 2px;
+    box-shadow: none;
+}
+
+.formInput {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: nowrap;
+    margin-bottom: 10px;
+    width: 100%;
+    align-self: center;
+}
+
+.formInput label {
+    white-space: nowrap;
+    margin-right: 15px;
+}
+
+.formBox {
+    width: 50%;
+}
+
+.innerBox {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}

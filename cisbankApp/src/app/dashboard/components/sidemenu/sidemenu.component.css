@@ -1,0 +1,135 @@
+.navBox {
+    width: 100%;
+    margin: 0;
+    height: calc(100% - 100px);
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+.navBox::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    background-color: #afccf4;
+    border-color: #9ba6c0;
+    border-width: 2px;
+    border-style: solid;
+}
+
+.navBox::-webkit-scrollbar {
+    width: 12px;
+    background-color: #f5f5f5;
+}
+
+.navBox::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: #819fe2;
+}
+
+.listBox {
+    width: 80%;
+    margin-bottom: 5px;
+}
+
+.navList {
+    padding: 0;
+    width: 100%;
+    display: inline-flex;
+    align-self: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.menuIcon {
+    margin-right: 15px;
+}
+
+.navList a {
+    width: 100%;
+    color: black;
+}
+
+.navElement {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    color: black;
+    width: 100%;
+    height: auto;
+    cursor: pointer;
+}
+
+.navElement:hover {
+    font-weight: bold;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+.navElement a:active {
+    font-weight: bold;
+    display: flex;
+    align-items: flex-start;
+}
+
+.lBox {
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    overflow: hidden;
+    width: 100%;
+    margin-bottom: 1px;
+    max-height: 0;
+    border-width: 1px;
+    border-style: solid;
+    border-color: white;
+    transition: max-height 0.2s ease-out;
+}
+
+.navChild {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    margin-bottom: 1px;
+    background-color: #0072b9;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.navChild a {
+    width: 100%;
+    color: white;
+    margin-left: 23px;
+}
+
+.navChild:hover {
+    font-weight: bold;
+}
+
+.aBox {
+    display: inline-flex;
+    max-height: 200vh;
+}
+
+.aMenu {
+    background-color: white;
+    margin-bottom: 0;
+    color: #1f6bae;
+    font-weight: bold;
+}
+
+.sideFoot {
+    display: block;
+    margin-top: 50px;
+    width: 100%;
+    height: auto;
+}
+
+.sImg {
+    display: block;
+    width: 80%;
+    position: relative;
+    margin: 0 auto;
+}

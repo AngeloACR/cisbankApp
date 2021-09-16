@@ -1,0 +1,60 @@
+<div class="modBox">
+    <div class="titleBox">
+        <p>Disponibilidad bancaria</p>
+    </div>
+    <div class="showBox">
+        <div class="listBox">
+            <p class="titleItem">Alias</p>
+            <p class="titleItem">Disponible</p>
+            <p class="titleItem">Diferido</p>
+            <p class="titleItem">Bloqueado</p>
+            <p class="titleItem">Transito</p>
+            <p class="titleItem">Terceros</p>
+            <!--p class="titleItem">Total</p-->
+            <p class="titleItem">Movimientos</p>
+        </div>
+        <ul id="mainB" class="bList" *ngIf="showB">
+            <li class="bItem" *ngFor="let bank of banks;">
+                <p class="titleItem">{{bank.bAlias}}</p>
+                <p class="titleItem">{{bank.bBalance | number:'1.2-2':'es-VE'}} Bs</p>
+                <p class="titleItem">{{0 | number:'1.2-2':'es-VE'}} Bs</p>
+                <p class="titleItem">{{0 | number:'1.2-2':'es-VE'}} Bs</p>
+                <p class="titleItem">{{0 | number:'1.2-2':'es-VE'}} Bs</p>
+                <p class="titleItem">{{0 | number:'1.2-2':'es-VE'}} Bs</p>
+                <div class="titleItem">
+                    <button id="moveB" (click)="selectMove($event, bank.bAlias)">
+            Ver movimientos
+          </button>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="titleBox">
+        <p>Movimientos</p>
+    </div>
+
+    <div class="showBox">
+        <div class="listBox">
+            <p class="titleItem">Fecha</p>
+            <p class="titleItem">Descripcion</p>
+            <p class="titleItem">Referencia</p>
+            <p class="titleItem">D/H</p>
+            <p class="titleItem">Monto</p>
+            <p class="titleItem">Saldo inicial</p>
+            <p class="titleItem">Saldo Final</p>
+        </div>
+
+        <ul class="bList" *ngIf="showM">
+            <li class="bItem" *ngFor="let move of moves;">
+                <p class="titleItem">{{move.mDate}}</p>
+                <p class="titleItem">{{move.mDesc}}</p>
+                <p class="titleItem">{{move.mCode}}</p>
+                <p class="titleItem">{{move.mNature}}</p>
+                <p class="titleItem">{{move.mAmmount | number:'1.2-2':'es-VE'}} Bs</p>
+                <p class="titleItem">{{move.mOld | number:'1.2-2':'es-VE'}} Bs</p>
+                <p class="titleItem">{{move.mNew | number:'1.2-2':'es-VE'}} Bs</p>
+            </li>
+        </ul>
+    </div>
+</div>

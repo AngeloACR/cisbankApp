@@ -1,0 +1,134 @@
+<div class="modBox">
+	<div class="buttonBox" (click)="openAdd()">
+		<p>Agregar</p>
+	</div>
+
+	<div class="titleBox">
+		<p>Directorio</p>
+	</div> 
+
+
+	<div class="showBox">
+		<div class="listBox">
+			<p class="listButton"></p>
+			<p class="listTitle">Alias</p>
+			<p class="listTitle">Numero de cuenta</p>
+			<p class="listTitle">Banco</p>
+			<p class="listTitle">Status</p>
+		</div>
+		<ul class="bList" *ngIf="show">
+			<li class="bItem" *ngFor="let bacc of banks;">
+				<div class="listButton">
+					<button id="closeB" (click)="deleteBank($event, bacc)">X</button>
+					<img id="updateB" src="/assets/tuerca.png" (click)="openUpdate($event, bacc)">
+				</div>
+				<p class="listTitle">{{bacc.bAlias}}</p>
+				<p class="listTitle">{{bacc.bNumber}}</p>
+				<p class="listTitle">{{bacc.bBank}}</p>
+				<p class="listTitle">{{bacc.bAct}}</p>
+			</li>
+		</ul>		
+	</div>
+
+</div>
+
+
+
+<div class="blackBox" [ngClass]="openBox" (click)="tBox()">
+</div>
+
+<div class="addBox" [ngClass]="openBox">
+	
+	<div class="closeButton">
+		<button class="closeB" (click)="tBox()">X</button>
+	</div>
+
+	<div class="formHeader">
+		<h1>Agregar banco</h1>
+	</div>
+
+	<form class="formContent" *ngIf="addB" [formGroup]="bank" (ngSubmit)="addBank()">	
+			<label style="width:40%" class="lInput" for="bBank">Banco:
+				<input type="text" formControlName="bBank" name="bBank" placeHolder="Banco">
+			</label>
+			<label style="width:40%" class="lInput" for="balias">Alias:
+				<input type="text" formControlName="bAlias" name="bAlias" placeHolder="Alias">
+			</label>
+			<label style="width:40%" class="lInput" for="balias">Correo electrónico:
+				<input type="text" formControlName="bMail" name="bMail" placeHolder="Correo electrónico">
+			</label>
+			<label style="width: 57%" class="lInput" for="bNumber">Numero de cuenta:
+				<input type="text" formControlName="bNumber" name="bNumber" placeHolder="Numero de cuenta">
+			</label>
+			<!--label for="bBalance">Saldo inicial:
+				<input type="text" class="lInput" formControlName="bBalance" name="bBalance" placeHolder="Saldo inicial">
+			</label-->
+			<label style="width: 38%" class="lInput" for="bAct">Status:
+				<select name="bAct" formControlName="bAct" >
+					<option value="Activa">Activa</option>
+					<option value="Inactiva">Inactiva</option>
+					<option value="Cerrada">Cerrada</option>
+				</select>
+			</label>
+			<label style="width: 40%" class="lInput" for="bAddress">Dirección:
+				<input type="text" formControlName="bAddress" name="bAddress" placeHolder="Dirección">
+			</label>
+			<label style="width:40%" class="lInput" for="bPhone">Teléfono:
+				<input type="text" formControlName="bPhone" name="bPhone" placeHolder="Teléfono">
+			</label>
+			<label style="width:40%" class="lInput" for="bEx">Ejecutivo de cuenta:
+				<input type="text" formControlName="bEx" name="bEx" placeHolder="Ejecutivo">
+			</label>
+			<label style="width:40%" class="lInput" for="bExPhone">Telefono personal Ejecutivo:
+				<input type="text" formControlName="bExPhone" name="bExPhone" placeHolder="Teléfono Ejecutivo">
+			</label>
+
+			<button type="submit" class="formButton">
+				<p>Aceptar</p>
+			</button>
+	</form>
+
+	<form *ngIf="updateB" [formGroup]="bank" (ngSubmit)="updateBank()">	
+		<div class="formContent">
+			<label style="width:40%" class="lInput" for="bBank">Banco:
+				<input type="text" formControlName="bBank" name="bBank" placeHolder="Banco">
+			</label>
+			<label style="width:40%" class="lInput" for="balias">Alias:
+				<input type="text" formControlName="bAlias" name="bAlias" placeHolder="Alias">
+			</label>
+			<label style="width:40%" class="lInput" for="balias">Correo electrónico:
+				<input type="text" formControlName="bMail" name="bMail" placeHolder="Correo electrónico">
+			</label>
+			<label style="width: 57%" class="lInput" for="bNumber">Numero de cuenta:
+				<input type="text" formControlName="bNumber" name="bNumber" placeHolder="Numero de cuenta">
+			</label>
+			<!--label for="bBalance">Saldo inicial:
+				<input type="text" class="lInput" formControlName="bBalance" name="bBalance" placeHolder="Saldo inicial">
+			</label-->
+			<label style="width: 38%" class="lInput" for="bAct">Status:
+				<select name="bAct" formControlName="bAct" >
+					<option value="Activa">Activa</option>
+					<option value="Inactiva">Inactiva</option>
+					<option value="Cerrada">Cerrada</option>
+				</select>
+			</label>
+			<label style="width: 40%" class="lInput" for="bAddress">Dirección:
+				<input type="text" formControlName="bAddress" name="bAddress" placeHolder="Dirección">
+			</label>
+			<label style="width:40%" class="lInput" for="bPhone">Teléfono:
+				<input type="text" formControlName="bPhone" name="bPhone" placeHolder="Teléfono">
+			</label>
+			<label style="width:40%" class="lInput" for="bEx">Ejecutivo de cuenta:
+				<input type="text" formControlName="bEx" name="bEx" placeHolder="Ejecutivo">
+			</label>
+			<label style="width:40%" class="lInput" for="bExPhone">Telefono personal Ejecutivo:
+				<input type="text" formControlName="bExPhone" name="bExPhone" placeHolder="Teléfono Ejecutivo">
+			</label>
+
+			<button type="submit" class="formButton">
+				<p>Aceptar</p>
+			</button>
+		</div>
+	</form>
+
+</div>	

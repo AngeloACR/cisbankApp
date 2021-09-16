@@ -1,0 +1,110 @@
+<div class="modBox">
+	<div class="flowBox">
+		<div class="leftBox">
+			<div class="titleBox">
+				<p>INGRESOS</p>
+			</div>
+			<div class="showBox">
+				<ul id="mainT" class="bList">
+					<li class="bItem" *ngFor="let dAcc of dAccs;">
+						<p class="listTitle">{{dAcc.tName}}</p>
+					</li>
+					<li class="bItem">
+						<p class="listTitle">TOTAL INGRESOS</p>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="rightBoxOut">
+			<div *ngFor="let tMonth of tMonths" class="rightBoxIn">
+				<div class="titleBox">
+					<p>{{tMonth}}</p>
+				</div>
+				<div class="showBox">
+					<ul id="mainT" class="bList">
+						<li class="bItem" *ngFor="let dAcc of dAccs;">
+							<p class="listTitle">{{dAcc.tBalance | number:'1.2-2':'es-VE'}} Bs</p>
+						</li>
+						<li class="bItem">
+							<p class="listTitle">{{dTotalN | number:'1.2-2':'es-VE'}} Bs</p>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="flowBox">
+		<div class="leftBox">
+			<div class="titleBox">
+				<p>EGRESOS</p>
+			</div>		
+			
+			<div class="showBox">
+				<ul id="mainT" class="bList">
+					<li class="bItem" *ngFor="let hAcc of hAccs;">
+						<p class="listTitle">{{hAcc.tName}}</p>
+					</li>
+					<li class="bItem">
+						<p class="listTitle">TOTAL EGRESOS</p>
+					</li>
+				</ul>			
+			</div>
+		</div>
+
+
+		<div class="rightBoxOut">
+			<div *ngFor="let tMonth of tMonths" class="rightBoxIn">
+				<div class="titleBox">
+					<p>{{tMonth}}</p>
+				</div>
+				<div class="showBox">
+					<ul id="mainT" class="bList">
+						<li class="bItem" *ngFor="let hAcc of hAccs;">
+							<p class="listTitle">{{hAcc.tBalance | number:'1.2-2':'es-VE'}} Bs</p>
+						</li>
+						<li class="bItem">
+							<p class="listTitle">{{hTotalN | number:'1.2-2':'es-VE'}} Bs</p>
+						</li>
+					</ul>			
+				</div>
+
+			</div>
+		</div>
+
+	</div>
+
+	<div class="flowBox">
+		<div class="leftBox">
+			<div class="titleBox">
+				<p>DISPONIBILIDAD</p>
+			</div>		
+			
+			<div class="showBox">
+				<ul id="mainT" class="bList">
+					<li class="bItem">
+						<p class="listTitle">TOTAL</p>
+					</li>
+				</ul>			
+			</div>
+		</div>
+
+
+		<div class="rightBoxOut">
+			<div *ngFor="let tMonth of tMonths" class="rightBoxIn">
+				<div class="titleBox">
+					<p>{{tMonth}}</p>
+				</div>
+				<div class="showBox">
+					<ul id="mainT" class="bList">
+						<li class="bItem">
+							<p class="listTitle">{{disponibilidadN | number:'1.2-2':'es-VE'}} Bs</p>
+						</li>
+					</ul>			
+				</div>
+
+			</div>
+		</div>
+
+	</div>	
+</div>

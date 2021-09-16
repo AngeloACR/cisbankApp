@@ -1,0 +1,16 @@
+<div class="appBox">
+  <div class="menuBox" [ngClass]="aMenu">
+    <div class="menuHeader">
+      <img src="assets/brand/logo-complete.png" alt="">
+    </div>
+    <app-sidemenu></app-sidemenu>
+  </div>
+  <div class="panelBox">
+    <div class="headerBox">
+      <app-header></app-header>
+    </div>
+    <div class="contentBox">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

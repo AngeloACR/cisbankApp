@@ -1,0 +1,235 @@
+<div class="modBox">
+	<div class="buttonsBox">
+		<div class="buttonBox" (click)="openAddCuentasT()">
+			<p>Agregar cuenta T</p>
+		</div>
+		<div class="buttonBox" (click)="openAdd()"  *ngIf="showAdd">
+			<p>Agregar movimiento</p>
+		</div>
+		<div class="buttonBox" (click)="tCsv()" *ngIf="showAdd">
+			<p>Agregar desde CSV</p>
+		</div>
+		<div class="buttonBox" (click)="cDay()"  *ngIf="showClose">
+			<p>Cierre diario</p>
+		</div>
+		<div class="buttonBox" (click)="oDay()"  *ngIf="showOpen">
+			<p>Reapertura de movimientos</p>
+		</div>		
+	</div>	
+	<div class="titleBox">
+		<p>Movimientos</p>
+	</div>
+
+	<div class="showBox">
+		<div class="listBox">
+			<p class="listButton"></p>
+			<p class="listTitle">Fecha</p>
+			<p class="listTitle">Banco</p>
+			<p class="listTitle">Descripcion</p>
+			<p class="listTitle">Referencia</p>
+			<p class="listTitle">Abonos </p>
+			<p class="listTitle">Cargos</p>
+			<p class="listTitle">Saldo inicial</p>
+			<p class="listTitle">Saldo Final</p>
+		</div>
+
+		<ul class="bList" *ngIf="show">
+			<li class="bItem" *ngFor="let move of moves;" >
+				<div class="listButton">
+					<button id="closeM" (click)="deleteMove($event, move)">X</button>
+					<img id="updateM" src="/assets/tuerca.png" (click)="openUpdate($event, move)">
+				</div>
+				<p class="listTitle">{{move.mDate}}</p>
+				<p class="listTitle">{{move.mBAcc}}</p>
+				<p class="listTitle">{{move.mDesc}}</p>
+				<p class="listTitle">{{move.mCode}}</p>
+				<p *ngIf="move.mSign" class="listTitle" style="color: green;">{{move.mMas | number:'1.2-2':'es-VE'}} Bs</p>				
+				<p class="listTitle"></p>
+				<p *ngIf="!move.mSign" class="listTitle" style="color: red;">{{move.mMenos | number:'1.2-2':'es-VE'}} Bs</p>
+
+				<p class="listTitle">{{move.mOld | number:'1.2-2':'es-VE'}} Bs</p>
+				<p class="listTitle">{{move.mNew | number:'1.2-2':'es-VE'}} Bs</p>
+		</ul>		
+	</div>
+
+	<div class="titleBox">
+		<p>Totalización</p>
+	</div>
+
+	<div class="showBox">
+		<div class="listBox">
+			<p class="listTitle">Debe</p>
+			<p class="listTitle">Haber</p>
+			<p class="listTitle">Saldo</p>
+		</div>
+
+		<ul class="bList">
+			<li class="bItem">
+				<p class="listTitle" style="color: green;">{{mDebe | number:'1.2-2':'es-VE'}} Bs</p>
+				<p class="listTitle" style="color: red;">{{mHaber | number:'1.2-2':'es-VE'}} Bs</p>
+				<p class="listTitle" [ngClass]="sColor">{{mNeto | number:'1.2-2':'es-VE'}} Bs</p>
+			</li>
+		</ul>		
+	</div>
+
+
+</div>
+
+<div class="blackBox" [ngClass]="openBox" (click)="tBox()">
+</div>
+
+<div class="addBox" [ngClass]="openBox">
+
+	<div class="closeButton">
+		<button class="closeB" (click)="tBox()">X</button>
+	</div>
+
+	<div class="formHeader">
+		<h1>Agregar movimiento</h1>
+	</div>
+		<form *ngIf="addM" [formGroup]="move" (ngSubmit)="addMove()">				
+			<div class="formContent">
+				<label for="mBacc">Banco:
+					<select class="lInput" formControlName="mBAcc" >
+						<option *ngFor="let bank of banks;" value={{bank}}>{{bank}}</option>
+					</select>
+				</label>
+				<label for="mTAcc">Cuenta Contable:
+					<select class="lInput" formControlName="mTAcc" >
+						<option *ngFor="let acc of accs;" value={{acc}}>{{acc}}</option>
+					</select>
+				</label>
+				<label for="mSign">Tipo de movimiento:
+					<select class="lInput" formControlName="mSign" >
+						<option value=true>Abono</option>
+						<option value=false>Cargo</option>
+					</select>
+				</label>
+				<label for="mDesc">Descripcion:
+					<input type="text" class="lInput" formControlName="mDesc" name="desc" placeHolder="Descripción">
+				</label>
+				<label for="mReference">Referencia:
+					<input type="text" class="lInput" formControlName="mReference" name="mReference" placeHolder="Referencia">
+				</label>
+				<label for="mAmmount">Monto:
+					<input i18n lang="es-VE" type="number" step="0.01" class="lInput" formControlName="mAmmount" name="mAmmount" placeHolder="Monto">
+				</label>
+				<label for="mAmmount">Movimiento extemporaneo?:
+					<input type="checkbox" [(ngModel)]="movimientoExtemporaneo" [ngModelOptions]="{standalone: true}">
+				</label>
+				<label *ngIf="movimientoExtemporaneo" for="mAmmount">Fecha del movimiento:
+					<input type="date" [(ngModel)]="fechaMovimiento" [ngModelOptions]="{standalone: true}">
+				</label>
+				<button type="submit" class="formButton">
+					<p>Aceptar</p>
+				</button>
+			</div>
+		</form>
+				
+		<form *ngIf="updateM" [formGroup]="move" (ngSubmit)="updateMove()">				
+			<div class="formContent">
+				<label for="mBacc">Banco:
+					<select class="lInput" formControlName="mBAcc" >
+						<option *ngFor="let bank of banks;" value={{bank}}>{{bank}}</option>
+					</select>
+				</label>
+				<label for="mTAcc">Cuenta Contable:
+					<select class="lInput" formControlName="mTAcc" >
+						<option *ngFor="let acc of accs;" value={{acc}}>{{acc}}</option>
+					</select>
+				</label>
+				<label for="mDesc">Descripcion:
+					<input type="text" class="lInput" formControlName="mDesc" name="desc" placeHolder="Descripción">
+				</label>
+				<label for="mReference">Referencia:
+					<input type="text" class="lInput" formControlName="mReference" name="mReference" placeHolder="Referencia">
+				</label>
+				<label for="mAmmount">Monto:
+					<input i18n lang="es-VE" type="number" step=0.01 class="lInput" formControlName="mAmmount" name="mAmmount" placeHolder="Monto">
+				</label>
+				<button type="submit" class="formButton">
+					<p>Aceptar</p>
+				</button>
+			</div>
+		</form>
+
+</div>
+
+<div class="blackBox" [ngClass]="openBox2" (click)="tCsv()">
+</div>
+
+<div class="addBox" [ngClass]="openBox2">
+
+	<div class="formHeader">
+		<h1>Agregar movimientos desde CSV</h1>
+	</div>
+	<div class="formContent">
+		<input class="form-control" type='file' id='fileInput' #input>
+	</div>
+
+	<div class="formButton" (click)="addCsv(input)">
+		<p>Aceptar</p>
+	</div>
+</div>
+<div class="blackBox" [ngClass]="openBox3" (click)="tBox3()">
+</div>
+
+<div class="addBox" [ngClass]="openBox3">
+	<div class="closeButton">
+		<button class="closeB" (click)="tBox3()">X</button>
+	</div>
+
+	<div class="formHeader">
+		<h1>Agregar cuenta</h1>
+	</div>
+	<form *ngIf="addT" [formGroup]="acc" (ngSubmit)="addAcc()">	
+		<div class="formContent">
+			
+			<label for="desc">Descripción: 
+				<input type="text" class="lInput" formControlName="desc" name="desc" placeHolder="Nombre">
+			</label>
+			<label for="tipo">Codigo clasificador:
+				<select class="lInput" name="tipo" formControlName="tipo" >
+					<option value="Activo">1.- Activo</option>
+					<option value="Pasivo">2.- Pasivo</option>
+					<option value="Capital">3.- Capital</option>
+					<option value="Ingresos">4.- Ingresos</option>
+					<option value="Costos">5.- Costos</option>
+					<option value="Gastos">6.- Gastos</option>
+					<option value="Otros Ingresos">7.- Otros Ingresos</option>
+					<option value="Otros Egresos">8.- Otros Egresos</option>
+				</select>
+			</label>
+
+			<button type="submit" class="formButton">
+				<p>Aceptar</p>
+			</button>
+				
+		</div>
+	</form>
+
+	<form *ngIf="updateT" [formGroup]="acc" (ngSubmit)="updateAcc()">	
+		<div class="formContent">
+			
+			<label for="desc">Descripción: 
+				<input type="text" class="lInput" formControlName="desc" name="desc" placeHolder="Nombre">
+			</label>
+			<label for="tipo">Codigo clasificador:
+				<select class="lInput" name="tipo" formControlName="tipo" >
+					<option value="Activo">1.- Activo</option>
+					<option value="Pasivo">2.- Pasivo</option>
+					<option value="Capital">3.- Capital</option>
+					<option value="Ingresos">4.- Ingresos</option>
+					<option value="Costos">5.- Costos</option>
+					<option value="Gastos">6.- Gastos</option>
+					<option value="Otros Ingresos">7.- Otros Ingresos</option>
+					<option value="Otros Egresos">8.- Otros Egresos</option>
+				</select>
+			</label>
+			<button type="submit" class="formButton">
+				<p>Aceptar</p>
+			</button>
+		</div>
+	</form>
+
+</div>

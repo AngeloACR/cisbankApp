@@ -1,0 +1,104 @@
+.navBox{
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	margin-top: 1.5vh; 
+	z-index: 2500;
+
+}
+
+.navList{
+	margin-left: 2vw;
+	padding: 0;
+	width: 90%;
+	display: inline-flex;
+	align-self: center;
+	flex-direction: column;
+	align-content: flex-start;
+}
+
+.navElement{
+	display:flex;
+	align-items:center;
+	color: white;
+	width: 75%;
+	height: 5vh;
+	margin-bottom: 1px;
+	padding-left: 38px;
+	background-color: #029CED;
+	border: solid;
+	border-color: #029CED;
+	border-width: 1px;
+	border-radius: 12px;
+}
+
+.navElement:hover{
+	background-color: white;
+	color: #0297E7;
+	font-weight: bold;
+}
+
+a {
+    text-decoration: none !important;	
+}
+
+.navElement a:active{
+	font-weight: bold;
+}
+
+.lBox{
+	display: inline-flex;
+	flex-direction: column;
+	align-content: flex-start;
+	overflow: hidden;
+	width: 75%;
+	padding-left: 38px;
+	margin-bottom: 1px;
+	max-height: 0;
+	transition: max-height 0.2s ease-out;
+}
+
+.navChild{
+	display:flex;
+	align-items:center;
+	color: black;
+	width: 100%;
+	height: 5vh;
+	margin-bottom: 1px;
+	background-color: white;
+	font-size: 15px;
+}
+
+.navChild:hover{
+	font-weight: bold;
+}
+
+.aBox{
+	max-height: 20vh;
+	border: solid;	
+	border-color: #0297E7;
+	border-width: 1px;
+	border-radius: 0 0 12px 12px;
+}
+
+.aMenu{
+	background-color: white;
+	border-radius: 12px 12px 0 0;
+	margin-bottom: 0;
+	color: #0297E7;
+	font-weight: bold;
+}
+
+.sideFoot{
+	display: block;
+	margin-top: 50px;
+	width: 100%;
+	height: auto; 
+}
+
+.sImg{
+	display: block;
+	width: 80%;
+	position: relative;
+	margin: 0 auto;
+}

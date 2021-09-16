@@ -1,0 +1,128 @@
+<nav id="cisNav" class="navBox">
+  <ul class="navList">
+    <a
+      [routerLinkActive]="['active']"
+      [routerLinkActiveOptions]="{ exact: true }"
+      [routerLink]="['/mod1']"
+    >
+      <li id="0" class="navElement opt" [ngClass]="aMenu0" (click)="tMenu('0')">
+        Bancos
+      </li>
+    </a>
+    <div class="lBox" [ngClass]="aBox0">
+      <a
+        [routerLinkActive]="['active']"
+        [routerLinkActiveOptions]="{ exact: true }"
+        [routerLink]="['/mod1b']"
+      >
+        <li class="navChild">Directorio</li>
+      </a>
+      <a
+        [routerLinkActive]="['active']"
+        [routerLinkActiveOptions]="{ exact: true }"
+        [routerLink]="['/mod1']"
+      >
+        <li class="navChild">Disponibilidad bancaria</li>
+      </a>
+    </div>
+    <a
+      [routerLinkActive]="['active']"
+      [routerLinkActiveOptions]="{ exact: true }"
+      [routerLink]="['/mod2']"
+    >
+      <li id="1" class="navElement opt" [ngClass]="aMenu1" (click)="tMenu('1')">
+        Mayor Analitico
+      </li>
+    </a>
+    <div class="lBox" [ngClass]="aBox1">
+		<a
+        [routerLinkActive]="['active']"
+        [routerLinkActiveOptions]="{ exact: true }"
+        [routerLink]="['/mod2c']"
+      >
+        <li class="navChild">Directorio</li>
+      </a>
+	  <a
+	  [routerLinkActive]="['active']"
+	  [routerLinkActiveOptions]="{ exact: true }"
+	  [routerLink]="['/mod2']"
+	>
+	  <li class="navChild">Resumen Cuentas T</li>
+	</a>
+      <a
+        [routerLinkActive]="['active']"
+        [routerLinkActiveOptions]="{ exact: true }"
+        [routerLink]="['/mod2b']"
+      >
+        <li class="navChild">Movimientos diarios</li>
+      </a>
+    </div>
+    <a
+      [routerLinkActive]="['active']"
+      [routerLinkActiveOptions]="{ exact: true }"
+      [routerLink]="['/mod3']"
+    >
+      <li id="2" class="navElement opt" [ngClass]="aMenu2" (click)="tMenu('2')">
+        Resultados
+      </li>
+    </a>
+    <div class="lBox" [ngClass]="aBox2">
+      <a
+        [routerLinkActive]="['active']"
+        [routerLinkActiveOptions]="{ exact: true }"
+        [routerLink]="['/mod3']"
+      >
+        <li class="navChild">Flujo de caja</li>
+      </a>
+      <a
+        [routerLinkActive]="['active']"
+        [routerLinkActiveOptions]="{ exact: true }"
+        [routerLink]="['/mod3b']"
+      >
+        <li class="navChild">Estado de resultados</li>
+      </a>
+      <a
+        [routerLinkActive]="['active']"
+        [routerLinkActiveOptions]="{ exact: true }"
+        [routerLink]="['/mod3c']"
+      >
+        <li class="navChild">Proyecciones</li>
+      </a>
+    </div>
+<!--     <a
+      [routerLinkActive]="['active']"
+      [routerLinkActiveOptions]="{ exact: true }"
+      [routerLink]="['/mod4']"
+    >
+      <li id="3" class="navElement opt" [ngClass]="aMenu3" (click)="tMenu('3')">
+        Administracion
+      </li>
+    </a>
+    <div class="lBox" [ngClass]="aBox3">
+      <a
+        [routerLinkActive]="['active']"
+        [routerLinkActiveOptions]="{ exact: true }"
+        [routerLink]="['/mod4']"
+      >
+        <li class="navChild">Perfil</li>
+      </a>
+      <a
+        [routerLinkActive]="['active']"
+        [routerLinkActiveOptions]="{ exact: true }"
+        [routerLink]="['/mod4b']"
+      >
+        <li class="navChild">Administrador de usuarios</li>
+      </a>
+      <a
+        [routerLinkActive]="['active']"
+        [routerLinkActiveOptions]="{ exact: true }"
+        [routerLink]="['/mod4c']"
+      >
+        <li class="navChild">Administrador de permisos</li>
+      </a>
+    </div> -->
+  </ul>
+  <div class="sideFoot">
+    <img src="/assets/relleno1.jpg" class="sImg" alt="" />
+  </div>
+</nav>

@@ -1,0 +1,260 @@
+.modBox{
+	width: 100%;
+	height: 100%;
+	margin-top: 3vh;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	flex-wrap: wrap;
+}
+
+.titleBox{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	width: 25%;
+	height: 5vh;
+	margin-top: 3vh;
+	color: white;
+	text-align: center;
+	background: #00275a;
+	-webkit-border-top-left-radius: 108px;
+	-webkit-border-top-right-radius: 108px;
+	-moz-border-radius-topleft: 108px;
+	-moz-border-radius-topright: 108px;
+	border-top-left-radius: 108px;
+	border-top-right-radius: 108px;
+}
+
+.listBox{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 5vh;
+	margin-top: 0;
+	background: #029CED;
+	color: white;
+	text-align: center; 
+}
+
+
+.titleColumn{
+	width: 33%;
+}
+
+.listBox .listTitle{
+	font-weight: bold;
+}
+
+.listTitle{
+	width: 25%;
+}
+
+.buttonBox{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	width: 20%;
+	height: 5vh;
+	margin-top: 3vh;
+	background: #029CED;
+	color: white;
+	text-align: center; 
+	border-radius: 3px;
+	cursor: pointer;
+	border: solid;
+	border-color: #029CED;
+	border-width: 1px;	
+}
+
+.buttonBox:hover{
+	background: white;
+	color: #029CED;
+	font-weight: bold;
+}
+
+.blackBox{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 0;
+	transition: height 0.2s ease-out;
+	overflow: hidden;
+	background-color: rgba(155, 155, 155, 0.5);
+	border: none;
+}
+
+.addBox{
+	position: fixed;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 50%;
+	height: 0;
+	max-height: 80vh;
+	background: white;
+	border-radius: 8px;
+	overflow: hidden;
+}
+
+.oBox{
+	height: 100%;
+	overflow: hidden;
+}
+
+.lInput{
+	width: 42%;
+	margin-bottom: 5%;
+	margin-top: 5px;
+	border-radius: 3px;
+}
+
+.showBox{
+	width: 84%;
+	border-style: solid;
+	border-width: 23px;
+	border-radius: 23px;
+	border-color: #d8d8d8;
+}
+
+.bList{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 0;
+	margin: 0;
+	width: 100%;
+}
+
+.bItem{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	width: 100%;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.formHeader{
+	height: 12vh;
+	width: 100%;
+	background: #029CED;
+	color: white;
+	text-align: center; 
+}
+
+.addBox form{
+	width: 100%;
+}
+
+.formContent{
+	display: flex;
+	width: 100%;
+	padding-right: 5px;
+	padding-left: 5px;
+	margin-top: 3vh;
+	height: auto;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+	flex-wrap: wrap;
+}
+
+.formButton{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 65%;
+	height: 5vh;
+	margin-top: 5vh;
+	margin-bottom: 5vh;
+	background: #029CED;
+	color: white;
+	text-align: center; 
+	border-radius: 3px;
+	cursor: pointer;
+	border: solid;
+	border-color: #029CED;
+	border-width: 1px;	
+}
+
+.listButton{
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	width: 10%;
+}
+
+.listButton #closeB{
+	background: transparent;
+	color: red;
+	font-weight: bold;
+	width: 27px;
+	height: 27px;
+	margin: 0 auto;
+	text-align: center;
+	border: 2px solid red;
+	border-radius: 3px;
+	cursor: pointer;
+	padding: 0;
+}
+
+.listButton #updateB{
+	background: transparent;
+	color: red;
+	font-weight: bold;
+	width: 23px;
+	height: 23px;
+	margin: 0 auto;
+	text-align: center;
+	border: 2px solid grey;
+	border-radius: 3px;
+	cursor: pointer;
+	padding: 0;
+}
+
+.listButton #closeB:hover{
+	background-color: red;
+	color: white;
+}
+
+.closeButton{
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	width: 23px;
+	height: 23px;
+}
+
+.closeButton .closeB{
+	background: transparent;
+	width: 100%;
+	height: 100%;
+	z-index: 2000;
+	color: red;
+	font-weight: bold;
+	margin: 0 auto;
+	text-align: center;
+	border: 2px solid red;
+	border-radius: 3px;
+	cursor: pointer;
+	padding: 0;
+}
+
+.closeButton .closeB:hover{
+	background-color: red;
+	color: white;
+}

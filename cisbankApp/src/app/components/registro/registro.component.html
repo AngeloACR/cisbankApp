@@ -1,0 +1,66 @@
+<div class="pageBox">
+    <div class="selectionBox">
+        <div class="headerBox">
+            <h1>Registro</h1>
+        </div>
+        <div class="optionsBox">
+            <div class="logoBox">
+                <img class="formImg" src="assets/logo.png" alt="Logo" />
+            </div>
+            <h1>Seleccione su tipo de ususario:</h1>
+            <div class="iconsBox">
+                <div class="iconBox">
+                    <img class="iconImg" src="assets/registro/iconoEmpresa.svg" alt="Logo" (click)="toggleForm($event, 'empresa')" />
+                    <p>Empresa</p>
+                </div>
+                <div class="iconBox">
+                    <img class="iconImg" src="assets/registro/iconoEmpleado.svg" alt="Logo" (click)="toggleForm($event, 'empleado')" />
+                    <p>Empleado</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="blackBox" [ngClass]="showBlack" (click)="closeForm()"></div>
+
+    <div class="logBox" [ngClass]="showForm">
+        <div class="closeButton">
+            <button class="closeB" (click)="closeForm()">X</button>
+        </div>
+        <div class="formSide">
+            <img class="formImg" src="assets/logo2.png" alt="Logo" />
+        </div>
+        <div class="formBox">
+            <form [formGroup]="registroUser" (ngSubmit)="registerUser()">
+                <div class="formContent">
+                    <div class="formInput">
+                        <label for="">Nombre</label>
+                        <input class="lInput" type="text" formControlName="name" name="name" />
+                    </div>
+                    <div class="formInput">
+                        <label for="">Correo Electrónico</label>
+                        <input class="lInput" type="text" formControlName="mail" name="mail" />
+                    </div>
+                    <div class="formInput">
+                        <label for="">Usuario</label>
+                        <input class="lInput" type="text" formControlName="username" name="username" />
+                    </div>
+                    <div class="formInput">
+                        <label for="">Contraseña</label>
+                        <input class="lInput" type="password" formControlName="password" name="password" />
+                    </div>
+                    <div class="formInput">
+                        <label for="">Confirmar contraseña</label>
+                        <input class="lInput" type="password" formControlName="cpassword" name="cpassword" />
+                    </div>
+                </div>
+            </form>
+
+            <button type="button" class="formButton" (click)="endRegistro()">
+        <p>REGISTRARSE</p>
+      </button>
+        </div>
+        <div class="formSide">
+            <img class="formImg" [src]="selectedImg" alt="Logo" />
+        </div>
+    </div>
+</div>

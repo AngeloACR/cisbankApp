@@ -1,0 +1,28 @@
+<div class="modBox">
+    <div class="titleBox">
+        <h1>{{title}}</h1>
+    </div>
+    <div class="innerBox" *ngIf="isListar">
+        <table style="width: 100%;">
+            <tr class="listBox">
+                <th class="listButton"></th>
+                <th class="listTitle" *ngFor="let field of fields; let i = index">
+                    {{field}}
+                </th>
+            </tr>
+            <tr class="bItem" *ngFor="let value of values;">
+                <td class="listButton">
+                    <button type="button" id="closeB" (click)="deleteItem($event, value)">
+            X
+          </button>
+                    <img id="updateB" src="/assets/tuerca.png" (click)="openUpdate($event, value)" />
+                </td>
+                <td class="listTitle" *ngFor="let field of fields">
+                    {{value[field.toLowerCase()]}}
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="innerBox" *ngIf="isCrear">
+    </div>
+</div>
