@@ -231,7 +231,6 @@ fechaMovimiento: boolean;
     var mBAcc = this.move.value.mBAcc;
     var mTAcc = this.move.value.mTAcc;
     var mSign = this.move.value.mSign;
-console.log(mSign);
     //var mSign = this.getSign(mTAcc);
 
     var move = {
@@ -245,10 +244,11 @@ console.log(mSign);
     if(this.movimientoExtemporaneo) move['mDate']= this.fechaMovimiento
     this.show = true;
     this.data.createMove(move, this.todayS).subscribe((data) => {
+      console.log(data)
       // data is already a JSON object
       this.tBox();
       this.flush();
-      window.location.reload();
+//      window.location.reload();
     });
   }
 
