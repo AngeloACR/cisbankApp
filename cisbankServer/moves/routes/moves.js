@@ -78,6 +78,7 @@ moveRouter.post("/cMove", (req, res, next) => {
         });
 
         updateProcess.on("close", (code) => {
+            console.log(code)
           return res.json({
             success: true,
             msg: myData,
