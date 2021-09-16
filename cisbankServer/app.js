@@ -4,7 +4,7 @@ const localServer = require('./localServer');
 
 
 const localPort = 3400;
-const localFolder = './public/cisbankApp';
+const localFolder = './public';
 const localPath = localFolder + '/index.html';
 const localApp = localServer.init(localFolder, localPath, localPort);
 
