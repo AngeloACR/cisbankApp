@@ -20,9 +20,7 @@ def connectDB(myDB):
     try:
         connection = MongoClient(myDB)
         return connection
-#		taccs = connection.cisbank.TAcc
-#		baccs = connection.cisbank.BAcc
-#		moves = connection.cisbank.Moves
+
     except:
         sendResult("Connect Error")
 
@@ -93,7 +91,7 @@ def updateT(tId, mId, myDB):
         tacc = taccs.find_one(tQuery)
         move = moves.find_one(mQuery)
 
-        if move['mSign']:
+        if not move['mSign']:
             newDebe = tacc['tDebe'] + move['mAmmount']
             tDebe = {"$set": {"tDebe": newDebe}}
             taccs.update_one(tQuery, tDebe)

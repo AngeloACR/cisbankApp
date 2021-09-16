@@ -109,7 +109,16 @@ def updateT(tId, mId, myDB):
         tacc = taccs.find_one(tQuery)
         move = moves.find_one(mQuery)
 
-        newBalance = tacc['tBalance'] - move['mAmmount']
+        if not move['mSign']:
+            newDebe = tacc['tDebe'] - move['mAmmount']
+            tDebe = {"$set": {"tDebe": newDebe}}
+            taccs.update_one(tQuery, tDebe)
+            newBalance = newDebe - tacc['tHaber']
+        else:
+            newHaber = tacc['tHaber'] - move['mAmmount']
+            tHaber = {"$set": {"tHaber": newHaber}}
+            taccs.update_one(tQuery, tHaber)
+            newBalance = tacc['tDebe'] - newHaber
 
         newMoves = []
         newMoves.extend(tacc['tMoves'])
