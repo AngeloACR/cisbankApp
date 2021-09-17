@@ -57,6 +57,9 @@ moveRouter.post("/cMove", (req, res, next) => {
         const bId = mBAcc;
         const tId = mTAcc;
         const mId = mCode;
+        console.log(bId)
+        console.log(tId)
+        console.log(mId)
         //			const mDay = mDate;
 
         const updatePath = "./python/updateBalance.py";
