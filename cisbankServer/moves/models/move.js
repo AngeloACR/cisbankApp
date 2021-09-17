@@ -72,7 +72,8 @@ module.exports.updateMove = function (move, newAmmount, callback) {
   const bId = move.mBAcc;
   const tId = move.mTAcc;
   const mId = move.mCode;
-  const updatePath = "./python/updateMove.py";
+  const pythonPath = "./python/updateMove.py";
+  const updatePath  = path.join(__dirname, pythonPath);
 
   const updateOptions = [updatePath, bId, tId, mId, newAmmount];
 
@@ -123,9 +124,10 @@ module.exports.deleteMove = function (move, callback) {
   const bId = move.mBAcc;
   const tId = move.mTAcc;
   const mId = move.mCode;
-  const updatePath = "./python/deleteMove.py";
+  const pythonPath = "./python/deleteMove.py";
+  const deletePath  = path.join(__dirname, pythonPath);
 
-  const updateOptions = [updatePath, bId, tId, mId];
+  const updateOptions = [deletePath, bId, tId, mId];
 
   const updateProcess = spawn("python3", updateOptions);
 
