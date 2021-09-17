@@ -65,7 +65,7 @@ moveRouter.post("/cMove", (req, res, next) => {
         //			const updateOptions = [updatePath, bId, tId, mId, mDay];
         const updateOptions = [updatePath, bId, tId, mId];
 
-        const updateProcess = spawn("python", updateOptions);
+        const updateProcess = spawn("python3", updateOptions);
 
         var myData;
 

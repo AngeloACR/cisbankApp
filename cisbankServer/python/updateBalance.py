@@ -198,13 +198,19 @@ def sendResult(dOut):
 def main():
     myDB = "mongodb://localhost:27017/cisbank"
     #myDB = "mongodb://angeloacr:cisbankDataBase47@ds051595.mlab.com:51595/cisbank"
+    sendResult("mongodb init")
 
     bId = sys.argv[1]
     tId = sys.argv[2]
     mId = sys.argv[3]
+    sendResult(bId)
+    sendResult(tId)
+    sendResult(mId)
     #mDate = sys.argv[4]
     statusB = updateB(bId, mId, myDB)
+    sendResult(statusB)
     statusT = updateT(tId, mId, myDB)
+    sendResult(statusT)
     #statusM = totalizeMove(mDate, mId, myDB)
     statusA = totalizeMonths(tId, mId, myDB)
     if statusB and statusT and statusA:
