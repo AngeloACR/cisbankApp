@@ -248,7 +248,7 @@ fechaMovimiento: boolean;
       // data is already a JSON object
       this.tBox();
       this.flush();
-      //window.location.reload();
+      window.location.reload();
     });
   }
 
