@@ -4,7 +4,7 @@ const Move = require("../models/move");
 const DMove = require("../models/dmove");
 const passport = require("passport");
 const spawn = require("child_process").spawn;
-
+const path = require("path")
 //Create Move
 moveRouter.post("/cMove", (req, res, next) => {
   //	const mCode = Move.estimatedDocumentCount();					//INGENIARSE UN METODO DE ASIGNACION DE MCODE
