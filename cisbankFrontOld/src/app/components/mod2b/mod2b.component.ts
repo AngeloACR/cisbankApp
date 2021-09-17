@@ -221,7 +221,7 @@ export class Mod2bComponent implements OnInit {
     };
   }
 
-movimientoExtemporaneo: boolean;
+movimientoExtemporaneo: boolean = false;
 fechaMovimiento: boolean;
 
   addMove() {
@@ -232,23 +232,23 @@ fechaMovimiento: boolean;
     var mTAcc = this.move.value.mTAcc;
     var mSign = this.move.value.mSign;
     //var mSign = this.getSign(mTAcc);
-
+    let mDate = this.movimientoExtemporaneo? this.fechaMovimiento : this.todayS
     var move = {
       mDesc: mDesc,
       mAmmount: mAmmount,
       mReference,
+      mDate,
       mBAcc: mBAcc,
       mTAcc: mTAcc,
       mSign: mSign,
     };
-    if(this.movimientoExtemporaneo) move['mDate']= this.fechaMovimiento
     this.show = true;
-    this.data.createMove(move, this.todayS).subscribe((data) => {
+    this.data.createMove(move).subscribe((data) => {
       console.log(data)
       // data is already a JSON object
       this.tBox();
       this.flush();
-//      window.location.reload();
+      //window.location.reload();
     });
   }
 

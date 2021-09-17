@@ -15,8 +15,8 @@ export class DataHandlerService {
   addressMoves = "/moves";
   addressMTAccs = "/mtaccs";
 
-  mySource = this.testSource;
-  //mySource = this.prodSource
+  //mySource = this.testSource;
+  mySource = this.prodSource
 
   constructor(
     private papa: Papa,
@@ -259,18 +259,16 @@ export class DataHandlerService {
     return maccs;
   }
 
-  createMove(move, today) {
+  createMove(move) {
     let headers = new HttpHeaders();
     headers.append("Content-Type", "application/json");
-    let mDate = today;
-    if (move.mDate) mDate = move.mDate;
     var body = {
       mAmmount: move.mAmmount,
       mBAcc: move.mBAcc,
       mTAcc: move.mTAcc,
       mDesc: move.mDesc,
       mSign: move.mSign,
-      mDate,
+      mDate: move.mDate,
     };
 
     return this.http.post(this.mySource + this.addressMoves + "/cMove", body, {
