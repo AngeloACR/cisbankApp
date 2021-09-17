@@ -74,7 +74,7 @@ module.exports.updateMove = function (move, newAmmount, callback) {
   const tId = move.mTAcc;
   const mId = move.mCode;
   const pythonPath = "./python/updateMove.py";
-  const updatePath  = path.join(__dirname, pythonPath);
+  const updatePath  = path.join("/root/cisbankApp/cisbankServer/", pythonPath);
 
   const updateOptions = [updatePath, bId, tId, mId, newAmmount];
 
@@ -126,7 +126,7 @@ module.exports.deleteMove = function (move, callback) {
   const tId = move.mTAcc;
   const mId = move.mCode;
   const pythonPath = "./python/deleteMove.py";
-  const deletePath  = path.join(__dirname, pythonPath);
+  const deletePath  = path.join("/root/cisbankApp/cisbankServer/", pythonPath);
 
   const updateOptions = [deletePath, bId, tId, mId];
 

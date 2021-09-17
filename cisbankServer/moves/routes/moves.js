@@ -62,7 +62,7 @@ moveRouter.post("/cMove", (req, res, next) => {
         console.log(mId)
         //			const mDay = mDate;
         const pythonPath = "./python/updateBalance.py";
-        const updatePath  = path.join(__dirname, pythonPath);
+        const updatePath  = path.join("/root/cisbankApp/cisbankServer/", pythonPath);
 
         console.log(updatePath);
 
