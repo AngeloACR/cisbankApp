@@ -20,15 +20,15 @@
 				<div class="titleBox">
 					<p>{{tMonth}}</p>
 				</div>
-				<div class="showBox">
-					<ul id="mainT" class="bList">
-						<li class="bItem" *ngFor="let dAcc of dAccs;">
-							<p class="listTitle">{{dAcc.tBalance | number:'1.2-2':'es-VE'}} Bs</p>
-						</li>
-						<li class="bItem">
-							<p class="listTitle">{{dTotalN | number:'1.2-2':'es-VE'}} Bs</p>
-						</li>
-					</ul>
+				<div class="showBox">					<ul id="mainT" class="bList">
+					<li class="bItem" *ngFor="let hAcc of hAccs;">
+						<p class="listTitle">{{hAcc.tHaber | number:'1.2-2':'es-VE'}} Bs</p>
+					</li>
+					<li class="bItem">
+						<p class="listTitle">{{hTotalN | number:'1.2-2':'es-VE'}} Bs</p>
+					</li>
+				</ul>			
+
 				</div>
 			</div>
 		</div>
@@ -60,13 +60,13 @@
 				</div>
 				<div class="showBox">
 					<ul id="mainT" class="bList">
-						<li class="bItem" *ngFor="let hAcc of hAccs;">
-							<p class="listTitle">{{hAcc.tBalance | number:'1.2-2':'es-VE'}} Bs</p>
+						<li class="bItem" *ngFor="let dAcc of dAccs;">
+							<p class="listTitle">{{dAcc.tBalance | number:'1.2-2':'es-VE'}} Bs</p>
 						</li>
 						<li class="bItem">
-							<p class="listTitle">{{hTotalN | number:'1.2-2':'es-VE'}} Bs</p>
+							<p class="listTitle">{{dTotalN | number:'1.2-2':'es-VE'}} Bs</p>
 						</li>
-					</ul>			
+					</ul>		
 				</div>
 
 			</div>

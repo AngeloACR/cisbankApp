@@ -65,7 +65,7 @@ export class Mod3bComponent implements OnInit {
             this.hAccs.push(acc);
         }
       }
-      this.disponibilidadN = this.dTotalN - this.hTotalN;
+      this.disponibilidadN = this.hTotalN - this.dTotalN ;
       this.showT = true;
     }
   }

@@ -50,6 +50,7 @@ export class Mod3Component implements OnInit {
   async ngOnInit() {
     var auxT = await this.data.getServerAccs();
     var auxM = await this.data.getServerMAccs();
+    console.log(auxM)
     if (auxM == null) {
       this.showT = false;
     } else {
@@ -61,7 +62,7 @@ export class Mod3Component implements OnInit {
           //      acc.tBalance = formatNumber(acc.tBalance, 'es-VE');
           this.hAccs.push(acc);
       }
-      this.disponibilidadN = this.dTotalN - this.hTotalN;
+      this.disponibilidadN = this.hTotalN - this.dTotalN ;
       this.showT = true;
     }
   }

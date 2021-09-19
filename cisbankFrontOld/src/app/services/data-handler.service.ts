@@ -9,7 +9,7 @@ import { DatePipe } from "@angular/common";
 export class DataHandlerService {
   today = new Date();
   testSource = "http://localhost:3400";
-  prodSource = "";
+  prodSource = "https://app.cisbanksoftware.com";
   addressBAccs = "/baccs";
   addressTAccs = "/taccs";
   addressMoves = "/moves";
@@ -246,7 +246,7 @@ export class DataHandlerService {
         // data is already a JSON object
         if (data["status"]) {
           this.storeBanks(data["mtAccs"]);
-          resolve(data.tAccs);
+          resolve(data.mtAccs);
         } else {
           localStorage.removeItem("mtAccs");
         }
