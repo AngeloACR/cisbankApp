@@ -23,7 +23,7 @@
 				<div class="showBox">
 					<ul id="mainT" class="bList">
 						<li class="bItem" *ngFor="let dAcc of dAccs;">
-							<p class="listTitle">{{dAcc.tBalance | number:'1.2-2':'es-VE'}} Bs</p>
+							<p class="listTitle">{{dAcc.tDebe | number:'1.2-2':'es-VE'}} Bs</p>
 						</li>
 						<li class="bItem">
 							<p class="listTitle">{{dTotalN | number:'1.2-2':'es-VE'}} Bs</p>
@@ -61,7 +61,7 @@
 				<div class="showBox">
 					<ul id="mainT" class="bList">
 						<li class="bItem" *ngFor="let hAcc of hAccs;">
-							<p class="listTitle">{{hAcc.tBalance | number:'1.2-2':'es-VE'}} Bs</p>
+							<p class="listTitle">{{hAcc.tHaber | number:'1.2-2':'es-VE'}} Bs</p>
 						</li>
 						<li class="bItem">
 							<p class="listTitle">{{hTotalN | number:'1.2-2':'es-VE'}} Bs</p>

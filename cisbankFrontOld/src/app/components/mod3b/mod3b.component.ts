@@ -57,15 +57,12 @@ export class Mod3bComponent implements OnInit {
     } else {
       for (let acc of auxM) {
         if (acc.tType == "Nominal") {
-          if (acc.tNature == "Debe") {
-            this.dTotalN += acc.tBalance;
+            this.dTotalN += acc.tDebe;
             //       acc.tBalance = formatNumber(acc.tBalance, 'es-VE');
             this.dAccs.push(acc);
-          } else {
-            this.hTotalN += acc.tBalance;
+            this.hTotalN += acc.tHaber;
             //     acc.tBalance = formatNumber(acc.tBalance, 'es-VE');
             this.hAccs.push(acc);
-          }
         }
       }
       this.disponibilidadN = this.dTotalN - this.hTotalN;

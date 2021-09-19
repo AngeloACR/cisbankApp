@@ -16,6 +16,12 @@ const MTAccSchema = mongoose.Schema({
   		type: String,
 		required: true
 	},
+	tDebe: {
+		type: Number,
+	},
+	tHaber: {
+		type: Number,
+	},
 	tBalance: {
 		type: Number,
 		required: true
