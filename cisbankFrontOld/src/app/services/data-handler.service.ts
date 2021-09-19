@@ -265,6 +265,7 @@ export class DataHandlerService {
     var body = {
       mAmmount: move.mAmmount,
       mBAcc: move.mBAcc,
+      mReference: move.Reference,
       mTAcc: move.mTAcc,
       mDesc: move.mDesc,
       mSign: move.mSign,

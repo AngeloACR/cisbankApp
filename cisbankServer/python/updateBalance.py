@@ -134,7 +134,7 @@ def totalizeMove(mDate, mId, myDB):
         mQuery = {'mCode': mId}
         move = moves.find_one(mQuery)
 
-        if move['mSign']:
+        if not move['mSign']:
             newDebe = dmove['mDebe'] + move['mAmmount']
             mDebe = {"$set": {"mDebe": newDebe}}
             dmoves.update_one(dQuery, mDebe)
@@ -173,8 +173,17 @@ def totalizeMonths(tId, mId, myDB):
 
         mtQuery = {'tName': tId}
         mtacc = mtaccs.find_one(mtQuery)
-
-        newBalance = mtacc['tBalance'] + move['mAmmount']
+        if not move['mSign']:
+            newDebe = mtacc['tDebe'] + move['mAmmount']
+            tDebe = {"$set": {"tDebe": newDebe}}
+            mtaccs.update_one(mtQuery, tDebe)
+            newBalance = mtacc['tHaber']-newDebe
+        else:
+            newHaber = mtacc['tHaber'] + move['mAmmount']
+            tHaber = {"$set": {"tHaber": newHaber}}
+            mtaccs.update_one(mtQuery, tHaber)
+            newBalance = newHaber-mtacc['tDebe']
+        
         mtBalance = {"$set": {"tBalance": newBalance}}
 
         mtaccs.update_one(mtQuery, mtBalance)
