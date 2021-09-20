@@ -47,21 +47,20 @@ export class Mod3bComponent implements OnInit {
     this.tMonths.push(month);
 
   }
-  ngOnInit() {
+  async ngOnInit() {
     this.data.updateTs();
     this.data.updateMTs();
-    var auxT = this.data.getLocalAccs();
-    var auxM = this.data.getLocalMAccs();
+    var auxT = await this.data.getServerAccs();
+    var auxM = await this.data.getServerMAccs();
     if (auxM == null) {
       this.showT = false;
     } else {
       for (let acc of auxM) {
+        console.log(acc.tType)
         if (acc.tType == "Nominal") {
-            this.dTotalN += acc.tDebe;
-            //       acc.tBalance = formatNumber(acc.tBalance, 'es-VE');
+            this.dTotalN += parseFloat(acc.tDebe);
             this.dAccs.push(acc);
-            this.hTotalN += acc.tHaber;
-            //     acc.tBalance = formatNumber(acc.tBalance, 'es-VE');
+            this.hTotalN += parseFloat(acc.tHaber);
             this.hAccs.push(acc);
         }
       }

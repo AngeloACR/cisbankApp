@@ -63,8 +63,8 @@ export class Mod1Component implements OnInit {
           move.mDate = move.mDate.substring(0, 10);
           this.moves.push(move);
         }
+      }
       if (this.moves.length == 0) return;
-    }
     }
     this.showM = !this.showM;
   }

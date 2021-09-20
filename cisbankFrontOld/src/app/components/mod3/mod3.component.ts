@@ -55,10 +55,11 @@ export class Mod3Component implements OnInit {
       this.showT = false;
     } else {
       for (let acc of auxM) {
-          this.dTotalN += acc.tDebe;
+        console.log(acc.tDebe)
+          this.dTotalN += parseFloat(acc.tDebe);
           //        acc.tBalance = formatNumber(acc.tBalance, 'es-VE');
           this.dAccs.push(acc);
-          this.hTotalN += acc.tHaber;
+          this.hTotalN += parseFloat(acc.tHaber);
           //      acc.tBalance = formatNumber(acc.tBalance, 'es-VE');
           this.hAccs.push(acc);
       }

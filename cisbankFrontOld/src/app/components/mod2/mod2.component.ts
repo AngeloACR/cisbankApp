@@ -109,7 +109,6 @@ export class Mod2Component implements OnInit {
     if (!this.showM) {
       this.moves.length = 0;
       var aux = await this.data.getServerMoves();
-      console.log(aux);
       for (let move of aux) {
         //        move.mAmmount =  formatNumber(move.mAmmount,'es-VE');
         //      move.mOld =  formatNumber(move.mOld,'es-VE');

@@ -133,7 +133,7 @@ export class Mod2bComponent implements OnInit {
         //        move.mDate = move.mDate.substring(0,10);
         //          move.mOld = formatNumber(move.mOld, 'es-VE');
         //        move.mNew = formatNumber(move.mNew, 'es-VE');
-        if (move.mDate == this.todayS) {
+        //if (move.mDate == this.todayS) {
           if (move.mSign) {
             move.mNature = "+";
             move.mMas = move.mAmmount; //.toString() + ' Bs';
@@ -146,7 +146,7 @@ export class Mod2bComponent implements OnInit {
             this.mHaber += move.mAmmount;
           }
           this.moves.push(move);
-        }
+        //}
       }
       this.mNeto = this.mDebe - this.mHaber;
       // this.mDebeS = formatNumber(this.mDebe, 'es-VE');

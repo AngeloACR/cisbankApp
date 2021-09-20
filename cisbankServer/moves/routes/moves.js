@@ -20,11 +20,12 @@ moveRouter.post("/cMove", (req, res, next) => {
     mAmmount: mAmmount,
     mBAcc: mBAcc,
     mReference,
+    mDate,
     mTAcc: mTAcc,
     mDesc: mDesc,
     mSign: mSign,
   });
-
+  console.log(newMove);
   DMove.getDMoveByDate(mDate, (err, dMove) => {
     if (err) throw err;
     if (!dMove) {
@@ -62,10 +63,8 @@ moveRouter.post("/cMove", (req, res, next) => {
         console.log(mId)
         //			const mDay = mDate;
         const pythonPath = "./python/updateBalance.py";
-        const updatePath  = path.join("/root/cisbankApp/cisbankServer/", pythonPath);
-
-        console.log(updatePath);
-
+        //const updatePath  = path.join("/root/cisbankApp/cisbankServer/", pythonPath);
+        const updatePath  = path.resolve(pythonPath)
         //			const updateOptions = [updatePath, bId, tId, mId, mDay];
         const updateOptions = [updatePath, bId, tId, mId];
 
