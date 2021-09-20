@@ -74,8 +74,8 @@ module.exports.updateMove = function (move, newAmmount, callback) {
   const tId = move.mTAcc;
   const mId = move.mCode;
   const pythonPath = "./python/updateMove.py";
-  //const updatePath  = path.join("/root/cisbankApp/cisbankServer/", pythonPath);
-  const updatePath  = path.resolve(pythonPath)
+  const updatePath  = path.join("/root/cisbankApp/cisbankServer/", pythonPath);
+  //const updatePath  = path.resolve(pythonPath)
   const updateOptions = [updatePath, bId, tId, mId, newAmmount];
 
   const updateProcess = spawn("python3", updateOptions);
@@ -126,8 +126,8 @@ module.exports.deleteMove = function (move, callback) {
   const tId = move.mTAcc;
   const mId = move.mCode;
   const pythonPath = "./python/deleteMove.py";
-  //const updatePath  = path.join("/root/cisbankApp/cisbankServer/", pythonPath);
-  const updatePath  = path.resolve(pythonPath)
+  const updatePath  = path.join("/root/cisbankApp/cisbankServer/", pythonPath);
+  //const updatePath  = path.resolve(pythonPath)
   const updateOptions = [deletePath, bId, tId, mId];
 
   const updateProcess = spawn("python3", updateOptions);
