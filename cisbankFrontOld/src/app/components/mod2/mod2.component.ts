@@ -48,7 +48,7 @@ export class Mod2Component implements OnInit {
 
   text: any;
 
-  constructor(private data: DataHandlerService, private fb: FormBuilder) {}
+  constructor(private data: DataHandlerService, private datePipe: DatePipe, private fb: FormBuilder) {}
 
   async ngOnInit() {
     this.acc = new FormGroup({
@@ -57,6 +57,7 @@ export class Mod2Component implements OnInit {
         Validators.required,
       ]),
       tipo: new FormControl(""),
+      naturaleza: new FormControl(""),
       saldo: new FormControl(""),
     });
 
@@ -99,6 +100,7 @@ export class Mod2Component implements OnInit {
     this.acc.setValue({
       desc: tacc.tName,
       tipo: tacc.tClasf,
+      naturaleza: tacc.tNature,
       saldo: tacc.tBalance,
     });
 
@@ -113,17 +115,28 @@ export class Mod2Component implements OnInit {
         //        move.mAmmount =  formatNumber(move.mAmmount,'es-VE');
         //      move.mOld =  formatNumber(move.mOld,'es-VE');
         //    move.mNew =  formatNumber(move.mNew,'es-VE');
-        if (tacc == move.mTAcc) {
+       
+        
+        let mDate = new Date(move.mDate);
+        move['mDateAux'] = mDate
+         if (tacc == move.mTAcc) {
           if (move.mSign) {
             move.mNature = "+";
           } else {
             move.mNature = "-";
           }
-          move.mDate = move.mDate.substring(0, 10);
+        move.mDate = this.datePipe.transform(mDate, "yyyy-MM-dd");
+        //move.mDate = move.mDate.substring(0, 10);
           this.moves.push(move);
         }
       }
       if (this.moves.length == 0) return;
+
+      this.moves.sort(function(a:any,b:any){
+        // Turn your strings into dates, and then subtract them
+        // to get a value that is either negative, positive, or zero.
+        return <any>new Date(b.mDateAux) - <any>new Date(a.mDateAux);
+      });
     }
     this.showM = !this.showM;
   }
@@ -170,17 +183,24 @@ export class Mod2Component implements OnInit {
   }
 
   deleteAcc(event, tacc) {
-    this.data.deleteAcc(tacc).subscribe((data) => {
-      // data is already a JSON object
-      this.data.updateTs();
-      window.location.reload();
-    });
+    if (tacc.tMoves && tacc.tMoves.length) {
+      alert(
+        "La cuenta seleccionada tiene movimientos asociados, elimine los movimientos para poder borrar la cuenta"
+      );
+    } else {
+      this.data.deleteAcc(tacc).subscribe((data) => {
+        // data is already a JSON object
+        this.data.updateTs();
+        window.location.reload();
+      });
+    }
   }
 
   flush() {
     this.acc.setValue({
       desc: "",
       tipo: "",
+      naturaleza: "",
       saldo: "",
     });
   }

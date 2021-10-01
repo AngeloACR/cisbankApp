@@ -33,7 +33,6 @@ export class Mod3bComponent implements OnInit {
   }[] = new Array();
 
   constructor(private data: DataHandlerService, private datePipe: DatePipe) {
-
     var year = this.today.getFullYear();
     /* for (let i = 0; i <= this.today.getMonth(); i++) {
       var date = new Date(year, i, 1);
@@ -42,10 +41,9 @@ export class Mod3bComponent implements OnInit {
       this.tMonths.push(month);
     } */
 
-        let month = this.datePipe.transform(this.today, "MMMM");
+    let month = this.datePipe.transform(this.today, "MMMM");
     month = month.charAt(0).toUpperCase() + month.slice(1);
     this.tMonths.push(month);
-
   }
   async ngOnInit() {
     this.data.updateTs();
@@ -56,15 +54,19 @@ export class Mod3bComponent implements OnInit {
       this.showT = false;
     } else {
       for (let acc of auxM) {
-        console.log(acc.tType)
+        console.log(acc.tType);
         if (acc.tType == "Nominal") {
+          if (parseFloat(acc.tDebe)) {
             this.dTotalN += parseFloat(acc.tDebe);
             this.dAccs.push(acc);
+          }
+          if (parseFloat(acc.tHaber)) {
             this.hTotalN += parseFloat(acc.tHaber);
             this.hAccs.push(acc);
+          }
         }
       }
-      this.disponibilidadN = this.hTotalN - this.dTotalN ;
+      this.disponibilidadN = this.hTotalN - this.dTotalN;
       this.showT = true;
     }
   }

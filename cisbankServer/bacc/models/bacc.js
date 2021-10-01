@@ -7,6 +7,10 @@ const BAccSchema = mongoose.Schema({
         type: String,
         required: true
     },
+    bCode: {
+        type: String,
+        required: true
+    },
     bBalance: {
         type: Number,
         required: true
@@ -58,6 +62,7 @@ module.exports.getBAccById = async function (id) {
             id: bacc.id,
             bAlias: bAcc.bAlias,
             bNumber: bAcc.bNumber,
+            bCode: bAcc.bCode,
             bBank: bAcc.bBank,
             bAct: bAcc.bAct
         }
@@ -83,6 +88,7 @@ module.exports.getBAccByAlias = async function (bAlias) {
         bacc = {
             id: bacc.id,
             bAlias: bacc.bAlias,
+            bCode: bAcc.bCode,
             bNumber: bacc.bNumber,
             bBank: bacc.bBank,
             bAct: bacc.bAct
@@ -109,6 +115,7 @@ module.exports.getBacc = async function (bAlias) { //Need tons of work
         bacc = {
             id: bacc.id,
             bAlias: bacc.bAlias,
+            bCode: bAcc.bCode,
             bNumber: bacc.bNumber,
             bBank: bacc.bBank,
             bAct: bacc.bAct

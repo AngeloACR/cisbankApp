@@ -85,6 +85,7 @@ export class Mod2bComponent implements OnInit {
     Validators.required
   ]),
       tipo: new FormControl(''),
+      naturaleza: new FormControl(''),
       saldo: new FormControl('')
     });
 
@@ -129,6 +130,7 @@ export class Mod2bComponent implements OnInit {
     } else {
       for (let move of aux) {
         mDate = new Date(move.mDate);
+        move['mDateAux'] = mDate
         move.mDate = this.datePipe.transform(mDate, "yyyy-MM-dd");
         //        move.mDate = move.mDate.substring(0,10);
         //          move.mOld = formatNumber(move.mOld, 'es-VE');
@@ -148,6 +150,12 @@ export class Mod2bComponent implements OnInit {
           this.moves.push(move);
         //}
       }
+
+      this.moves.sort(function(a:any,b:any){
+        // Turn your strings into dates, and then subtract them
+        // to get a value that is either negative, positive, or zero.
+        return <any>new Date(b.mDateAux) - <any>new Date(a.mDateAux);
+      });
       this.mNeto = this.mDebe - this.mHaber;
       // this.mDebeS = formatNumber(this.mDebe, 'es-VE');
       //     this.mHaberS = formatNumber(this.mHaber, 'es-VE');
@@ -164,7 +172,6 @@ export class Mod2bComponent implements OnInit {
           sGreen: false,
         };
       }
-
       this.show = true;
     }
   }
@@ -193,11 +200,12 @@ export class Mod2bComponent implements OnInit {
       mAmmount: move.mAmmount,
       mReference: move.mReference,
       mBAcc: move.mBAcc,
+      mDate: move.mDate,
       mTAcc: move.mTAcc,
       mSign: move.mSign,
       mCode: move.mCode,
     });
-
+    this.fechaMovimiento = move.mDate
     this.tBox();
   }
 
@@ -260,12 +268,14 @@ fechaMovimiento: boolean;
     var mTAcc = this.move.value.mTAcc;
     var mCode = this.move.value.mCode;
 
+    let mDate = this.movimientoExtemporaneo? this.fechaMovimiento : this.todayS
     var mSign = this.getSign(mTAcc);
 
     var move = {
       mDesc: mDesc,
       mAmmount: mAmmount,
       mReference,
+      mDate,
       mBAcc: mBAcc,
       mTAcc: mTAcc,
       mSign: mSign,
@@ -304,6 +314,13 @@ fechaMovimiento: boolean;
     this.mAmmount = null;
     this.mBAcc = null;
     this.mTAcc = null;
+    this.acc.setValue({
+      desc: "",
+      tipo: "",
+      naturaleza: "",
+      saldo: "",
+    });
+
   }
 
   addCsv(input) {

@@ -15,6 +15,7 @@ baccRouter.post("/cBAcc", async (req, res, next) => {
       bBank: req.body.bBank,
       bBalance: 0,
       bNumber: req.body.bNumber,
+      bCode: req.body.bCode,
       bMail: req.body.bMail,
       bAct: req.body.bAct,
       bAddress: req.body.bAddress,
@@ -40,6 +41,7 @@ baccRouter.post("/", async (req, res, next) => {
       bBalance: 0,
       bNumber: req.body.bNumber,
       bAct: req.body.bAct,
+      bCode: req.body.bCode,
       bAddress: req.body.bAddress,
       bPhone: req.body.bPhone,
       bEx: req.body.bEx,
@@ -90,6 +92,7 @@ baccRouter.put("/", auth, async (req, res, next) => {
     let bacc = {
       bAlias: req.body.bAlias,
       bBank: req.body.bBank,
+      bCode: req.body.bCode,
       bBalance: 0,
       bNumber: req.body.bNumber,
       bAct: req.body.bAct,
@@ -160,6 +163,7 @@ baccRouter.post("/uBAcc", (req, res, next) => {
   const bAct = req.body.bAct;
   const bAddress = req.body.bAddress;
   const bPhone = req.body.bPhone;
+  const bCode = req.body.bCode;
   const bEx = req.body.bEx;
   const bExPhone = req.body.bExPhone;
 

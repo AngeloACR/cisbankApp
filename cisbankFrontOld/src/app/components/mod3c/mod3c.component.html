@@ -1,3 +1,69 @@
-<p>
-  mod3c works!
-</p>
+<div class="modBox">
+
+	<div class="flowBox">
+		<div class="leftBox">
+			<div class="titleBox">
+				<p>FLUJO DE CAJA - DISPONIBILIDAD</p>
+			</div>		
+			
+			<div class="showBox">
+				<ul id="mainT" class="bList">
+					<li class="bItem">
+						<p class="listTitle">TOTAL</p>
+					</li>
+				</ul>			
+			</div>
+		</div>
+
+
+		<div class="rightBoxOut">
+			<div *ngFor="let tMonth of tMonths" class="rightBoxIn">
+				<div class="titleBox">
+					<p>{{tMonth}}</p>
+				</div>
+				<div class="showBox">
+					<ul id="mainT" class="bList">
+						<li class="bItem">
+							<p class="listTitle">{{disponibilidad | number:'1.2-2':'es-VE'}} Bs</p>
+						</li>
+					</ul>			
+				</div>
+
+			</div>
+		</div>
+
+	</div>
+  <div class="flowBox">
+		<div class="leftBox">
+			<div class="titleBox">
+				<p>ESTADO DE RESULTADOS - RESULTADOS DEL EJERCICIO</p>
+			</div>		
+			
+			<div class="showBox">
+				<ul id="mainT" class="bList">
+					<li class="bItem">
+						<p class="listTitle">TOTAL</p>
+					</li>
+				</ul>			
+			</div>
+		</div>
+
+
+		<div class="rightBoxOut">
+			<div *ngFor="let tMonth of tMonths" class="rightBoxIn">
+				<div class="titleBox">
+					<p>{{tMonth}}</p>
+				</div>
+				<div class="showBox">
+					<ul id="mainT" class="bList">
+						<li class="bItem">
+							<p class="listTitle">{{disponibilidadN | number:'1.2-2':'es-VE'}} Bs</p>
+						</li>
+					</ul>			
+				</div>
+
+			</div>
+		</div>
+
+	</div>	
+</div>

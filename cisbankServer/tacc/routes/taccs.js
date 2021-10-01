@@ -13,10 +13,12 @@ tAccRouter.post("/cTAcc", async (req, res, next) => {
   const tMonth = req.body.tMonth;
   const tClasf = req.body.tClasf;
   const tType = req.body.tType;
+  const tNature = req.body.tNature;
 
   let tacc = {
     tName: tName,
     tClasf: tClasf,
+    tNature,
     tBalance: 0,
     tDebe: 0,
     tHaber: 0,
@@ -28,6 +30,7 @@ tAccRouter.post("/cTAcc", async (req, res, next) => {
   let mtacc = {
     tName: tName,
     tMonth: tMonth,
+    tNature,
     tType: tType,
     tBalance: 0,
     tDebe: 0,
@@ -45,17 +48,20 @@ tAccRouter.post("/csvTAccs", (req, res, next) => {
   const tMonth = req.body.tMonth;
   const tClasf = req.body.tClasf;
   const tType = req.body.tType;
+  const tNature = req.body.tNature;
 
   let newTAcc = new TAcc({
     tName: tName,
     tClasf: tClasf,
     tBalance: 0,
+    tNature,
     tType: tType,
   });
 
   let newMTAcc = new MTAcc({
     tName: tName,
     tMonth: tMonth,
+    tNature,
     tType: tType,
     tBalance: 0,
   });
@@ -146,10 +152,12 @@ tAccRouter.get("/gTAccs", (req, res, next) => {
 tAccRouter.post("/uTAcc", (req, res, next) => {
   const tType = req.body.tType;
   const tClasf = req.body.tClasf;
+  const tNature = req.body.tNature;
   const tName = req.body.tName;
 
   let tacc = new TAcc({
     tName: tName,
+    tNature,
     tClasf: tClasf,
     tType: tType,
   });

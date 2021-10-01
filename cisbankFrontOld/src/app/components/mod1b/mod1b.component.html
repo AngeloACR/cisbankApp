@@ -1,134 +1,380 @@
 <div class="modBox">
-	<div class="buttonBox" (click)="openAdd()">
-		<p>Agregar</p>
-	</div>
+  <div class="buttonBox" (click)="openAdd()">
+    <p>Agregar</p>
+  </div>
 
-	<div class="titleBox">
-		<p>Directorio</p>
-	</div> 
+  <div class="titleBox">
+    <p>Directorio</p>
+  </div>
 
-
-	<div class="showBox">
-		<div class="listBox">
-			<p class="listButton"></p>
-			<p class="listTitle">Alias</p>
-			<p class="listTitle">Numero de cuenta</p>
-			<p class="listTitle">Banco</p>
-			<p class="listTitle">Status</p>
-		</div>
-		<ul class="bList" *ngIf="show">
-			<li class="bItem" *ngFor="let bacc of banks;">
-				<div class="listButton">
-					<button id="closeB" (click)="deleteBank($event, bacc)">X</button>
-					<img id="updateB" src="/assets/tuerca.png" (click)="openUpdate($event, bacc)">
-				</div>
-				<p class="listTitle">{{bacc.bAlias}}</p>
-				<p class="listTitle">{{bacc.bNumber}}</p>
-				<p class="listTitle">{{bacc.bBank}}</p>
-				<p class="listTitle">{{bacc.bAct}}</p>
-			</li>
-		</ul>		
-	</div>
-
+  <div class="showBox">
+    <div class="listBox">
+      <p class="listButton"></p>
+      <p class="listTitle">Alias</p>
+      <p class="listTitle">Numero de cuenta</p>
+      <p class="listTitle">Banco</p>
+      <p class="listTitle">Status</p>
+    </div>
+    <ul class="bList" *ngIf="show">
+      <li class="bItem" *ngFor="let bacc of banks">
+        <div class="listButton">
+          <button id="closeB" (click)="deleteBank($event, bacc)">X</button>
+          <img
+            id="updateB"
+            src="/assets/tuerca.png"
+            (click)="openUpdate($event, bacc)"
+          />
+        </div>
+        <p class="listTitle">{{ bacc.bAlias }}</p>
+        <p class="listTitle">{{ bacc.bNumber }}</p>
+        <p class="listTitle">{{ bacc.bBank }}</p>
+        <p class="listTitle">{{ bacc.bAct }}</p>
+      </li>
+    </ul>
+  </div>
 </div>
 
-
-
-<div class="blackBox" [ngClass]="openBox" (click)="tBox()">
-</div>
+<div class="blackBox" [ngClass]="openBox" (click)="tBox()"></div>
 
 <div class="addBox" [ngClass]="openBox">
-	
-	<div class="closeButton">
-		<button class="closeB" (click)="tBox()">X</button>
-	</div>
+  <div class="closeButton">
+    <button class="closeB" (click)="tBox()">X</button>
+  </div>
 
-	<div class="formHeader">
-		<h1>Agregar banco</h1>
-	</div>
+  <div class="formHeader">
+    <h1>Agregar banco</h1>
+  </div>
 
-	<form class="formContent" *ngIf="addB" [formGroup]="bank" (ngSubmit)="addBank()">	
-			<label style="width:40%" class="lInput" for="bBank">Banco:
-				<input type="text" formControlName="bBank" name="bBank" placeHolder="Banco">
-			</label>
-			<label style="width:40%" class="lInput" for="balias">Alias:
-				<input type="text" formControlName="bAlias" name="bAlias" placeHolder="Alias">
-			</label>
-			<label style="width:40%" class="lInput" for="balias">Correo electrónico:
-				<input type="text" formControlName="bMail" name="bMail" placeHolder="Correo electrónico">
-			</label>
-			<label style="width: 57%" class="lInput" for="bNumber">Numero de cuenta:
-				<input type="text" formControlName="bNumber" name="bNumber" placeHolder="Numero de cuenta">
-			</label>
-			<!--label for="bBalance">Saldo inicial:
+  <form
+    class="formContent"
+    *ngIf="addB"
+    [formGroup]="bank"
+    (ngSubmit)="addBank()"
+  >
+    <label style="width: 40%" class="lInput" for="bBank"
+      >Banco:
+      <input
+        type="text"
+        formControlName="bBank"
+        name="bBank"
+        placeHolder="Banco"
+      />
+      <div
+        class="errorTag"
+        *ngIf="
+          fBanco.bBank.errors?.required &&
+          (fBanco.bBank.touched || fBanco.bBank.dirty)
+        "
+      >
+        Por favor ingrese el nombre del banco
+      </div>
+    </label>
+    <label style="width: 40%" class="lInput" for="balias"
+      >Alias:
+      <input
+        type="text"
+        formControlName="bAlias"
+        name="bAlias"
+        placeHolder="Alias"
+      />
+      <div
+        class="errorTag"
+        *ngIf="
+          fBanco.bAlias.errors?.required &&
+          (fBanco.bAlias.touched || fBanco.bAlias.dirty)
+        "
+      >
+        Por favor ingrese el alias del banco
+      </div>
+    </label>
+    <label style="width: 40%" class="lInput" for="balias"
+      >Correo electrónico:
+      <input
+        type="text"
+        formControlName="bMail"
+        name="bMail"
+        placeHolder="Correo electrónico"
+      />
+      <div
+        class="errorTag"
+        *ngIf="
+          fBanco.bMail.errors?.required &&
+          (fBanco.bMail.touched || fBanco.bMail.dirty)
+        "
+      >
+        Por favor ingrese un correo electrónico
+      </div>
+    </label>
+    <label style="width: 57%" class="lInput" for="bNumber"
+      >Numero de cuenta:
+      <input
+        type="text"
+        formControlName="bNumber"
+        name="bNumber"
+        placeHolder="Numero de cuenta"
+      />
+      <div
+        class="errorTag"
+        *ngIf="
+          fBanco.bNumber.errors?.required &&
+          (fBanco.bNumber.touched || fBanco.bNumber.dirty)
+        "
+      >
+        Por favor ingrese el número de cuenta
+      </div>
+    </label>
+    <!--label for="bBalance">Saldo inicial:
 				<input type="text" class="lInput" formControlName="bBalance" name="bBalance" placeHolder="Saldo inicial">
 			</label-->
-			<label style="width: 38%" class="lInput" for="bAct">Status:
-				<select name="bAct" formControlName="bAct" >
-					<option value="Activa">Activa</option>
-					<option value="Inactiva">Inactiva</option>
-					<option value="Cerrada">Cerrada</option>
-				</select>
-			</label>
-			<label style="width: 40%" class="lInput" for="bAddress">Dirección:
-				<input type="text" formControlName="bAddress" name="bAddress" placeHolder="Dirección">
-			</label>
-			<label style="width:40%" class="lInput" for="bPhone">Teléfono:
-				<input type="text" formControlName="bPhone" name="bPhone" placeHolder="Teléfono">
-			</label>
-			<label style="width:40%" class="lInput" for="bEx">Ejecutivo de cuenta:
-				<input type="text" formControlName="bEx" name="bEx" placeHolder="Ejecutivo">
-			</label>
-			<label style="width:40%" class="lInput" for="bExPhone">Telefono personal Ejecutivo:
-				<input type="text" formControlName="bExPhone" name="bExPhone" placeHolder="Teléfono Ejecutivo">
-			</label>
+    <label style="width: 38%" class="lInput" for="bAct"
+      >Status:
+      <select name="bAct" formControlName="bAct">
+        <option value="Activa">Activa</option>
+        <option value="Inactiva">Inactiva</option>
+        <option value="Cerrada">Cerrada</option>
+      </select>
+    </label>
+    <label style="width: 40%" class="lInput" for="bAddress"
+      >Dirección:
+      <input
+        type="text"
+        formControlName="bAddress"
+        name="bAddress"
+        placeHolder="Dirección"
+      />
+      <div
+        class="errorTag"
+        *ngIf="
+          fBanco.bAddress.errors?.required &&
+          (fBanco.bAddress.touched || fBanco.bAddress.dirty)
+        "
+      >
+        Por favor ingrese la dirección del banco
+      </div>
+    </label>
+    <label style="width: 40%" class="lInput" for="bPhone"
+      >Teléfono:
+      <input
+        type="text"
+        formControlName="bPhone"
+        name="bPhone"
+        placeHolder="Teléfono"
+      />
+      <div
+        class="errorTag"
+        *ngIf="
+          fBanco.bPhone.errors?.required &&
+          (fBanco.bPhone.touched || fBanco.bPhone.dirty)
+        "
+      >
+        Por favor ingrese el teléfono del encargado del banco
+      </div>
+    </label>
+    <label style="width: 40%" class="lInput" for="bEx"
+      >Ejecutivo de cuenta:
+      <input
+        type="text"
+        formControlName="bEx"
+        name="bEx"
+        placeHolder="Ejecutivo"
+      />
+      <div
+        class="errorTag"
+        *ngIf="
+          fBanco.bEx.errors?.required &&
+          (fBanco.bEx.touched || fBanco.bEx.dirty)
+        "
+      >
+        Por favor ingrese el nombre del ejecutivo de la cuenta
+      </div>
+    </label>
+    <label style="width: 40%" class="lInput" for="bExPhone"
+      >Telefono personal Ejecutivo:
+      <input
+        type="text"
+        formControlName="bExPhone"
+        name="bExPhone"
+        placeHolder="Teléfono Ejecutivo"
+      />
+      <div
+        class="errorTag"
+        *ngIf="
+          fBanco.bExPhone.errors?.required &&
+          (fBanco.bExPhone.touched || fBanco.bExPhone.dirty)
+        "
+      >
+        Por favor ingrese el número de teléfono del ejecutivo de la cuenta
+      </div>
+    </label>
 
-			<button type="submit" class="formButton">
-				<p>Aceptar</p>
-			</button>
-	</form>
+    <button type="submit" class="formButton">
+      <p>Aceptar</p>
+    </button>
+  </form>
 
-	<form *ngIf="updateB" [formGroup]="bank" (ngSubmit)="updateBank()">	
-		<div class="formContent">
-			<label style="width:40%" class="lInput" for="bBank">Banco:
-				<input type="text" formControlName="bBank" name="bBank" placeHolder="Banco">
-			</label>
-			<label style="width:40%" class="lInput" for="balias">Alias:
-				<input type="text" formControlName="bAlias" name="bAlias" placeHolder="Alias">
-			</label>
-			<label style="width:40%" class="lInput" for="balias">Correo electrónico:
-				<input type="text" formControlName="bMail" name="bMail" placeHolder="Correo electrónico">
-			</label>
-			<label style="width: 57%" class="lInput" for="bNumber">Numero de cuenta:
-				<input type="text" formControlName="bNumber" name="bNumber" placeHolder="Numero de cuenta">
-			</label>
-			<!--label for="bBalance">Saldo inicial:
+  <form *ngIf="updateB" [formGroup]="bank" (ngSubmit)="updateBank()">
+    <div class="formContent">
+      <label style="width: 40%" class="lInput" for="bBank"
+        >Banco:
+        <input
+          type="text"
+          formControlName="bBank"
+          name="bBank"
+          placeHolder="Banco"
+        />
+        <div
+          class="errorTag"
+          *ngIf="
+            fBanco.bBank.errors?.required &&
+            (fBanco.bBank.touched || fBanco.bBank.dirty)
+          "
+        >
+          Por favor ingrese el nombre del banco
+        </div>
+      </label>
+      <label style="width: 40%" class="lInput" for="balias"
+        >Alias:
+        <input
+          type="text"
+          formControlName="bAlias"
+          name="bAlias"
+          placeHolder="Alias"
+        />
+        <div
+          class="errorTag"
+          *ngIf="
+            fBanco.bAlias.errors?.required &&
+            (fBanco.bAlias.touched || fBanco.bAlias.dirty)
+          "
+        >
+          Por favor ingrese el alias del banco
+        </div>
+      </label>
+
+      <label style="width: 40%" class="lInput" for="balias"
+        >Correo electrónico:
+        <input
+          type="text"
+          formControlName="bMail"
+          name="bMail"
+          placeHolder="Correo electrónico"
+        />
+        <div
+          class="errorTag"
+          *ngIf="
+            fBanco.bMail.errors?.required &&
+            (fBanco.bMail.touched || fBanco.bMail.dirty)
+          "
+        >
+          Por favor ingrese un correo electrónico
+        </div>
+      </label>
+
+      <label style="width: 57%" class="lInput" for="bNumber"
+        >Numero de cuenta:
+        <input
+          type="text"
+          formControlName="bNumber"
+          name="bNumber"
+          placeHolder="Numero de cuenta"
+        />
+        <div
+          class="errorTag"
+          *ngIf="
+            fBanco.bNumber.errors?.required &&
+            (fBanco.bNumber.touched || fBanco.bNumber.dirty)
+          "
+        >
+          Por favor ingrese el número de cuenta
+        </div>
+      </label>
+      <!--label for="bBalance">Saldo inicial:
 				<input type="text" class="lInput" formControlName="bBalance" name="bBalance" placeHolder="Saldo inicial">
 			</label-->
-			<label style="width: 38%" class="lInput" for="bAct">Status:
-				<select name="bAct" formControlName="bAct" >
-					<option value="Activa">Activa</option>
-					<option value="Inactiva">Inactiva</option>
-					<option value="Cerrada">Cerrada</option>
-				</select>
-			</label>
-			<label style="width: 40%" class="lInput" for="bAddress">Dirección:
-				<input type="text" formControlName="bAddress" name="bAddress" placeHolder="Dirección">
-			</label>
-			<label style="width:40%" class="lInput" for="bPhone">Teléfono:
-				<input type="text" formControlName="bPhone" name="bPhone" placeHolder="Teléfono">
-			</label>
-			<label style="width:40%" class="lInput" for="bEx">Ejecutivo de cuenta:
-				<input type="text" formControlName="bEx" name="bEx" placeHolder="Ejecutivo">
-			</label>
-			<label style="width:40%" class="lInput" for="bExPhone">Telefono personal Ejecutivo:
-				<input type="text" formControlName="bExPhone" name="bExPhone" placeHolder="Teléfono Ejecutivo">
-			</label>
+      <label style="width: 38%" class="lInput" for="bAct"
+        >Status:
+        <select name="bAct" formControlName="bAct">
+          <option value="Activa">Activa</option>
+          <option value="Inactiva">Inactiva</option>
+          <option value="Cerrada">Cerrada</option>
+        </select>
+      </label>
+      <label style="width: 40%" class="lInput" for="bAddress"
+        >Dirección:
+        <input
+          type="text"
+          formControlName="bAddress"
+          name="bAddress"
+          placeHolder="Dirección"
+        />
+        <div
+          class="errorTag"
+          *ngIf="
+            fBanco.bAddress.errors?.required &&
+            (fBanco.bAddress.touched || fBanco.bAddress.dirty)
+          "
+        >
+          Por favor ingrese la dirección del banco
+        </div>
+      </label>
+      <label style="width: 40%" class="lInput" for="bPhone"
+        >Teléfono:
+        <input
+          type="text"
+          formControlName="bPhone"
+          name="bPhone"
+          placeHolder="Teléfono"
+        />
+        <div
+          class="errorTag"
+          *ngIf="
+            fBanco.bPhone.errors?.required &&
+            (fBanco.bPhone.touched || fBanco.bPhone.dirty)
+          "
+        >
+          Por favor ingrese el teléfono del encargado del banco
+        </div>
+      </label>
+      <label style="width: 40%" class="lInput" for="bEx"
+        >Ejecutivo de cuenta:
+        <input
+          type="text"
+          formControlName="bEx"
+          name="bEx"
+          placeHolder="Ejecutivo"
+        />
+        <div
+          class="errorTag"
+          *ngIf="
+            fBanco.bEx.errors?.required &&
+            (fBanco.bEx.touched || fBanco.bEx.dirty)
+          "
+        >
+          Por favor ingrese el nombre del ejecutivo de la cuenta
+        </div>
+      </label>
+      <label style="width: 40%" class="lInput" for="bExPhone"
+        >Telefono personal Ejecutivo:
+        <input
+          type="text"
+          formControlName="bExPhone"
+          name="bExPhone"
+          placeHolder="Teléfono Ejecutivo"
+        />
+        <div
+          class="errorTag"
+          *ngIf="
+            fBanco.bExPhone.errors?.required &&
+            (fBanco.bExPhone.touched || fBanco.bExPhone.dirty)
+          "
+        >
+          Por favor ingrese el número de teléfono del ejecutivo de la cuenta
+        </div>
+      </label>
 
-			<button type="submit" class="formButton">
-				<p>Aceptar</p>
-			</button>
-		</div>
-	</form>
-
-</div>	
+      <button type="submit" class="formButton">
+        <p>Aceptar</p>
+      </button>
+    </div>
+  </form>
+</div>

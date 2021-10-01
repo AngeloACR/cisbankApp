@@ -60,11 +60,17 @@ export class Mod1Component implements OnInit {
           } else {
             move.mNature = "-";
           }
+          move['mDateAux'] = move.mDate,
           move.mDate = move.mDate.substring(0, 10);
           this.moves.push(move);
         }
       }
       if (this.moves.length == 0) return;
+      this.moves.sort(function (a: any, b: any) {
+        // Turn your strings into dates, and then subtract them
+        // to get a value that is either negative, positive, or zero.
+        return <any>new Date(b.mDateAux) - <any>new Date(a.mDateAux);
+      });
     }
     this.showM = !this.showM;
   }

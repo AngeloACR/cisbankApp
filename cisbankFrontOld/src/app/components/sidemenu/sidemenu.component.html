@@ -54,19 +54,26 @@
         [routerLinkActiveOptions]="{ exact: true }"
         [routerLink]="['/mod2c']"
       >
-        <li class="navChild">Directorio</li>
+        <li class="navChild">Listado de Cuentas Contables</li>
       </a>
     </div>
     <a
       [routerLinkActive]="['active']"
       [routerLinkActiveOptions]="{ exact: true }"
-      [routerLink]="['/mod3']"
+      [routerLink]="['/mod3c']"
     >
       <li id="2" class="navElement opt" [ngClass]="aMenu2" (click)="tMenu('2')">
         Resultados
       </li>
     </a>
     <div class="lBox" [ngClass]="aBox2">
+      <a
+        [routerLinkActive]="['active']"
+        [routerLinkActiveOptions]="{ exact: true }"
+        [routerLink]="['/mod3c']"
+      >
+        <li class="navChild">Resumen de resultados</li>
+      </a>
       <a
         [routerLinkActive]="['active']"
         [routerLinkActiveOptions]="{ exact: true }"
@@ -80,13 +87,6 @@
         [routerLink]="['/mod3b']"
       >
         <li class="navChild">Estado de resultados</li>
-      </a>
-      <a
-        [routerLinkActive]="['active']"
-        [routerLinkActiveOptions]="{ exact: true }"
-        [routerLink]="['/mod3c']"
-      >
-        <li class="navChild">Proyecciones</li>
       </a>
     </div>
 <!--     <a

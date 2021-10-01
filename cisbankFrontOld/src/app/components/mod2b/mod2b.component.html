@@ -138,6 +138,12 @@
 						<option *ngFor="let acc of accs;" value={{acc}}>{{acc}}</option>
 					</select>
 				</label>
+				<label for="mSign">Tipo de movimiento:
+					<select class="lInput" formControlName="mSign" >
+						<option value=true>Abono</option>
+						<option value=false>Cargo</option>
+					</select>
+				</label>
 				<label for="mDesc">Descripcion:
 					<input type="text" class="lInput" formControlName="mDesc" name="desc" placeHolder="Descripción">
 				</label>
@@ -145,7 +151,13 @@
 					<input type="text" class="lInput" formControlName="mReference" name="mReference" placeHolder="Referencia">
 				</label>
 				<label for="mAmmount">Monto:
-					<input i18n lang="es-VE" type="number" step=0.01 class="lInput" formControlName="mAmmount" name="mAmmount" placeHolder="Monto">
+					<input i18n lang="es-VE" type="number" step="0.01" class="lInput" formControlName="mAmmount" name="mAmmount" placeHolder="Monto">
+				</label>
+				<label for="mAmmount">Movimiento extemporaneo?:
+					<input type="checkbox" [(ngModel)]="movimientoExtemporaneo" [ngModelOptions]="{standalone: true}">
+				</label>
+				<label *ngIf="movimientoExtemporaneo" for="mAmmount">Fecha del movimiento:
+					<input type="date" [(ngModel)]="fechaMovimiento" [ngModelOptions]="{standalone: true}">
 				</label>
 				<button type="submit" class="formButton">
 					<p>Aceptar</p>
@@ -200,6 +212,13 @@
 					<option value="Otros Egresos">8.- Otros Egresos</option>
 				</select>
 			</label>
+			<label for="naturaleza">Naturaleza:
+				<select class="lInput" name="naturaleza" formControlName="naturaleza" >
+					<option value="Debe">Debe</option>
+					<option value="Haber">Haber</option>
+					<option value="Mixta">Mixta</option>
+				</select>
+			</label>
 
 			<button type="submit" class="formButton">
 				<p>Aceptar</p>
@@ -224,6 +243,13 @@
 					<option value="Gastos">6.- Gastos</option>
 					<option value="Otros Ingresos">7.- Otros Ingresos</option>
 					<option value="Otros Egresos">8.- Otros Egresos</option>
+				</select>
+			</label>
+			<label for="naturaleza">Naturaleza:
+				<select class="lInput" name="naturaleza" formControlName="naturaleza" >
+					<option value="Debe">Debe</option>
+					<option value="Haber">Haber</option>
+					<option value="Mixta">Mixta</option>
 				</select>
 			</label>
 			<button type="submit" class="formButton">

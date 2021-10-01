@@ -35,13 +35,13 @@ export class Mod3Component implements OnInit {
 
   constructor(private data: DataHandlerService, private datePipe: DatePipe) {
     var year = this.today.getFullYear();
-/*     for (let i = 0; i <= this.today.getMonth(); i++) {
+    /*     for (let i = 0; i <= this.today.getMonth(); i++) {
       var date = new Date(year, i, 1);
       let month = this.datePipe.transform(date, "MMMM");
       month = month.charAt(0).toUpperCase() + month.slice(1);
       this.tMonths.push(month);
     } */
-    
+
     let month = this.datePipe.transform(this.today, "MMMM");
     month = month.charAt(0).toUpperCase() + month.slice(1);
     this.tMonths.push(month);
@@ -50,20 +50,23 @@ export class Mod3Component implements OnInit {
   async ngOnInit() {
     var auxT = await this.data.getServerAccs();
     var auxM = await this.data.getServerMAccs();
-    console.log(auxM)
+    console.log(auxM);
     if (auxM == null) {
       this.showT = false;
     } else {
       for (let acc of auxM) {
-        console.log(acc.tDebe)
+        if (parseFloat(acc.tDebe)) {
           this.dTotalN += parseFloat(acc.tDebe);
           //        acc.tBalance = formatNumber(acc.tBalance, 'es-VE');
           this.dAccs.push(acc);
+        }
+        if (parseFloat(acc.tHaber)) {
           this.hTotalN += parseFloat(acc.tHaber);
           //      acc.tBalance = formatNumber(acc.tBalance, 'es-VE');
           this.hAccs.push(acc);
+        }
       }
-      this.disponibilidadN = this.hTotalN - this.dTotalN ;
+      this.disponibilidadN = this.hTotalN - this.dTotalN;
       this.showT = true;
     }
   }

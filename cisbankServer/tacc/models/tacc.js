@@ -19,6 +19,10 @@ const TAccSchema = mongoose.Schema({
 		type: String,
 		required: true
 	},
+	tNature: {
+		type: String,
+		required: true
+	},
 	tDebe: {
 		type: Number,
 	},
@@ -67,6 +71,7 @@ module.exports.updateTAcc = function(tAcc, callback){
     { $set: { 
 		"tClasf": tAcc.tClasf,
 		"tType": tAcc.tType,
+		"tNature": tAcc.tNature,
     }},
 	callback);
 };
