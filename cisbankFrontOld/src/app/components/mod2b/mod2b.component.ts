@@ -68,25 +68,46 @@ export class Mod2bComponent implements OnInit {
   text: any;
 
   move: FormGroup;
-
+  tMonths: any = [];
+  tYears: any = [];
+  currentMonth: number;
+  currentYear: number;
   constructor(
     private data: DataHandlerService,
     private datePipe: DatePipe,
     private fb: FormBuilder
   ) {
     this.todayS = this.datePipe.transform(this.today, "yyyy-MM-dd");
+    this.currentMonth = parseInt(this.todayS.split("-")[1]);
+    var year = this.today.getFullYear();
+    this.currentYear = year;
+    for(let i = 2018; i <= year; i++){
+      this.tYears.push(i)
+    }
+    for (let i = 0; i <= 11; i++) {
+      var date = new Date(year, i, 1);
+      let month = this.datePipe.transform(date, "MMMM");
+      month = month.charAt(0).toUpperCase() + month.slice(1);
+      this.tMonths.push(month);
+    }
+
+    /*     let month = this.datePipe.transform(this.today, "MMMM");
+    month = month.charAt(0).toUpperCase() + month.slice(1);
+    this.tMonths.push(month);
+    this.currentMonth = month
+ */
   }
 
   async ngOnInit() {
     this.getState();
     this.acc = new FormGroup({
-      desc: new FormControl('', [
-    // validaciones síncronas
-    Validators.required
-  ]),
-      tipo: new FormControl(''),
-      naturaleza: new FormControl(''),
-      saldo: new FormControl('')
+      desc: new FormControl("", [
+        // validaciones síncronas
+        Validators.required,
+      ]),
+      tipo: new FormControl(""),
+      naturaleza: new FormControl(""),
+      saldo: new FormControl(""),
     });
 
     this.move = new FormGroup({
@@ -117,41 +138,50 @@ export class Mod2bComponent implements OnInit {
     this.data.updateMs();
     this.box1On = false;
     this.box2On = false;
-    this.mDebe = 0;
-    this.mHaber = 0;
-    this.mNeto = 0;
 
     this.banks = (await this.data.getServerBanks()).map((bank) => bank.bAlias);
     this.accs = (await this.data.getServerAccs()).map((acc) => acc.tName);
+    this.filterMoves(1);
+  }
+
+  fechaInicial: Date;
+  fechaFinal: Date;
+
+  async filterMoves(type) {
+    if(!type){
+      if(!this.fechaInicial || this.fechaFinal){
+        alert("Por favor, seleccione una fecha inicial y una final para la consulta por rango de fechas");
+        return;
+      }
+    }
     var aux = await this.data.getServerMoves();
     var mDate;
+    this.moves = [];
+    this.mDebe = 0;
+    this.mHaber = 0;
+    this.mNeto = 0;
     if (aux == null) {
       this.show = false;
     } else {
       for (let move of aux) {
         mDate = new Date(move.mDate);
-        move['mDateAux'] = mDate
+        move["mDateAux"] = mDate;
         move.mDate = this.datePipe.transform(mDate, "yyyy-MM-dd");
-        //        move.mDate = move.mDate.substring(0,10);
-        //          move.mOld = formatNumber(move.mOld, 'es-VE');
-        //        move.mNew = formatNumber(move.mNew, 'es-VE');
-        //if (move.mDate == this.todayS) {
+        if (this.getFilter(move.mDate, type)) {
           if (move.mSign) {
             move.mNature = "+";
-            move.mMas = move.mAmmount; //.toString() + ' Bs';
-            //          move.mMas = formatNumber(move.mAmmount,'es-VE') + ' Bs';
+            move.mMas = move.mAmmount;
             this.mDebe += move.mAmmount;
           } else {
             move.mNature = "-";
-            move.mMenos = move.mAmmount; //.toString() + ' Bs';
-            //        move.mMenos = formatNumber(move.mAmmount,'es-VE') + ' Bs';
+            move.mMenos = move.mAmmount;
             this.mHaber += move.mAmmount;
           }
           this.moves.push(move);
-        //}
+        }
       }
 
-      this.moves.sort(function(a:any,b:any){
+      this.moves.sort(function (a: any, b: any) {
         // Turn your strings into dates, and then subtract them
         // to get a value that is either negative, positive, or zero.
         return <any>new Date(b.mDateAux) - <any>new Date(a.mDateAux);
@@ -173,6 +203,36 @@ export class Mod2bComponent implements OnInit {
         };
       }
       this.show = true;
+    }
+  }
+
+  getFilter(date, type) {
+    if (!type) {
+      let auxInicial = this.datePipe.transform(this.fechaInicial, "yyyy-MM-dd");
+      let auxFinal = this.datePipe.transform(this.fechaFinal, "yyyy-MM-dd");
+      let añoInicial = parseInt(auxInicial.split("-")[0]);
+      let añoFinal = parseInt(auxFinal.split("-")[0]);
+      let añoMovimiento = parseInt(date.split("-")[0]);
+      let mesInicial = parseInt(auxInicial.split("-")[1]);
+      let mesFinal = parseInt(auxFinal.split("-")[1]);
+      let mesMovimiento = parseInt(date.split("-")[1]);
+      let diaInicial = parseInt(auxInicial.split("-")[2]);
+      let diaFinal = parseInt(auxFinal.split("-")[2]);
+      let diaMovimiento = parseInt(date.split("-")[2]);
+
+      if (añoMovimiento <= añoFinal && añoMovimiento >= añoInicial) {
+        if (diaMovimiento >= diaInicial && mesMovimiento >= mesInicial) {
+          if (
+            mesMovimiento < mesFinal ||
+            (diaMovimiento <= diaFinal && mesMovimiento == mesFinal)
+          ) {
+            return true;
+          }
+        }
+      }
+      return false;
+    } else {
+      return (this.currentMonth == parseInt(date.split("-")[1]) && this.currentYear == parseInt(date.split("-")[0]));
     }
   }
 
@@ -205,7 +265,7 @@ export class Mod2bComponent implements OnInit {
       mSign: move.mSign,
       mCode: move.mCode,
     });
-    this.fechaMovimiento = move.mDate
+    this.fechaMovimiento = move.mDate;
     this.tBox();
   }
 
@@ -229,8 +289,8 @@ export class Mod2bComponent implements OnInit {
     };
   }
 
-movimientoExtemporaneo: boolean = false;
-fechaMovimiento: boolean;
+  movimientoExtemporaneo: boolean = false;
+  fechaMovimiento: boolean;
 
   addMove() {
     var mDesc = this.move.value.mDesc;
@@ -240,7 +300,9 @@ fechaMovimiento: boolean;
     var mTAcc = this.move.value.mTAcc;
     var mSign = this.move.value.mSign;
     //var mSign = this.getSign(mTAcc);
-    let mDate = this.movimientoExtemporaneo? this.fechaMovimiento : this.todayS
+    let mDate = this.movimientoExtemporaneo
+      ? this.fechaMovimiento
+      : this.todayS;
     var move = {
       mDesc: mDesc,
       mAmmount: mAmmount,
@@ -252,7 +314,7 @@ fechaMovimiento: boolean;
     };
     this.show = true;
     this.data.createMove(move).subscribe((data) => {
-      console.log(data)
+      console.log(data);
       // data is already a JSON object
       this.tBox();
       this.flush();
@@ -268,7 +330,9 @@ fechaMovimiento: boolean;
     var mTAcc = this.move.value.mTAcc;
     var mCode = this.move.value.mCode;
 
-    let mDate = this.movimientoExtemporaneo? this.fechaMovimiento : this.todayS
+    let mDate = this.movimientoExtemporaneo
+      ? this.fechaMovimiento
+      : this.todayS;
     var mSign = this.getSign(mTAcc);
 
     var move = {
@@ -320,7 +384,6 @@ fechaMovimiento: boolean;
       naturaleza: "",
       saldo: "",
     });
-
   }
 
   addCsv(input) {

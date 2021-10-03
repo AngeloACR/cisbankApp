@@ -17,7 +17,7 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
     let date = new Date();
-    let aux = this.datePipe.transform(date, "dd/MM/yyyy-HH:m:s","America/Caracas");
+    let aux = this.datePipe.transform(date, "dd/MM/yyyy-HH:m:ss","America/Caracas");
     this.fecha = aux.split("-")[0];
     this.hora = aux.split("-")[1].split(".")[0];
     let hour = parseInt(this.hora.split(":")[0]);
@@ -31,7 +31,7 @@ export class HeaderComponent implements OnInit {
 
     this.interval = setInterval(() => {
       let date = new Date();
-      let aux = this.datePipe.transform(date, "dd/MM/yyyy-HH:m:s","America/Caracas");
+      let aux = this.datePipe.transform(date, "dd/MM/yyyy-HH:m:ss","America/Caracas");
       this.fecha = aux.split("-")[0];
       this.hora = aux.split("-")[1].split(".")[0];
       let hour = parseInt(this.hora.split(":")[0]);
