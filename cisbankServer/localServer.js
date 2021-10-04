@@ -18,6 +18,7 @@ const baccs = require('./bacc/routes/baccs');
 const taccs = require('./tacc/routes/taccs');
 const moves = require('./moves/routes/moves');
 const mtaccs = require('./tacc/routes/mtaccs');
+const mtaccs = require('./tacc/routes/clasification');
 
 module.exports.init = function(folder, thePath, port) {
     app.set('port', (port));
@@ -66,6 +67,7 @@ module.exports.init = function(folder, thePath, port) {
     app.use('/taccs', taccs);
     app.use('/moves', moves);
     app.use('/mtaccs', mtaccs);
+    app.use('/clasificacion', clasificacion);
 
     app.get('/', (req, res) => {
         res.send('We are having some troubles, please come back in a while!');
