@@ -2,7 +2,7 @@ const Clasificacion = require("../models/clasification");
 const mainHandler = {
   crearClasificacion: async function (req, res) {
     try {
-      let clasificaciones = req.body;
+      let clasificaciones = req.body.data;
       let response = [];
       let length = clasificaciones.length;
       for (let i = 0; i < length; i++) {
