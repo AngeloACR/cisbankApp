@@ -52,7 +52,7 @@
     (ngSubmit)="addBank()"
   >
     <label style="width: 40%" class="lInput" for="bBank"
-      >Banco:
+      >Banco*:
       <input
         type="text"
         formControlName="bBank"
@@ -69,8 +69,35 @@
         Por favor ingrese el nombre del banco
       </div>
     </label>
+    <label style="width: 40%" class="lInput" for="bBank"
+      >Moneda base:
+      <input
+        type="text"
+        formControlName="bCoin"
+        name="bCoin"
+        placeHolder="Banco"
+      />
+    </label>
+    <label style="width: 40%" class="lInput" for="bBank"
+      >Código del banco*:
+      <input
+        type="text"
+        formControlName="bCode"
+        name="bCode"
+        placeHolder="Banco"
+      />
+      <div
+        class="errorTag"
+        *ngIf="
+          fBanco.bCode.errors?.required &&
+          (fBanco.bCode.touched || fBanco.bCode.dirty)
+        "
+      >
+        Por favor ingrese el código del banco
+      </div>
+    </label>
     <label style="width: 40%" class="lInput" for="balias"
-      >Alias:
+      >Alias*:
       <input
         type="text"
         formControlName="bAlias"
@@ -88,7 +115,7 @@
       </div>
     </label>
     <label style="width: 40%" class="lInput" for="balias"
-      >Correo electrónico:
+      >Correo electrónico*:
       <input
         type="text"
         formControlName="bMail"
@@ -106,7 +133,7 @@
       </div>
     </label>
     <label style="width: 57%" class="lInput" for="bNumber"
-      >Numero de cuenta:
+      >Numero de cuenta*:
       <input
         type="text"
         formControlName="bNumber"
@@ -135,7 +162,7 @@
       </select>
     </label>
     <label style="width: 40%" class="lInput" for="bAddress"
-      >Dirección:
+      >Dirección*:
       <input
         type="text"
         formControlName="bAddress"
@@ -153,7 +180,7 @@
       </div>
     </label>
     <label style="width: 40%" class="lInput" for="bPhone"
-      >Teléfono:
+      >Teléfono*:
       <input
         type="text"
         formControlName="bPhone"
@@ -171,7 +198,7 @@
       </div>
     </label>
     <label style="width: 40%" class="lInput" for="bEx"
-      >Ejecutivo de cuenta:
+      >Ejecutivo de cuenta*:
       <input
         type="text"
         formControlName="bEx"
@@ -189,7 +216,7 @@
       </div>
     </label>
     <label style="width: 40%" class="lInput" for="bExPhone"
-      >Telefono personal Ejecutivo:
+      >Telefono personal Ejecutivo*:
       <input
         type="text"
         formControlName="bExPhone"
@@ -215,7 +242,7 @@
   <form *ngIf="updateB" [formGroup]="bank" (ngSubmit)="updateBank()">
     <div class="formContent">
       <label style="width: 40%" class="lInput" for="bBank"
-        >Banco:
+        >Banco*:
         <input
           type="text"
           formControlName="bBank"
@@ -232,8 +259,35 @@
           Por favor ingrese el nombre del banco
         </div>
       </label>
+      <label style="width: 40%" class="lInput" for="bBank"
+        >Código del banco:
+        <input
+          type="text"
+          formControlName="bCode"
+          name="bCode"
+          placeHolder="Banco"
+        />
+        <div
+          class="errorTag"
+          *ngIf="
+            fBanco.bCode.errors?.required &&
+            (fBanco.bCode.touched || fBanco.bCode.dirty)
+          "
+        >
+          Por favor ingrese el codigo del banco
+        </div>
+      </label>
+      <label style="width: 40%" class="lInput" for="bBank"
+        >Moneda base:
+        <input
+          type="text"
+          formControlName="bCoin"
+          name="bCoin"
+          placeHolder="Banco"
+        />
+      </label>
       <label style="width: 40%" class="lInput" for="balias"
-        >Alias:
+        >Alias*:
         <input
           type="text"
           formControlName="bAlias"
@@ -252,7 +306,7 @@
       </label>
 
       <label style="width: 40%" class="lInput" for="balias"
-        >Correo electrónico:
+        >Correo electrónico*:
         <input
           type="text"
           formControlName="bMail"
@@ -271,7 +325,7 @@
       </label>
 
       <label style="width: 57%" class="lInput" for="bNumber"
-        >Numero de cuenta:
+        >Numero de cuenta*:
         <input
           type="text"
           formControlName="bNumber"
@@ -300,7 +354,7 @@
         </select>
       </label>
       <label style="width: 40%" class="lInput" for="bAddress"
-        >Dirección:
+        >Dirección*:
         <input
           type="text"
           formControlName="bAddress"
@@ -318,7 +372,7 @@
         </div>
       </label>
       <label style="width: 40%" class="lInput" for="bPhone"
-        >Teléfono:
+        >Teléfono*:
         <input
           type="text"
           formControlName="bPhone"
@@ -336,7 +390,7 @@
         </div>
       </label>
       <label style="width: 40%" class="lInput" for="bEx"
-        >Ejecutivo de cuenta:
+        >Ejecutivo de cuenta*:
         <input
           type="text"
           formControlName="bEx"
@@ -354,7 +408,7 @@
         </div>
       </label>
       <label style="width: 40%" class="lInput" for="bExPhone"
-        >Telefono personal Ejecutivo:
+        >Telefono personal Ejecutivo*:
         <input
           type="text"
           formControlName="bExPhone"

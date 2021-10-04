@@ -33,6 +33,8 @@ export class Mod3Component implements OnInit {
     tBalance: number;
   }[] = new Array();
 
+  sColor: any = {};
+
   constructor(private data: DataHandlerService, private datePipe: DatePipe) {
     var year = this.today.getFullYear();
     /*     for (let i = 0; i <= this.today.getMonth(); i++) {
@@ -55,18 +57,32 @@ export class Mod3Component implements OnInit {
       this.showT = false;
     } else {
       for (let acc of auxM) {
-        if (parseFloat(acc.tDebe)) {
-          this.dTotalN += parseFloat(acc.tDebe);
-          //        acc.tBalance = formatNumber(acc.tBalance, 'es-VE');
-          this.dAccs.push(acc);
-        }
-        if (parseFloat(acc.tHaber)) {
-          this.hTotalN += parseFloat(acc.tHaber);
-          //      acc.tBalance = formatNumber(acc.tBalance, 'es-VE');
-          this.hAccs.push(acc);
+        let month = this.datePipe.transform(this.today, "MMMM");
+        if (month == acc.tMonth) {
+          if (parseFloat(acc.tDebe)) {
+            this.dTotalN += parseFloat(acc.tDebe);
+            //        acc.tBalance = formatNumber(acc.tBalance, 'es-VE');
+            this.dAccs.push(acc);
+          }
+          if (parseFloat(acc.tHaber)) {
+            this.hTotalN += parseFloat(acc.tHaber);
+            //      acc.tBalance = formatNumber(acc.tBalance, 'es-VE');
+            this.hAccs.push(acc);
+          }
         }
       }
       this.disponibilidadN = this.hTotalN - this.dTotalN;
+      if (this.disponibilidadN >= 0) {
+        this.sColor = {
+          sGreen: true,
+          sRed: false,
+        };
+      } else {
+        this.sColor = {
+          sRed: true,
+          sGreen: false,
+        };
+      }
       this.showT = true;
     }
   }

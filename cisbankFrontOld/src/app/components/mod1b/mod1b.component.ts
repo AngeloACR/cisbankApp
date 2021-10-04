@@ -4,7 +4,7 @@ import {
   FormBuilder,
   FormGroup,
   FormControl,
-  Validators
+  Validators,
 } from "@angular/forms";
 
 @Component({
@@ -34,6 +34,7 @@ export class Mod1bComponent implements OnInit {
       bMail: new FormControl("", Validators.required),
       bBalance: new FormControl(""),
       bAct: new FormControl(""),
+      bCoin: new FormControl(""),
       bAddress: new FormControl("", Validators.required),
       bPhone: new FormControl("", Validators.required),
       bEx: new FormControl("", Validators.required),
@@ -79,6 +80,7 @@ export class Mod1bComponent implements OnInit {
       bNumber: bacc.bNumber,
       bBalance: bacc.bBalance,
       bMail: bacc.bMail,
+      bCoin: bacc.bCoin,
       bAct: bacc.bAct,
       bAddress: bacc.bAddress,
       bEx: bacc.bEx,
@@ -104,17 +106,18 @@ export class Mod1bComponent implements OnInit {
     let aux5 = this.fBanco.bAddress.errors
       ? this.fBanco.bAddress.errors.required
       : false;
-    let aux6 = this.fBanco.bEx.errors
-      ? this.fBanco.bEx.errors.required
-      : false;
+    let aux6 = this.fBanco.bEx.errors ? this.fBanco.bEx.errors.required : false;
     let aux7 = this.fBanco.bPhone.errors
       ? this.fBanco.bPhone.errors.required
       : false;
     let aux8 = this.fBanco.bExPhone.errors
       ? this.fBanco.bExPhone.errors.required
       : false;
+    let aux9 = this.fBanco.bCode.errors
+      ? this.fBanco.bCode.errors.required
+      : false;
 
-    let error = aux1 || aux2 || aux3 || aux4 || aux5 || aux6 || aux7 || aux8;
+    let error = aux1 || aux2 || aux3 || aux4 || aux5 || aux6 || aux7 || aux8 || aux9;
     return error;
   }
   tBox() {

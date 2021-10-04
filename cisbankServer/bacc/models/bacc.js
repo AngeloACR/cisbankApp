@@ -11,6 +11,10 @@ const BAccSchema = mongoose.Schema({
         type: String,
         required: true
     },
+    bCoin: {
+        type: String,
+        required: true
+    },
     bBalance: {
         type: Number,
         required: true

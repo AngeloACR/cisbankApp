@@ -49,8 +49,17 @@ export class Mod2Component implements OnInit {
   text: any;
 
   constructor(private data: DataHandlerService, private datePipe: DatePipe, private fb: FormBuilder) {}
+  clasificaciones: any;
+  subclasificaciones: any;
+  clasificacion: any;
+  subclasificacion: any;
+  
+  setSubclasificacion(){
+    this.subclasificaciones = this.clasificacion.subclasificacion; 
+  }
 
   async ngOnInit() {
+    this.clasificaciones = await this.data.getClasificaciones();
     this.acc = new FormGroup({
       desc: new FormControl("", [
         // validaciones síncronas
@@ -135,7 +144,7 @@ export class Mod2Component implements OnInit {
       this.moves.sort(function(a:any,b:any){
         // Turn your strings into dates, and then subtract them
         // to get a value that is either negative, positive, or zero.
-        return <any>new Date(b.mDateAux) - <any>new Date(a.mDateAux);
+        return <any>new Date(a.mDateAux) - <any>new Date(b.mDateAux);
       });
     }
     this.showM = !this.showM;

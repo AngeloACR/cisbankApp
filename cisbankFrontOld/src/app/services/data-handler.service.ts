@@ -58,6 +58,7 @@ export class DataHandlerService {
       bNumber: bank.bNumber,
       bMail: bank.bMail,
       bCode: bank.bCode,
+      bCoin: bank.bCoin,
       bBalance: bank.bBalance,
       bAct: bank.bAct,
       bAddress: bank.bAddress,
@@ -80,6 +81,7 @@ export class DataHandlerService {
       bBank: bank.bBank,
       bNumber: bank.bNumber,
       bBalance: bank.bBalance,
+      bCoin: bank.bCoin,
       bAct: bank.bAct,
       bCode: bank.bCode,
       bAddress: bank.bAddress,
@@ -214,7 +216,18 @@ export class DataHandlerService {
       });
     });
   }
+  getClasificaciones() {
+    let headers = new HttpHeaders();
+    headers.append("Content-Type", "application/json");
 
+    let address = `${this.mySource}/clasificacion/`;
+    return new Promise<any>((resolve, reject) => {
+      this.http.get(address, { headers: headers }).subscribe((data: any) => {
+        // data is already a JSON object
+          resolve(data);
+      });
+    });
+  }
   getLocalAccs() {
     var accs = JSON.parse(localStorage.getItem("accs"));
     return accs;

@@ -50,13 +50,22 @@ export class Mod2cComponent implements OnInit {
 
   constructor(private data: DataHandlerService, private datePipe: DatePipe, private fb: FormBuilder) {}
 
+  clasificaciones: any;
+  subclasificaciones: any;
+  clasificacion: any;
+  subclasificacion: any;
+  
+  setSubclasificacion(){
+    this.subclasificaciones = this.clasificacion.subclasificacion; 
+  }
+
   async ngOnInit() {
+    this.clasificaciones = await this.data.getClasificaciones();
     this.acc = new FormGroup({
       desc: new FormControl("", [
         // validaciones síncronas
         Validators.required,
       ]),
-      tipo: new FormControl(""),
       naturaleza: new FormControl(""),
       saldo: new FormControl(""),
     });
@@ -155,7 +164,7 @@ export class Mod2cComponent implements OnInit {
 
   addAcc() {
     var acc = this.acc.value;
-
+    acc['tipo']=this.clasificacion;
     this.showT = true;
     this.data.createAcc(acc).subscribe((data) => {
       // data is already a JSON object
@@ -169,6 +178,7 @@ export class Mod2cComponent implements OnInit {
   updateAcc() {
     this.acc.controls["desc"].enable();
     var acc = this.acc.value;
+    acc['tipo']=this.clasificacion;
 
     this.showT = true;
     this.data.updateAcc(acc).subscribe((data) => {

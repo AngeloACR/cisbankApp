@@ -98,7 +98,17 @@ export class Mod2bComponent implements OnInit {
  */
   }
 
+  clasificaciones: any;
+  subclasificaciones: any;
+  clasificacion: any;
+  subclasificacion: any;
+  
+  setSubclasificacion(){
+    this.subclasificaciones = this.clasificacion.subclasificacion; 
+  }
+
   async ngOnInit() {
+    this.clasificaciones = await this.data.getClasificaciones();
     this.getState();
     this.acc = new FormGroup({
       desc: new FormControl("", [
@@ -184,7 +194,7 @@ export class Mod2bComponent implements OnInit {
       this.moves.sort(function (a: any, b: any) {
         // Turn your strings into dates, and then subtract them
         // to get a value that is either negative, positive, or zero.
-        return <any>new Date(b.mDateAux) - <any>new Date(a.mDateAux);
+        return <any>new Date(a.mDateAux) - <any>new Date(b.mDateAux);
       });
       this.mNeto = this.mDebe - this.mHaber;
       // this.mDebeS = formatNumber(this.mDebe, 'es-VE');

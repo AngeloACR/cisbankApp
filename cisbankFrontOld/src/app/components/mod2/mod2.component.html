@@ -84,17 +84,16 @@
 				<input type="text" class="lInput" formControlName="desc" name="desc" placeHolder="Nombre">
 			</label>
 			<label for="tipo">Codigo clasificador:
-				<select class="lInput" name="tipo" formControlName="tipo" >
-					<option value="Activo">1.- Activo</option>
-					<option value="Pasivo">2.- Pasivo</option>
-					<option value="Capital">3.- Capital</option>
-					<option value="Ingresos">4.- Ingresos</option>
-					<option value="Costos">5.- Costos</option>
-					<option value="Gastos">6.- Gastos</option>
-					<option value="Otros Ingresos">7.- Otros Ingresos</option>
-					<option value="Otros Egresos">8.- Otros Egresos</option>
+				<select class="lInput" name="tipo" [(ngModel)]="clasificacion" [ngModelOptions]="{standalone: true}" (change)="setSubclasificacion()">
+					<option *ngFor="let clasificacion of clasificaciones" [value]="clasificacion.descripcion">{{clasificacion.codigo}}.-{{clasificacion.descripcion}}</option>
 				</select>
-			</label>
+
+			</label><!-- 
+			<label for="subclasificacion">Subclasificación:
+				<select class="lInput" name="subclasificacion" [(ngModel)]="subclasificacion" [ngModelOptions]="{standalone: true}">
+					<option *ngFor="let clasificacion of clasificacion.subclasificacion" [value]="clasificacion.descripcion">{{clasificacion.codigo}}.-{{clasificacion.descripcion}}</option>
+				</select>
+			</label> -->
 			<label for="naturaleza">Naturaleza:
 				<select class="lInput" name="naturaleza" formControlName="naturaleza" >
 					<option value="Debe">Debe</option>
@@ -118,15 +117,9 @@
 			</label>
 			<label for="tipo">Codigo clasificador:
 				<select class="lInput" name="tipo" formControlName="tipo" >
-					<option value="Activo">1.- Activo</option>
-					<option value="Pasivo">2.- Pasivo</option>
-					<option value="Capital">3.- Capital</option>
-					<option value="Ingresos">4.- Ingresos</option>
-					<option value="Costos">5.- Costos</option>
-					<option value="Gastos">6.- Gastos</option>
-					<option value="Otros Ingresos">7.- Otros Ingresos</option>
-					<option value="Otros Egresos">8.- Otros Egresos</option>
+					<option *ngFor="let clasificacion of clasificaciones" [value]="clasificacion.descripcion">{{clasificacion.codigo}}.-{{clasificacion.descripcion}}</option>
 				</select>
+
 			</label>
 			<label for="naturaleza">Naturaleza:
 				<select class="lInput" name="naturaleza" formControlName="naturaleza" >

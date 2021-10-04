@@ -82,6 +82,13 @@
 	width: 100%;
 }
 
+.sRed{
+	color: red;
+}
+
+.sGreen{
+	color: green;
+}
 #mainT .bItem{
 	cursor: pointer;
 }

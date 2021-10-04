@@ -9,6 +9,13 @@
 	flex-wrap: nowrap;
 }
 
+.sRed{
+	color: red;
+}
+
+.sGreen{
+	color: green;
+}
 
 .flowBox{
 	width: 100%;

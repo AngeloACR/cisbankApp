@@ -69,7 +69,7 @@ export class Mod1Component implements OnInit {
       this.moves.sort(function (a: any, b: any) {
         // Turn your strings into dates, and then subtract them
         // to get a value that is either negative, positive, or zero.
-        return <any>new Date(b.mDateAux) - <any>new Date(a.mDateAux);
+        return <any>new Date(a.mDateAux) - <any>new Date(b.mDateAux);
       });
     }
     this.showM = !this.showM;

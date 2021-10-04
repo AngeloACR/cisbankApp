@@ -31,6 +31,7 @@ export class Mod3bComponent implements OnInit {
     tNature: string;
     tBalance: number;
   }[] = new Array();
+  sColor: any = {};
 
   constructor(private data: DataHandlerService, private datePipe: DatePipe) {
     var year = this.today.getFullYear();
@@ -54,19 +55,32 @@ export class Mod3bComponent implements OnInit {
       this.showT = false;
     } else {
       for (let acc of auxM) {
-        console.log(acc.tType);
-        if (acc.tType == "Nominal") {
-          if (parseFloat(acc.tDebe)) {
-            this.dTotalN += parseFloat(acc.tDebe);
-            this.dAccs.push(acc);
-          }
-          if (parseFloat(acc.tHaber)) {
-            this.hTotalN += parseFloat(acc.tHaber);
-            this.hAccs.push(acc);
+        let month = this.datePipe.transform(this.today, "MMMM");
+        if (month == acc.tMonth) {
+          if (acc.tType == "Nominal") {
+            if (parseFloat(acc.tDebe)) {
+              this.dTotalN += parseFloat(acc.tDebe);
+              this.dAccs.push(acc);
+            }
+            if (parseFloat(acc.tHaber)) {
+              this.hTotalN += parseFloat(acc.tHaber);
+              this.hAccs.push(acc);
+            }
           }
         }
       }
       this.disponibilidadN = this.hTotalN - this.dTotalN;
+      if (this.disponibilidadN >= 0) {
+        this.sColor = {
+          sGreen: true,
+          sRed: false,
+        };
+      } else {
+        this.sColor = {
+          sRed: true,
+          sGreen: false,
+        };
+      }
       this.showT = true;
     }
   }
