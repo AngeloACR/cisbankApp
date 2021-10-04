@@ -1,0 +1,187 @@
+{
+  "data": [
+    {
+      "codigo": "1",
+      "descripcion": "Activo",
+      "subclasificacion": [
+        {
+          "naturaleza": "Debe",
+          "codigo": "1",
+          "descripcion": "Efectivo"
+        },
+        {
+          "naturaleza": "Debe",
+          "codigo": "2",
+          "descripcion": "Inversiones a Corto Plazo"
+        },
+        {
+          "naturaleza": "Debe",
+          "codigo": "3",
+          "descripcion": "Cuentas por Cobrar"
+        },
+        {
+          "naturaleza": "Debe",
+          "codigo": "4",
+          "descripcion": "Inventarios"
+        },
+        {
+          "naturaleza": "Debe",
+          "codigo": "5",
+          "descripcion": "Prepagados"
+        },
+        {
+          "naturaleza": "Debe",
+          "codigo": "6",
+          "descripcion": "Inversiones a Largo Plazo"
+        },
+        {
+          "naturaleza": "Debe",
+          "codigo": "7",
+          "descripcion": "Activo Fijo Tangible"
+        },
+        {
+          "naturaleza": "Debe",
+          "codigo": "8",
+          "descripcion": "Activo Fijo Intangible"
+        },
+        {
+          "naturaleza": "Debe",
+          "codigo": "9",
+          "descripcion": "Cargos Diferidos y Otros Activos"
+        }
+      ]
+    },
+    {
+      "codigo": "2",
+      "descripcion": "Pasivo",
+      "subclasificacion": [
+        {
+          "naturaleza": "Haber",
+          "codigo": "1",
+          "descripcion": "Deuda Financiera"
+        },
+        {
+          "naturaleza": "Haber",
+          "codigo": "2",
+          "descripcion": "Deuda Comercial"
+        },
+        {
+          "naturaleza": "Haber",
+          "codigo": "3",
+          "descripcion": "Intercompañías"
+        },
+        {
+          "naturaleza": "Haber",
+          "codigo": "4",
+          "descripcion": "Otras Cuentas por Pagar"
+        },
+        {
+          "naturaleza": "Haber",
+          "codigo": "5",
+          "descripcion": "Gastos Acumulados"
+        },
+        {
+          "naturaleza": "Haber",
+          "codigo": "6",
+          "descripcion": "Obligaciones Laborales"
+        },
+        {
+          "naturaleza": "Haber",
+          "codigo": "7",
+          "descripcion": "Diferidos"
+        }
+      ]
+    },
+    {
+      "codigo": "3",
+      "descripcion": "Patrimonio",
+      "subclasificacion": [
+        {
+          "naturaleza": "Haber",
+          "codigo": "1",
+          "descripcion": "Capital Social"
+        },
+        {
+          "naturaleza": "Haber",
+          "codigo": "2",
+          "descripcion": "Superávit"
+        }
+      ]
+    },
+    {
+      "codigo": "4",
+      "descripcion": "Ingresos",
+      "subclasificacion": [
+        {
+          "naturaleza": "Debe",
+          "codigo": "1",
+          "descripcion": "Ventas"
+        },
+        {
+          "naturaleza": "Debe",
+          "codigo": "2",
+          "descripcion": "Devoluciones en ventas"
+        },
+        {
+          "naturaleza": "Debe",
+          "codigo": "3",
+          "descripcion": "Rebajas y descuentos en ventas"
+        }
+      ]
+    },
+    {
+      "codigo": "5",
+      "descripcion": "Costos",
+      "subclasificacion": [
+        {
+          "naturaleza": "Haber",
+          "codigo": "1",
+          "descripcion": "Costos de Producción"
+        },
+        {
+          "naturaleza": "Haber",
+          "codigo": "2",
+          "descripcion": "Costo de Ventas"
+        }
+      ]
+    },
+    {
+      "codigo": "6",
+      "descripcion": "Gastos de Operaciòn",
+      "subclasificacion": [
+        {
+          "naturaleza": "Haber",
+          "codigo": "1",
+          "descripcion": "Gastos de Ventas"
+        },
+        {
+          "naturaleza": "Haber",
+          "codigo": "2",
+          "descripcion": "Gastos de Administración"
+        }
+      ]
+    },
+    {
+      "codigo": "7",
+      "descripcion": "Otros ingresos",
+      "subclasificacion": [
+        {
+          "naturaleza": "Debe",
+          "codigo": "1",
+          "descripcion": "Ingresos Financieros"
+        }
+      ]
+    },
+    {
+      "codigo": "8",
+      "descripcion": "Otros egresos",
+      "subclasificacion": [
+        {
+          "naturaleza": "Haber",
+          "codigo": "1",
+          "descripcion": "Egresos Financieros"
+        }
+      ]
+    }
+  ]
+}

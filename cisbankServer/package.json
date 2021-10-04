@@ -24,6 +24,7 @@
     "passport": "*",
     "passport-jwt": "*",
     "multer": "*",
+    "csv-parser": "*",
     "node-schedule": "*"
   },
   "author": "Angelo Crincoli",
