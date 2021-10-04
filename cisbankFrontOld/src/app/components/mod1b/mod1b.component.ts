@@ -73,14 +73,18 @@ export class Mod1bComponent implements OnInit {
     this.addB = false;
     this.updateB = true;
     this.bank.controls["bBalance"].disable();
+    let bCoin = bacc.bCoin;
+    let bCode = bacc.bCode;
+    if(!bCoin) bCoin = "Bs"
+    if(!bCode) bCode = "0134"
     this.bank.setValue({
       bAlias: bacc.bAlias,
-      bCode: bacc.bCode,
+      bCode,
       bBank: bacc.bBank,
       bNumber: bacc.bNumber,
       bBalance: bacc.bBalance,
       bMail: bacc.bMail,
-      bCoin: bacc.bCoin,
+      bCoin,
       bAct: bacc.bAct,
       bAddress: bacc.bAddress,
       bEx: bacc.bEx,
@@ -166,6 +170,7 @@ export class Mod1bComponent implements OnInit {
       bAlias: "",
       bBank: "",
       bNumber: "",
+      bCoin: "",
       bBalance: "",
       bMail: "",
       bAct: "",
