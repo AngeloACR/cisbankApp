@@ -207,7 +207,7 @@ export class Mod2bComponent implements OnInit {
 
   async filterMoves(type) {
     if (!type) {
-      if (!this.fechaInicial || this.fechaFinal) {
+      if (!this.fechaInicial || !this.fechaFinal) {
         alert(
           "Por favor, seleccione una fecha inicial y una final para la consulta por rango de fechas"
         );
