@@ -6,7 +6,7 @@ const mainHandler = {
       let response = [];
       let length = clasificaciones.length;
       for (let i = 0; i < length; i++) {
-        const clasificacion = array[i];
+        const clasificacion = clasificaciones[i];
 
         let aux = new Clasificacion(clasificacion);
         let data = await aux.save();
