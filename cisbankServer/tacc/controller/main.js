@@ -20,7 +20,7 @@ const mainHandler = {
   getClasificaciones: async function (req, res) {
     try {
       let query = {};
-      let clasificaciones = Clasificacion.find(query);
+      let clasificaciones = await Clasificacion.find(query);
       res.status(200).json(clasificaciones);
     } catch (e) {
       res.status(400).json(e.toString());
