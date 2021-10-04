@@ -8,7 +8,7 @@ const clasificacionSchema = mongoose.Schema({
     required: true,
   },
   descripcion: {
-    type: Number,
+    type: String,
     required: true,
   },
   subclasificacion: [{
