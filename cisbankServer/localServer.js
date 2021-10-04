@@ -18,7 +18,7 @@ const baccs = require('./bacc/routes/baccs');
 const taccs = require('./tacc/routes/taccs');
 const moves = require('./moves/routes/moves');
 const mtaccs = require('./tacc/routes/mtaccs');
-const mtaccs = require('./tacc/routes/clasification');
+const clasificacion = require('./tacc/routes/clasification');
 
 module.exports.init = function(folder, thePath, port) {
     app.set('port', (port));
