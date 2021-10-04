@@ -81,8 +81,8 @@ export class Mod2bComponent implements OnInit {
     this.currentMonth = parseInt(this.todayS.split("-")[1]);
     var year = this.today.getFullYear();
     this.currentYear = year;
-    for(let i = 2018; i <= year; i++){
-      this.tYears.push(i)
+    for (let i = 2018; i <= year; i++) {
+      this.tYears.push(i);
     }
     for (let i = 0; i <= 11; i++) {
       var date = new Date(year, i, 1);
@@ -102,9 +102,9 @@ export class Mod2bComponent implements OnInit {
   subclasificaciones: any;
   clasificacion: any;
   subclasificacion: any;
-  
-  setSubclasificacion(){
-    this.subclasificaciones = this.clasificacion.subclasificacion; 
+
+  setSubclasificacion() {
+    this.subclasificaciones = this.clasificacion.subclasificacion;
   }
 
   async ngOnInit() {
@@ -151,16 +151,66 @@ export class Mod2bComponent implements OnInit {
 
     this.banks = (await this.data.getServerBanks()).map((bank) => bank.bAlias);
     this.accs = (await this.data.getServerAccs()).map((acc) => acc.tName);
-    this.filterMoves(1);
+
+    var aux = await this.data.getServerMoves();
+    var mDate;
+    this.moves = [];
+    this.mDebe = 0;
+    this.mHaber = 0;
+    this.mNeto = 0;
+    if (aux == null) {
+      this.show = false;
+    } else {
+      for (let move of aux) {
+        mDate = new Date(move.mDate);
+        move["mDateAux"] = mDate;
+        move.mDate = this.datePipe.transform(mDate, "yyyy-MM-dd");
+        if (move.mSign) {
+          move.mNature = "+";
+          move.mMas = move.mAmmount;
+          this.mDebe += move.mAmmount;
+        } else {
+          move.mNature = "-";
+          move.mMenos = move.mAmmount;
+          this.mHaber += move.mAmmount;
+        }
+        this.moves.push(move);
+      }
+    }
+
+    this.moves.sort(function (a: any, b: any) {
+      // Turn your strings into dates, and then subtract them
+      // to get a value that is either negative, positive, or zero.
+      return <any>new Date(a.mDateAux) - <any>new Date(b.mDateAux);
+    });
+    this.mNeto = this.mDebe - this.mHaber;
+    // this.mDebeS = formatNumber(this.mDebe, 'es-VE');
+    //     this.mHaberS = formatNumber(this.mHaber, 'es-VE');
+    //  this.mNetoS = formatNumber(this.mNeto, 'es-VE');
+
+    if (this.mNeto >= 0) {
+      this.sColor = {
+        sGreen: true,
+        sRed: false,
+      };
+    } else {
+      this.sColor = {
+        sRed: true,
+        sGreen: false,
+      };
+    }
+    this.show = true;
   }
 
   fechaInicial: Date;
   fechaFinal: Date;
 
   async filterMoves(type) {
-    if(!type){
-      if(!this.fechaInicial || this.fechaFinal){
-        alert("Por favor, seleccione una fecha inicial y una final para la consulta por rango de fechas");
+    if (!type) {
+      if (!this.fechaInicial || this.fechaFinal) {
+        alert(
+          "Por favor, seleccione una fecha inicial y una final para la consulta por rango de fechas"
+        );
         return;
       }
     }
@@ -242,7 +292,10 @@ export class Mod2bComponent implements OnInit {
       }
       return false;
     } else {
-      return (this.currentMonth == parseInt(date.split("-")[1]) && this.currentYear == parseInt(date.split("-")[0]));
+      return (
+        this.currentMonth == parseInt(date.split("-")[1]) &&
+        this.currentYear == parseInt(date.split("-")[0])
+      );
     }
   }
 

@@ -12,8 +12,7 @@ const BAccSchema = mongoose.Schema({
         required: true
     },
     bCoin: {
-        type: String,
-        required: true
+        type: String
     },
     bBalance: {
         type: Number,
@@ -35,8 +34,7 @@ const BAccSchema = mongoose.Schema({
         type: String
     }],
     bAct: {
-        type: String,
-        required: true
+        type: String
     },
     bAddress: {
         type: String,
