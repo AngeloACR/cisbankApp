@@ -2,9 +2,12 @@ const util = require("util");
 const multer = require("multer");
 const maxSize = 2 * 1024 * 1024;
 
+let testPath = "/home/angeloacr/Proyectos/cisbank/app/cisbankServer/uploads/clasificacion/"
+let productionPath = "/root/cisbankApp/cisbankServer/uploads/clasificacion/"
+
 let storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, "/home/angeloacr/Proyectos/cisbank/app/cisbankServer/uploads/clasificacion/");
+    cb(null, productionPath);
   },
   filename: (req, file, cb) => {
     cb(null, file.originalname);
