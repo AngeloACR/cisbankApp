@@ -1,0 +1,658 @@
+,,
+codigo,descripcion,naturaleza
+1,Activo,Debe
+1.1,Efectivo,Debe
+1.1.05,Caja,Debe
+1.1.05.01,Caja Mayor,Debe
+1.1.05.02,Caja Menor,Debe
+1.1.05.03,Efectivo por Depositar,Debe
+1.1.10,Bancos,Debe
+1.1.10.01,Moneda Nacional,Debe
+1.1.10.02,Moneda Extranjera,Debe
+1.1.15,Otras Entidades Financieras,Debe
+1.1.15.01,Moneda Nacional,Debe
+1.1.15.02,Moneda Extranjera,Debe
+1.1.20,Fondos Fijos,Debe
+1.1.20.01,Oficinas Administrativas,Debe
+1.1.20.02,Oficinas de la Planta,Debe
+1.1.25,Fondos en Tránsito,Debe
+1.1.25.01,Bancos,Debe
+1.1.25.02,Otras Entidades Financieras,Debe
+1.1.30,Fondos Rotatorios,Debe
+1.1.30.01,Oficinas de la Planta,Debe
+1.1.30.02,Oficina de Ventas,Debe
+1.2,Inversiones a Corto Plazo,Debe
+1.2.05,Acciones,Debe
+1.2.05.01,Comunes,Debe
+1.2.05.02,Preferentes,Debe
+1.2.10,Bonos,Debe
+1.2.10.01,Compañías Privadas,Debe
+1.2.10.02,Entidades Públicas,Debe
+1.2.15,Papeles Comerciales,Debe
+1.2.15.01,Moneda Nacional,Debe
+1.2.20,Otras,Debe
+1.2.20.01,Depósitos a Plazo Fijo,Debe
+1.2.99,Provisiones,Debe
+1.2.99.01,Acciones,Debe
+1.2.99.02,Bonos,Debe
+1.2.99.03,Papeles Comerciales,Debe
+1.2.99.04,Otras,Debe
+1.3,Cuentas por Cobrar,Debe
+1.3.05,Comerciales,Debe
+1.3.05.01,Clientes Minoristas,Debe
+1.3.05.02,Clientes Mayoristas,Debe
+1.3.10,Intercompañías,Debe
+1.3.10.01,Nacionales,Debe
+1.3.10.02,Exterior,Debe
+1.3.15,Personal,Debe
+1.3.15.01,Préstamos,Debe
+1.3.15.02,Anticipo de Sueldos,Debe
+1.3.15.03,Anticipo de Vacaciones,Debe
+1.3.15.04,Anticipo de Utilidades,Debe
+1.3.15.05,Anticipo de Gastos,Debe
+1.3.15.99,Otras,Debe
+1.3.20,Otras Cuentas por Cobrar,Debe
+1.3.20.01,Anticipos a Proveedores,Debe
+1.3.20.02,Reclamos al Seguro,Debe
+1.3.20.03,Impuesto al Consumo Suntuario y de Venta,Debe
+1.3.20.04,Dividendos por Cobrar,Debe
+1.3.99,Provisiones,Debe
+1.3.99.01,Comerciales,Debe
+1.3.99.02,Intercompañías,Debe
+1.3.99.03,Personal,Debe
+1.3.99.04,Otras Cuentas por Cobrar,Debe
+1.4,Inventarios,Debe
+1.4.05,Productos Terminados,Debe
+1.4.05.90,Correc. Monet. Inv.  de Productos Termin,Debe
+1.4.10,Productos en Proceso,Debe
+1.4.10.01,Productos en Proceso Materia Prima,Debe
+1.4.10.02,Productos en Proceso Mano de Obra Direct,Debe
+1.4.10.03,Productos en Proceso Costos Indirectos d,Debe
+1.4.10.90,Correc. Monet. Productos en Proceso,Debe
+1.4.15,Materias Primas Mat. y Sum.,Debe
+1.4.15.01,Materias Primas,Debe
+1.4.15.02,Materiales,Debe
+1.4.15.03,Suministros,Debe
+1.4.15.04,Otros Mat. y Sum.,Debe
+1.4.15.90,"Correc. Monet. Inv.  de Materias Primas,",Debe
+1.4.20,Inv.  en Tránsito,Debe
+1.4.20.01,Materias Primas,Debe
+1.4.20.02,Suministros,Debe
+1.4.20.03,Materiales,Debe
+1.4.20.04,Otros Mat. y Sum.  en Tránsito,Debe
+1.4.20.90,Correc. Monet. de Inventario en Tránsito,Debe
+1.4.25,En poder de Terceros,Debe
+1.4.25.01,Materias Primas,Debe
+1.4.25.02,Materiales,Debe
+1.4.25.03,Suministros,Debe
+1.4.25.04,Otros Inventarios,Debe
+1.4.25.90,Correc. Monet. Inv.  en Poder de Tercero,Debe
+1.4.99,Prov. de Inventarios,Debe
+1.4.99.01,Materias Primas,Debe
+1.4.99.02,Materiales,Debe
+1.4.99.03,Suministros,Debe
+1.4.99.04,Otros Inventarios,Debe
+1.4.99.90,Correc. Monet. Prov. de Inventarios,Debe
+1.5,Prepagados,Debe
+1.5.05,Impuestos,Debe
+1.5.05.01,Impuesto Sobre la Renta,Debe
+1.5.05.02,Crédito Fiscal - Retenciones,Debe
+1.5.05.03,Impuestos  Municipales,Debe
+1.5.10,Seguros,Debe
+1.5.10.01,Planta  Física,Debe
+1.5.10.02,Mobiliario,Debe
+1.5.10.03,Maquinarias y Equipos,Debe
+1.5.10.04,Vehículos,Debe
+1.5.10.05,Inventarios,Debe
+1.5.10.06,Hospitalización Cirugía y Maternidad,Debe
+1.5.10.07,Vida,Debe
+1.5.10.08,Accidentes Personales,Debe
+1.5.10.09,Responsabilidad Civil de Vehículos,Debe
+1.5.10.10,Responsabilidad Civil General,Debe
+1.5.10.90,Correc. Monet. Seguros,Debe
+1.5.15,Intereses,Debe
+1.5.15.01,Bancos,Debe
+1.5.15.02,Otras Entidades Financieras,Debe
+1.5.20,Alquileres,Debe
+1.5.20.01,Locales de Ventas,Debe
+1.5.20.02,Oficinas Administrativas,Debe
+1.5.20.03,Almacenes de Depósito,Debe
+1.5.25,Publicidad,Debe
+1.5.25.01,Publicidad por Televisión,Debe
+1.5.25.02,Publicidad por Radio,Debe
+1.5.25.03,Publicidad por Prensa,Debe
+1.5.30,Suministros de Oficina,Debe
+1.5.30.01,Suministros de Papelería,Debe
+1.5.30.02,Suministros de Artículos de Computación,Debe
+1.5.30.03,Suministros Varios,Debe
+1.6,Inversiones a Largo Plazo,Debe
+1.6.05,Acciones,Debe
+1.6.05.01,Comunes,Debe
+1.6.05.02,Preferentes,Debe
+1.6.05.90,Correc. Monet. Acciones,Debe
+1.6.10,Bonos,Debe
+1.6.10.01,Compañías Privadas,Debe
+1.6.10.02,Entidades Públicas,Debe
+1.6.15,Papeles Comerciales,Debe
+1.6.15.01,Moneda Nacional,Debe
+1.6.20,Otras,Debe
+1.6.20.01,Depósitos a Plazo Fijo,Debe
+1.6.99,Prov. Inversiones a Largo Plazo,Debe
+1.6.99.01,Acciones,Debe
+1.6.99.02,Bonos,Debe
+1.6.99.03,Papeles Comerciales,Debe
+1.6.99.04,Otras,Debe
+1.6.99.90,Correc. Monet. Prov. Inversiones a Largo,Debe
+1.7,Activo Fijo Tangible,Debe
+1.7.05,Terrenos,Debe
+1.7.05.01,Terrenos Urbanos,Debe
+1.7.05.02,Terrenos Rurales,Debe
+1.7.05.90,Corrección  Monetaria Terrenos,Debe
+1.7.10,Planta,Debe
+1.7.10.90,Correc. Monet. Planta,Debe
+1.7.15,Edificios,Debe
+1.7.15.01,Edificio Sede Administrativa,Debe
+1.7.15.02,Edificios Sucursales,Debe
+1.7.15.90,Correc. Monet. Edificios,Debe
+1.7.20,Instalaciones,Debe
+1.7.20.01,Instalaciones Sede Administrativa,Debe
+1.7.20.02,Instalaciones Sucursales,Debe
+1.7.20.90,Correc. Monet. Instalaciones,Debe
+1.7.25,Maquinarias,Debe
+1.7.25.90,Correc. Monet. Maquinarias,Debe
+1.7.30,Mobiliario,Debe
+1.7.30.01,Mobiliario de Oficinas Administrativas,Debe
+1.7.30.02,Mobiliario de Sucursales,Debe
+1.7.30.90,Correc. Monet. Mobiliario,Debe
+1.7.35,Equipos,Debe
+1.7.35.01,Equipos de Computación,Debe
+1.7.35.02,Equipos Varios,Debe
+1.7.35.90,Correc. Monet. Equipos,Debe
+1.7.40,Vehículos,Debe
+1.7.40.01,Camiones de Reparto,Debe
+1.7.40.02,Vehículos Sede Administrativa,Debe
+1.7.40.03,Montacargas,Debe
+1.7.40.90,Correc. Monet. Vehículos,Debe
+1.7.45,Construcciones en Proceso,Debe
+1.7.45.01,Nueva Sede Administrativa,Debe
+1.7.45.02,Galpones de Almacenaje,Debe
+1.7.45.03,Camiones en Acondicionamiento,Debe
+1.7.45.90,Correc. Monet. Construcciones en Proceso,Debe
+1.7.99,Cuentas Complementarias,Debe
+1.7.99.01,Depreciación Acumulada Planta,Debe
+1.7.99.02,Depreciación Acumulada Edificios,Debe
+1.7.99.03,Depreciación Acumulada Instalaciones,Debe
+1.7.99.04,Depreciación Acumulada  Maquinarias,Debe
+1.7.99.05,Depreciación Acumulada Mobiliario,Debe
+1.7.99.06,Depreciación Acumulada Equipos,Debe
+1.7.99.07,Depreciación Acumulada Vehículos,Debe
+1.7.99.90,Correc. Monet. Depreciación Acumulada,Debe
+1.8,Activo Fijo Intangible,Debe
+1.8.05,Marcas,Debe
+1.8.05.01,Marcas Adquiridas,Debe
+1.8.05.90,Correc. Monet. Marcas,Debe
+1.8.10,Patentes,Debe
+1.8.10.01,Patentes de Productos y Recetas,Debe
+1.8.10.90,Correc. Monet. Patentes,Debe
+1.8.15,Concesiones,Debe
+1.8.15.01,Concesiones de Explotación Forestal,Debe
+1.8.15.90,Correc. Monet. Concesiones,Debe
+1.8.20,Derechos,Debe
+1.8.20.01,Derechos de Explotación de Marcas,Debe
+1.8.20.90,Correc. Monet. Derechos,Debe
+1.8.25,Licencias,Debe
+1.8.25.01,Licencias de Uso,Debe
+1.8.25.90,Correc. Monet. Licencias,Debe
+1.8.30,Plusvalía,Debe
+1.8.30.01,Plusvalía en Adquisición de Activos,Debe
+1.8.30.90,Correc. Monet. Plusvalía,Debe
+1.8.99,Cuentas Complementarias,Debe
+1.8.99.01,Amortización Acumulada Marcas,Debe
+1.8.99.02,Amortización Acumulada Patentes,Debe
+1.8.99.03,Amortización Acumulada Concesiones,Debe
+1.8.99.04,Amortización Acumulada Derechos,Debe
+1.8.99.05,Amortización Acumulada Licencias,Debe
+1.8.99.06,Amortización Acumulada Plusvalía,Debe
+1.8.99.90,Correc. Monet. Amortización Acumulada,Debe
+1.9,Cargos Diferidos y Otros Activos,Debe
+1.9.05,Cargos Diferidos,Debe
+1.9.05.01,Gastos Preoperativos,Debe
+1.9.05.02,Gastos de Puesta en Marcha de Activos,Debe
+1.9.05.03,Impuesto Diferido,Debe
+1.9.05.90,Correc. Monet. Cargos Diferidos,Debe
+1.9.10,Otros Activos,Debe
+1.9.10.01,Obras de Arte,Debe
+1.9.10.02,Activos No Utilizados,Debe
+1.9.10.03,Depósitos en Garantía,Debe
+1.9.10.04,Efectivo Inmovilizado,Debe
+1.9.10.90,Correc. Monet. Otros Activos,Debe
+2,Pasivo,Haber
+2.1,Deuda Financiera,Haber
+2.1.05,Entidades Nacionales,Haber
+2.1.05.01,Sobregiros,Haber
+2.1.05.02,Pagarés,Haber
+2.1.05.03,Cartas de Crédito,Haber
+2.1.05.04,Arrendamiento Financiero,Haber
+2.1.05.90,Otras Obligaciones,Haber
+2.1.10,Entidades del Exterior,Haber
+2.1.10.01,Sobregiros,Haber
+2.1.10.02,Pagarés,Haber
+2.1.10.03,Cartas de Crédito,Haber
+2.1.10.04,Arrendamiento Financiero,Haber
+2.1.10.05,Otras Obligaciones,Haber
+2.2,Deuda Comercial,Haber
+2.2.05,Proveedores Nacionales,Haber
+2.2.05.01,Bienes,Haber
+2.2.05.02,Servicios,Haber
+2.2.05.04,Otras,Haber
+2.2.10,Proveedores Extranjeros,Haber
+2.2.10.01,Bienes,Haber
+2.2.10.02,Servicios,Haber
+2.3,Intercompañías,Haber
+2.3.05,Nacionales,Haber
+2.3.05.01,Bienes,Haber
+2.3.05.02,Servicios,Haber
+2.3.05.03,Préstamos,Haber
+2.3.10,Extranjeras,Haber
+2.3.10.01,Bienes,Haber
+2.3.10.02,Servicios,Haber
+2.3.10.03,Préstamos,Haber
+2.3.10.04,Otras,Haber
+2.4,Otras Cuentas por Pagar,Haber
+2.4.05,Retenciones Sobre Nómina,Haber
+2.4.05.01,Funcionarios,Haber
+2.4.05.02,Empleados,Haber
+2.4.05.03,Obreros,Haber
+2.4.05.04,Otros,Haber
+2.4.10,Retenciones Varias,Haber
+2.4.10.01,Honorarios Profesionales,Haber
+2.4.10.02,Comisiones Mercantiles,Haber
+2.4.10.03,Intereses sobre Préstamos,Haber
+2.4.10.04,Sobre Fletes,Haber
+2.4.10.05,Regalías,Haber
+2.4.10.06,Asistencia Técnica,Haber
+2.4.10.07,Servicios Tecnológicos,Haber
+2.4.15,Impuesto al Consumo Suntuario y a las Ve,Haber
+2.4.15.01,ICSVM- Aplicable sobre  Bienes,Haber
+2.4.15.02,ICSVM- Aplicable sobre  Servicios,Haber
+2.4.20,Personal,Haber
+2.4.20.01,Funcionarios,Haber
+2.4.20.02,Empleados,Haber
+2.4.20.03,Obreros,Haber
+2.4.20.04,Otros,Haber
+2.5,Gastos Acumulados,Haber
+2.5.05,Sueldos y Salarios,Haber
+2.5.05.01,Funcionarios,Haber
+2.5.05.02,Empleados,Haber
+2.5.05.03,Obreros,Haber
+2.5.05.04,Otros,Haber
+2.5.10,Honorarios,Haber
+2.5.10.01,Abogados,Haber
+2.5.10.02,Consultores,Haber
+2.5.10.03,Auditores,Haber
+2.5.15,Intereses,Haber
+2.5.15.01,Bancos,Haber
+2.5.15.02,Otras Entidades Financieras,Haber
+2.5.20,Alquileres,Haber
+2.5.20.01,Bienes Inmuebles,Haber
+2.5.20.02,Bienes Muebles,Haber
+2.5.25,Seguros,Haber
+2.5.25.01,Patrimoniales y Operaciones de la Empres,Haber
+2.5.25.02,Personas,Haber
+2.5.25.03,Terceros,Haber
+2.5.30,Servicios Públicos,Haber
+2.5.30.01,Electricidad,Haber
+2.5.30.02,Aseo,Haber
+2.5.30.03,Combustible,Haber
+2.5.30.04,Agua,Haber
+2.5.30.05,Otros,Haber
+2.5.35,Impuestos y Contribuciones,Haber
+2.5.35.01,Impuesto Sobre la Renta,Haber
+2.5.35.02,Patente de Industria y Comercio,Haber
+2.5.35.03,Otros Impuestos,Haber
+2.6,Obligaciones Laborales,Haber
+2.6.05,Anticipos de Prestaciones Sociales,Haber
+2.6.05.01,Funcionarios,Haber
+2.6.05.02,Empleados,Haber
+2.6.05.03,Obreros,Haber
+2.6.05.04,Otros,Haber
+2.6.10,Prestaciones Sociales,Haber
+2.6.10.01,Funcionarios,Haber
+2.6.10.02,Empleados,Haber
+2.6.10.03,Obreros,Haber
+2.6.10.04,Otros,Haber
+2.6.15,Planes de Pensión,Haber
+2.6.15.01,Funcionarios,Haber
+2.6.15.02,Empleados,Haber
+2.6.15.03,Obreros,Haber
+2.6.15.04,Otros,Haber
+2.7,Diferidos,Haber
+2.7.05,Ingresos,Haber
+2.7.05.01,Bienes,Haber
+2.7.05.02,Servicios,Haber
+2.7.05.90,Correc. Monet. Ingresos Diferidos,Haber
+2.7.10,Impuestos,Haber
+2.7.10.01,Impuesto Sobre la Renta Diferido,Haber
+3,Patrimonio,Haber
+3.1,Capital Social,Haber
+3.1.05,Accionistas Comunes,Haber
+3.1.05.01,Suscripciones de Acciones Comunes por Co,Haber
+3.1.10,Accionistas Preferentes,Haber
+3.1.10.01,Suscripciones de Acciones Preferentes po,Haber
+3.1.15,Capital Social Común,Haber
+3.1.15.01,Capital Social Común Suscrito,Haber
+3.1.20,Capital Social Preferente,Haber
+3.1.20.01,Capital Social Preferente Suscrito,Haber
+3.1.25,Actualización del Capital Social,Haber
+3.1.25.01,Actualización del Capital Social,Haber
+3.2,Superávit,Haber
+3.2.05,De capital,Haber
+3.2.05.01,Prima en Emisión de Acciones,Haber
+3.2.05.02,Descuento en Emisión de Acciones,Haber
+3.2.05.99,Correc. Monet. Superávit de Capital,Haber
+3.2.10,De Revaluación,Haber
+3.2.10.01,Revaluación de Terrenos,Haber
+3.2.10.02,Revaluación de Planta,Haber
+3.2.10.03,Revaluación de Edificio,Haber
+3.2.10.04,Revaluación de Maquinaria,Haber
+3.2.15,Reservado,Haber
+3.2.15.01,Reserva Legal,Haber
+3.2.15.02,Reservas Contractuales,Haber
+3.2.15.03,Reservas Voluntarias,Haber
+3.2.15.99,Correc. Monet. Reservas,Haber
+3.2.20,Disponible o Libre,Haber
+3.2.20.01,Utilidades no Distribuidas,Haber
+3.2.20.99,Correc. Monet. Utilidades No Distribuida,Haber
+3.2.25,Resultado por Exposición a la Inflación,Haber
+3.2.25.01,Resultado por Exposición a la Inflación,Haber
+4,Ingresos,Haber
+4.1,Ventas,Debe
+4.2,Devoluciones en Ventas,Debe
+4.3,Rebajas y Descuentos en Ventas,Debe
+5,Costos,Debe
+5.1,Costos de Producción,Haber
+5.1.05,Materia Prima,Haber
+5.1.05.90,Correc. Monet. Materia Prima,Haber
+5.1.10,Mano de Obra Directa,Haber
+5.1.10.90,Correc. Monet. Mano de Obra Directa,Haber
+5.1.15,Costos Indirectos de Producción,Haber
+5.1.15.90,Correc. Monet. Costos Indirectos de Prod,Haber
+5.1.20,Variaciones de Costos,Haber
+5.1.20.01,Materia Prima,Haber
+5.1.20.02,Mano de Obra Directa,Haber
+5.1.20.03,Costos Indirectos de Producción,Haber
+5.1.20.90,Correc. Monet. Variaciones de Costos,Haber
+5.2,Costo de Ventas,Haber
+6,Gastos de Operación,Debe
+6.1,Gastos de Ventas,Haber
+6.1.05,Gastos de Personal,Haber
+6.1.05.01,Sueldos de Vendedores,Haber
+6.1.05.02,Comisiones Personal de Ventas,Haber
+6.1.05.03,Bonificaciones Personal de Ventas,Haber
+6.1.05.04,Reintegro por Gastos de Vehículos,Haber
+6.1.05.05,Antigedad,Haber
+6.1.05.06,Utilidades,Haber
+6.1.05.07,Vacaciones,Haber
+6.1.05.08,Bono Vacacional,Haber
+6.1.05.09,Preaviso,Haber
+6.1.05.10,Intereses sobre Prestaciones Sociales,Haber
+6.1.05.11,Bonificaciones Especiales,Haber
+6.1.05.12,Seguro de HCM Personal de Ventas,Haber
+6.1.05.13,Seguro Social Obligatorio,Haber
+6.1.05.14,Seguro de Paro Forzoso,Haber
+6.1.05.15,Política Habitacional,Haber
+6.1.05.16,Instituto Nacional de Cooperación Educat,Haber
+6.1.05.17,Contribución Caja de Ahorro,Haber
+6.1.05.90,Correc. Monet. Gastos de Personal,Haber
+6.1.10,Gastos de Seguros,Haber
+6.1.10.01,Mobiliario de Ventas,Haber
+6.1.10.02,Equipos de Ventas,Haber
+6.1.10.03,Vehículos de Ventas,Haber
+6.1.10.04,Responsabilidad Civil de Vehículos,Haber
+6.1.10.05,Responsabilidad Civil General,Haber
+6.1.10.90,Correc. Monet. Gastos de Seguros,Haber
+6.1.15,Gastos de Honorarios,Haber
+6.1.15.01,Honorarios Asesores de Mercadeo,Haber
+6.1.15.02,Honorarios Consultores,Haber
+6.1.15.03,Honorarios de Abogados,Haber
+6.1.15.90,Correc. Monet. Gastos de Honorarios,Haber
+6.1.20,Gastos de Alquileres,Haber
+6.1.20.01,Gastos de Alquileres Local de Ventas,Haber
+6.1.20.02,Gastos de Alquileres Almacenes de Depósi,Haber
+6.1.20.90,Correc. Monet. Gastos de Alquileres,Haber
+6.1.25,Gastos de Suministros de Oficina de Vent,Haber
+6.1.30,Gastos de Mantenimiento y Reparación,Haber
+6.1.30.01,Suministros de Oficina de Ventas,Haber
+6.1.30.02,Suministros de Papelería,Haber
+6.1.30.03,Suministros de Artículos de Computación,Haber
+6.1.30.04,Suministros Varios,Haber
+6.1.30.90,Correc. Monet. Gastos de Suministros de,Haber
+6.1.35,Gastos de Servicios Recibidos,Haber
+6.1.35.01,Gastos de Servicios de Vigilancia Locale,Haber
+6.1.35.02,Gastos de Servicios de Vigilancia Almace,Haber
+6.1.35.03,Gastos de Servicios de Transporte de Mer,Haber
+6.1.35.04,Gastos de Envío de Documentos,Haber
+6.1.35.05,Gastos de Teléfonos Celulares,Haber
+6.1.35.06,Gastos de Teléfonos Fijos,Haber
+6.1.35.07,Gastos de Servicios de Reproducción,Haber
+6.1.35.08,Gastos de Transporte y Fletes,Haber
+6.1.35.90,Correc. Monet. Gastos de Servicios Recib,Haber
+6.1.40,Gastos de Viajes,Haber
+6.1.40.01,Gastos de Pasajes Nacionales,Haber
+6.1.40.02,Gastos de Pasajes Internacionales,Haber
+6.1.40.03,Gastos de Taxis,Haber
+6.1.40.04,Gastos de Comida,Haber
+6.1.40.05,Gastos de Hoteles,Haber
+6.1.40.06,Gastos de Viáticos,Haber
+6.1.40.90,Correc. Monet. Gastos de Viajes,Haber
+6.1.45,Gastos de Publicidad y Promoción,Haber
+6.1.45.01,Gastos de Publicidad por Televisión,Haber
+6.1.45.02,Gastos de Publicidad por Radio,Haber
+6.1.45.03,Gastos de Publicidad por Prensa,Haber
+6.1.45.04,Gastos de Promoción Materiales para Dist,Haber
+6.1.45.90,Correc. Monet. Gastos de Publicidad y Pr,Haber
+6.1.50,Gastos de Suscripciones,Haber
+6.1.50.01,Revistas del Area Técnica,Haber
+6.1.50.02,Revistas Financieras,Haber
+6.1.50.03,Suscripciones de Revistas Varias,Haber
+6.1.50.04,Prensa Internacional,Haber
+6.1.50.05,Prensa Nacional,Haber
+6.1.50.06,Suscripciones Varias,Haber
+6.1.50.90,Correc. Monet. Gastos de Suscripciones,Haber
+6.1.55,Gastos de Impuestos,Haber
+6.1.55.01,Patente de Industria y Comercio,Haber
+6.1.55.02,Derecho de Frente,Haber
+6.1.55.03,Débito Bancario,Haber
+6.1.55.04,Otros,Haber
+6.1.55.90,Correc. Monet. Gastos de Impuestos,Haber
+6.1.60,Gastos Legales,Haber
+6.1.60.01,Registro Público,Haber
+6.1.60.02,Notarías,Haber
+6.1.60.03,Papel Sellado,Haber
+6.1.60.04,Timbres Fiscales,Haber
+6.1.60.90,Correc. Monet. Gastos Legales,Haber
+6.1.65,Gastos de Depreciación,Haber
+6.1.65.01,Gastos de Depreciación Oficinas de Venta,Haber
+6.1.65.02,Gastos de Depreciación Locales de Ventas,Haber
+6.1.65.03,Gastos de Depreciación Mobiliarios de Ve,Haber
+6.1.65.04,Gastos de Depreciación Equipo de Ventas,Haber
+6.1.65.05,Gastos de Depreciación Vehiculos de Repa,Haber
+6.1.65.90,Correc. Monet. Gastos de Depreciación,Haber
+6.1.70,Gastos de Amortización,Haber
+6.1.70.01,Gastos de Amortización Instalaciones de,Haber
+6.1.70.90,Correc. Monet. Gastos de Amortización,Haber
+6.1.75,Gastos Varios,Haber
+6.1.75.01,Obsequios y Regalos,Haber
+6.1.75.02,Comidas Menores,Haber
+6.1.75.03,Gasolina,Haber
+6.1.75.04,Lubricantes,Haber
+6.1.75.05,Fotocopias,Haber
+6.1.75.90,Correc. Monet. Gastos Varios,Haber
+6.2,Gastos de Administración,Haber
+6.2.05,Gastos de Personal,Haber
+6.2.05.01,Sueldos de Personal Administrativo,Haber
+6.2.05.02,Bonificaciones Personal Administrativo,Haber
+6.2.05.03,Reintegro por Gastos de Vehículos,Haber
+6.2.05.04,Antigedad,Haber
+6.2.05.05,Utilidades,Haber
+6.2.05.06,Vacaciones,Haber
+6.2.05.07,Bono Vacacional,Haber
+6.2.05.08,Preaviso,Haber
+6.2.05.09,Intereses sobre Prestaciones Sociales,Haber
+6.2.05.10,Bonificaciones Especiales,Haber
+6.2.05.11,Seguro de HCM Personal de Ventas,Haber
+6.2.05.12,Seguro Social Obligatorio,Haber
+6.2.05.13,Seguro de Paro Forzoso,Haber
+6.2.05.14,Política Habitacional,Haber
+6.2.05.15,Instituto Nacional de Cooperación Educat,Haber
+6.2.05.16,Contribución Caja de Ahorro,Haber
+6.2.05.90,Correc. Monet. Gastos de Personal,Haber
+6.2.10,Gastos de Seguros,Haber
+6.2.10.01,Mobiliario de Oficinas Administrativas,Haber
+6.2.10.02,Equipos de Oficinas Administrativas,Haber
+6.2.10.03,Vehículos Asignados a Oficinas Administr,Haber
+6.2.10.04,Responsabilidad Civil de Vehículos,Haber
+6.2.10.05,Responsabilidad Civil General,Haber
+6.2.10.90,Correc. Monet. Gastos de Seguros,Haber
+6.2.15,Gastos de Honorarios,Haber
+6.2.15.01,Honorarios Consultores,Haber
+6.2.15.02,Honorarios Abogados,Haber
+6.2.15.03,Honorarios Avaluadores,Haber
+6.2.15.90,Correc. Monet. Gastos de Honorarios,Haber
+6.2.20,Gastos de Alquileres,Haber
+6.2.20.01,Gastos de Alquileres Oficinas Administra,Haber
+6.2.20.02,Gastos de Alquileres Equipos de Oficina,Haber
+6.2.20.90,Correc. Monet. Gastos de Alquileres,Haber
+6.2.25,Gastos de Suministros de Oficinas Admini,Haber
+6.2.25.01,Suministros de Oficinas Administrativas,Haber
+6.2.25.02,Suministros de Papelería,Haber
+6.2.25.03,Suministros de Artículos de Computación,Haber
+6.2.25.04,Suministros Varios,Haber
+6.2.25.90,Correc. Monet. Gastos de Suministros de,Haber
+6.2.30,Gastos de Mantenimiento y Reparación,Haber
+6.2.30.01,Gastos de Mantenimiento Oficinas Adminis,Haber
+6.2.30.02,Gastos de Mantenimiento Equipos de Admin,Haber
+6.2.30.03,Gastos de Reparación Vehículos de Admini,Haber
+6.2.30.90,Correc. Monet. Gastos de Mantenimiento y,Haber
+6.2.35,Gastos de Servicios Recibidos,Haber
+6.2.35.01,Gastos de Servicios de Vigilancia Oficin,Haber
+6.2.35.02,Gastos de Servicios de Transporte de Mer,Haber
+6.2.35.03,Gastos de Envío de Documentos,Haber
+6.2.35.04,Gastos de Teléfonos Celulares,Haber
+6.2.35.05,Gastos de Teléfonos Fijos,Haber
+6.2.35.06,Gastos de Servicios de Reproducción,Haber
+6.2.35.07,Gastos de Electricidad,Haber
+6.2.35.90,Correc. Monet. Gastos de Servicios Recib,Haber
+6.2.40,Gastos de Viajes,Haber
+6.2.40.01,Gastos de Pasajes Nacionales,Haber
+6.2.40.02,Gastos de Pasajes Internacionales,Haber
+6.2.40.03,Gastos de Taxis,Haber
+6.2.40.04,Gastos de Comida,Haber
+6.2.40.05,Gastos de Hoteles,Haber
+6.2.40.06,Gastos de Viáticos,Haber
+6.2.40.90,Correc. Monet. Gastos de Viajes,Haber
+6.2.45,Gastos de Suscripciones,Haber
+6.2.45.01,Revistas Financieras,Haber
+6.2.45.02,Suscripciones Legales,Haber
+6.2.45.03,Suscripciones de Revistas Varias,Haber
+6.2.45.04,Prensa Internacional,Haber
+6.2.45.05,Prensa Nacional,Haber
+6.2.45.06,Otras Suscripciones,Haber
+6.2.45.90,Correc. Monet. Gastos de Suscripciones,Haber
+6.2.50,Gastos de Impuestos,Haber
+6.2.50.01,Patente de Industria y Comercio,Haber
+6.2.50.02,Derecho de Frente,Haber
+6.2.50.03,Débito Bancario,Haber
+6.2.50.04,Otros,Haber
+6.2.50.90,Correc. Monet. Gastos de Impuestos,Haber
+6.2.55,Gastos Legales,Haber
+6.2.55.01,Registro Público,Haber
+6.2.55.02,Notarías,Haber
+6.2.55.03,Papel Sellado,Haber
+6.2.55.04,Timbres Fiscales,Haber
+6.2.55.05,Gestores de Cobranzas,Haber
+6.2.55.90,Correc. Monet. Gastos Legales,Haber
+6.2.60,Gastos de Depreciación,Haber
+6.2.60.01,Gastos de Depreciación Oficinas Administ,Haber
+6.2.60.03,Gastos de Depreciación Mobiliarios de Of,Haber
+6.2.60.04,Gastos de Depreciación Equipo de Oficina,Haber
+6.2.60.05,Gastos de Depreciación Vehiculos Asignad,Haber
+6.2.60.90,Correc. Monet. Gastos de Depreciación,Haber
+6.2.65,Gastos de Amortización,Haber
+6.2.65.01,Gastos de Amortización Instalaciones Ofi,Haber
+6.2.65.90,Correc. Monet. Gastos de Amortización,Haber
+6.2.70,Gastos Varios,Haber
+6.2.70.01,Obsequios y Regalos,Haber
+6.2.70.02,Comidas Menores,Haber
+6.2.70.03,Gasolina,Haber
+6.2.70.04,Lubricantes,Haber
+6.2.70.05,Fotocopias,Haber
+6.2.70.90,Correc. Monet. Gastos Varios,Haber
+7,Otros Ingresos,Haber
+7.1,Ingresos Financieros,Debe
+7.1.05,Intereses,Debe
+7.1.05.01,Bancos,Debe
+7.1.05.02,Otras Entidades Financieras,Debe
+7.1.05.03,Cobrados a Clientes,Debe
+7.1.05.04,Ganancia en Venta de Instalaciones,Debe
+7.1.05.05,Ganancia en Venta de Maquinarias,Debe
+7.1.05.06,Ganancia en Venta de Mobiliario,Debe
+7.1.05.07,Ganancia en Venta de Equipos,Debe
+7.1.05.08,Ganancia en Venta de Vehículos,Debe
+7.1.05.90,Correc. Monet. Intereses,Debe
+7.1.10,Ingresos por Comisiones,Debe
+7.1.10.01,Sobre Operaciones con Clientes,Debe
+7.1.10.02,Otras,Debe
+7.1.10.90,Correc. Monet. Comisiones,Debe
+7.1.15,Ingresos por Diferencias en Cambio,Debe
+7.1.15.01,Ingresos por Diferencias Cambiarias,Debe
+7.1.15.90,Correc. Monet. Diferencias en Cambio,Debe
+7.1.20,Ingresos por Arrendamientos,Debe
+7.1.20.01,Mobiliario Alquilado a Terceros,Debe
+7.1.20.02,Inmuebles,Debe
+7.1.20.90,Correc. Monet. Arrendamientos,Debe
+7.1.25,Ganancia por Venta de Activos Fijos,Debe
+7.1.30,Ganancia en Venta de Inversiones,Debe
+7.1.30.01,Ganancia en Venta de Acciones,Debe
+7.1.30.02,Ganancia en Venta de Bonos,Debe
+7.1.30.03,Ganancia en Venta de Papeles Comerciales,Debe
+7.1.30.04,Ganancia en Venta de Otros Valores,Debe
+7.1.30.90,Correc. Monet. Ganancia en Venta de Inve,Debe
+7.1.35,Ganancia Monetaria,Debe
+7.1.35.01,Ganancia Monetaria por Actividades de Op,Debe
+7.1.35.02,Ganancia Monetaria por Actividades de In,Debe
+7.1.35.03,Ganancia Monetaria por Actividades de Fi,Debe
+8,Otros Egresos,Debe
+8.1,Egresos Financieros,Haber
+8.1.05,Egresos por Intereses,Haber
+8.1.05.01,Bancos,Haber
+8.1.05.02,Otras Entidades Financieras,Haber
+8.1.05.03,Cobrados a Clientes,Haber
+8.1.05.90,Correc. Monet. Intereses,Haber
+8.1.06.02,Pérdida en Venta de Bonos,Haber
+8.1.06.03,Pérdida en Venta de Papeles Comerciales,Haber
+8.1.06.04,Pérdida en Venta de Otros Valores,Haber
+8.1.06.90,Correc. Monet. Pérdida en Venta de Inver,Haber
+8.1.10,Pérdida por Diferencia en Cambio,Haber
+8.1.10.01,Pérdida por Diferencias Cambiarias,Haber
+8.1.10.90,Correc. Monet. Diferencia en Cambio,Haber
+8.1.15,Egresos por Arrendamientos,Haber
+8.1.15.01,Mobiliario Alquilado de Terceros,Haber
+8.1.15.02,Inmuebles,Haber
+8.1.15.90,Correc. Monet. Arrendamientos,Haber
+8.1.20,Pérdida por Venta de Activos Fijos,Haber
+8.1.20.01,Pérdida en Venta de Terrenos,Haber
+8.1.20.02,Pérdida en Venta de Planta,Haber
+8.1.20.03,Pérdida en Venta de Edificios,Haber
+8.1.20.04,Pérdida en Venta de Instalaciones,Haber
+8.1.20.05,Pérdida en Venta de Maquinarias,Haber
+8.1.20.06,Pérdida en Venta de Mobiliario,Haber
+8.1.20.07,Pérdida en Venta de Equipos,Haber
+8.1.20.08,Pérdida en Venta de Vehículos,Haber
+8.1.20.90,Correc. Monet. Pérdida en Venta de Activ,Haber
+8.1.25,Pérdida por Venta de Inversiones,Haber
+8.1.25.01,Pérdida en Venta de Acciones,Haber
+8.1.30,Resultado Monetario,Haber
+8.1.30.01,Pérdida Monetaria por Actividades de Ope,Haber
+8.1.30.02,Pérdida Monetaria por Actividades de Inv,Haber
+8.1.30.03,Pérdida Monetaria por Actividades de Fin,Haber

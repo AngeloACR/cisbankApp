@@ -11,20 +11,58 @@ const clasificacionSchema = mongoose.Schema({
     type: String,
     required: true,
   },
-  subclasificacion: [{
-    naturaleza: {
-      type: String,
-      required: true,
+  naturaleza: {
+    type: String,
+    required: true,
+  },
+  subclasificacion1: [
+    {
+      naturaleza: {
+        type: String,
+        required: true,
+      },
+      codigo: {
+        type: String,
+        required: true,
+      },
+      descripcion: {
+        type: String,
+        required: true,
+      },
+      subclasificacion2: [
+        {
+          naturaleza: {
+            type: String,
+            required: true,
+          },
+          codigo: {
+            type: String,
+            required: true,
+          },
+          descripcion: {
+            type: String,
+            required: true,
+          },
+          subclasificacion3: [
+            {
+              naturaleza: {
+                type: String,
+                required: true,
+              },
+              codigo: {
+                type: String,
+                required: true,
+              },
+              descripcion: {
+                type: String,
+                required: true,
+              },
+            },
+          ],
+        },
+      ],
     },
-    codigo: {
-      type: String,
-      required: true,
-    },
-    descripcion: {
-      type: String,
-      required: true,
-    },
-  }],
+  ],
 });
 
 const Clasificacion = (module.exports = mongoose.model(

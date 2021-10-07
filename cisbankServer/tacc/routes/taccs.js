@@ -6,6 +6,7 @@ const MTAcc = require("../models/mtacc");
 const Company = require("../../general/models/company");
 const Move = require("../../moves/models/move");
 const async = require("async");
+const mainController = require("../controller/main");
 
 //Create TAcc
 tAccRouter.post("/cTAcc", async (req, res, next) => {
@@ -43,66 +44,7 @@ tAccRouter.post("/cTAcc", async (req, res, next) => {
   });
 });
 
-tAccRouter.post("/csvTAccs", (req, res, next) => {
-  const tName = req.body.tName;
-  const tMonth = req.body.tMonth;
-  const tClasf = req.body.tClasf;
-  const tType = req.body.tType;
-  const tNature = req.body.tNature;
-
-  let newTAcc = new TAcc({
-    tName: tName,
-    tClasf: tClasf,
-    tBalance: 0,
-    tNature,
-    tType: tType,
-  });
-
-  let newMTAcc = new MTAcc({
-    tName: tName,
-    tMonth: tMonth,
-    tNature,
-    tType: tType,
-    tBalance: 0,
-  });
-
-  var createTAcc = function (callback) {
-    TAcc.createTAcc(newTAcc, (cErr, tAcc) => {
-      if (cErr) throw cErr;
-      if (tAcc) {
-        callback(null, tAcc);
-      } else {
-        callback(new Error("Something is wrong, try again in a million years"));
-      }
-    });
-  };
-
-  var createMTAcc = function (callback) {
-    MTAcc.createMTAcc(newMTAcc, (mErr, mtAcc) => {
-      if (mErr) throw mErr;
-      if (mtAcc) {
-        callback(null, mtAcc);
-      } else {
-        callback(new Error("Something is wrong, try again in a million years"));
-      }
-    });
-  };
-
-
-  async.series([createTAcc, createMTAcc], function (err, info) {
-    if (err) {
-      return res.json({
-        success: false,
-        msg: err,
-      });
-    } else {
-      return res.json({
-        success: true,
-        msg: "TAcc registered",
-      });
-    }
-  });
-});
+tAccRouter.post("/csvTAccs", mainController.crearCuentaTCSV);
 
 //Get TAcc
 tAccRouter.post("/gTAcc", (req, res, next) => {
