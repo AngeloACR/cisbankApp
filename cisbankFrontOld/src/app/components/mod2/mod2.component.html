@@ -83,17 +83,73 @@
 			<label for="desc">Descripción: 
 				<input type="text" class="lInput" formControlName="desc" name="desc" placeHolder="Nombre">
 			</label>
-			<label for="tipo">Codigo clasificador:
-				<select class="lInput" name="tipo" [(ngModel)]="clasificacion" [ngModelOptions]="{standalone: true}" (change)="setSubclasificacion()">
-					<option *ngFor="let clasificacion of clasificaciones" [value]="clasificacion.descripcion">{{clasificacion.codigo}}.-{{clasificacion.descripcion}}</option>
-				</select>
-
-			</label><!-- 
-			<label for="subclasificacion">Subclasificación:
-				<select class="lInput" name="subclasificacion" [(ngModel)]="subclasificacion" [ngModelOptions]="{standalone: true}">
-					<option *ngFor="let clasificacion of clasificacion.subclasificacion" [value]="clasificacion.descripcion">{{clasificacion.codigo}}.-{{clasificacion.descripcion}}</option>
-				</select>
-			</label> -->
+			<label for="tipo"
+			  >Codigo clasificador:
+			  <select
+				class="lInput"
+				name="tipo"
+				[(ngModel)]="clasificacion"
+				[ngModelOptions]="{ standalone: true }"
+				(change)="setSubclasificacion()"
+			  >
+				<option
+				  *ngFor="let clasif of clasificaciones; let i = index"
+				  [ngValue]="clasificaciones[i]"
+				>
+				  {{ clasif.codigo }}.-{{ clasif.descripcion }}
+				</option>
+			  </select>
+			</label>
+			<label for="tipo" *ngIf="subclasificaciones1"
+			  >Subclasificacion 1:
+			  <select
+				class="lInput"
+				name="tipo"
+				[(ngModel)]="subclasificacion1"
+				[ngModelOptions]="{ standalone: true }"
+				(change)="setSubclasificacion2()"
+			  >
+				<option
+				  *ngFor="let clasif of subclasificaciones1; let i = index"
+				  [ngValue]="subclasificaciones1[i]"
+				>
+				  {{ clasif.codigo }}.-{{ clasif.descripcion }}
+				</option>
+			  </select>
+			</label>
+			<label for="tipo" *ngIf="subclasificaciones2"
+			  >Subclasificacion 2:
+			  <select
+				class="lInput"
+				name="tipo"
+				[(ngModel)]="subclasificacion2"
+				[ngModelOptions]="{ standalone: true }"
+				(change)="setSubclasificacion3()"
+			  >
+				<option
+				  *ngFor="let clasif of subclasificaciones2; let i = index"
+				  [ngValue]="subclasificaciones2[i]"
+				>
+				  {{ clasif.codigo }}.-{{ clasif.descripcion }}
+				</option>
+			  </select>
+			</label>
+			<label for="tipo" *ngIf="subclasificaciones3"
+			  >Subclasificacion 3:
+			  <select
+				class="lInput"
+				name="tipo"
+				[(ngModel)]="subclasificacion3"
+				[ngModelOptions]="{ standalone: true }"
+			  >
+				<option
+				  *ngFor="let clasif of subclasificaciones3; let i = index"
+				  [ngValue]="subclasificaciones3[i]"
+				>
+				  {{ clasif.codigo }}.-{{ clasif.descripcion }}
+				</option>
+			  </select>
+			</label>
 			<label for="naturaleza">Naturaleza:
 				<select class="lInput" name="naturaleza" formControlName="naturaleza" >
 					<option value="Debe">Debe</option>
@@ -115,11 +171,72 @@
 			<label for="desc">Descripción: 
 				<input type="text" class="lInput" formControlName="desc" name="desc" placeHolder="Nombre">
 			</label>
-			<label for="tipo">Codigo clasificador:
-				<select class="lInput" name="tipo" formControlName="tipo" >
-					<option *ngFor="let clasificacion of clasificaciones" [value]="clasificacion.descripcion">{{clasificacion.codigo}}.-{{clasificacion.descripcion}}</option>
-				</select>
-
+			<label for="tipo"
+			  >Codigo clasificador:
+			  <select
+				class="lInput"
+				name="tipo"
+				[(ngModel)]="clasificacion"
+				[ngModelOptions]="{ standalone: true }"
+				(change)="setSubclasificacion()"
+			  >
+				<option
+				  *ngFor="let clasif of clasificaciones; let i = index"
+				  [ngValue]="clasificaciones[i]"
+				>
+				  {{ clasif.codigo }}.-{{ clasif.descripcion }}
+				</option>
+			  </select>
+			</label>
+			<label for="tipo" *ngIf="subclasificaciones1"
+			  >Subclasificacion 1:
+			  <select
+				class="lInput"
+				name="tipo"
+				[(ngModel)]="subclasificacion1"
+				[ngModelOptions]="{ standalone: true }"
+				(change)="setSubclasificacion2()"
+			  >
+				<option
+				  *ngFor="let clasif of subclasificaciones1; let i = index"
+				  [ngValue]="subclasificaciones1[i]"
+				>
+				  {{ clasif.codigo }}.-{{ clasif.descripcion }}
+				</option>
+			  </select>
+			</label>
+			<label for="tipo" *ngIf="subclasificaciones2"
+			  >Subclasificacion 2:
+			  <select
+				class="lInput"
+				name="tipo"
+				[(ngModel)]="subclasificacion2"
+				[ngModelOptions]="{ standalone: true }"
+				(change)="setSubclasificacion3()"
+			  >
+				<option
+				  *ngFor="let clasif of subclasificaciones2; let i = index"
+				  [ngValue]="subclasificaciones2[i]"
+				>
+				  {{ clasif.codigo }}.-{{ clasif.descripcion }}
+				</option>
+			  </select>
+			</label>
+			<label for="tipo" *ngIf="subclasificaciones3"
+			  >Subclasificacion 3:
+			  <select
+				class="lInput"
+				name="tipo"
+				[(ngModel)]="subclasificacion3"
+				[ngModelOptions]="{ standalone: true }"
+			  >
+				<option
+				  *ngFor="let clasif of subclasificaciones3; let i = index"
+				  [ngValue]="subclasificaciones3[i]"
+				>
+				  {{ clasif.codigo }}.-{{ clasif.descripcion }}
+				</option>
+			  </select>
 			</label>
 			<label for="naturaleza">Naturaleza:
 				<select class="lInput" name="naturaleza" formControlName="naturaleza" >

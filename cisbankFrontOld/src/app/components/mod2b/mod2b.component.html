@@ -37,16 +37,16 @@
       <p>Seleccione un mes y año:</p>
     </div>
     <div class="buttonBox">
-		<select [(ngModel)]="currentMonth">
-		  <option [value]="i + 1" *ngFor="let month of tMonths; let i=index">
-			{{ month }}
-		  </option>
-		</select>
-		<select [(ngModel)]="currentYear">
-		  <option [value]="year" *ngFor="let year of tYears">
-			{{year}}
-		  </option>
-		</select>
+      <select [(ngModel)]="currentMonth">
+        <option [value]="i + 1" *ngFor="let month of tMonths; let i = index">
+          {{ month }}
+        </option>
+      </select>
+      <select [(ngModel)]="currentYear">
+        <option [value]="year" *ngFor="let year of tYears">
+          {{ year }}
+        </option>
+      </select>
     </div>
     <div class="buttonBox" (click)="filterMoves(1)">
       <p>Filtrar movimientos por mes y año</p>
@@ -329,10 +329,70 @@
       </label>
       <label for="tipo"
         >Codigo clasificador:
-				<select class="lInput" name="tipo" [(ngModel)]="clasificacion" [ngModelOptions]="{standalone: true}" (change)="setSubclasificacion()">
-					<option *ngFor="let clasificacion of clasificaciones" [value]="clasificacion.descripcion">{{clasificacion.codigo}}.-{{clasificacion.descripcion}}</option>
-				</select>
-
+        <select
+          class="lInput"
+          name="tipo"
+          [(ngModel)]="clasificacion"
+          [ngModelOptions]="{ standalone: true }"
+          (change)="setSubclasificacion()"
+        >
+          <option
+            *ngFor="let clasif of clasificaciones; let i = index"
+            [ngValue]="clasificaciones[i]"
+          >
+            {{ clasif.codigo }}.-{{ clasif.descripcion }}
+          </option>
+        </select>
+      </label>
+      <label for="tipo" *ngIf="subclasificaciones1"
+        >Subclasificacion 1:
+        <select
+          class="lInput"
+          name="tipo"
+          [(ngModel)]="subclasificacion1"
+          [ngModelOptions]="{ standalone: true }"
+          (change)="setSubclasificacion2()"
+        >
+          <option
+            *ngFor="let clasif of subclasificaciones1; let i = index"
+            [ngValue]="subclasificaciones1[i]"
+          >
+            {{ clasif.codigo }}.-{{ clasif.descripcion }}
+          </option>
+        </select>
+      </label>
+      <label for="tipo" *ngIf="subclasificaciones2"
+        >Subclasificacion 2:
+        <select
+          class="lInput"
+          name="tipo"
+          [(ngModel)]="subclasificacion2"
+          [ngModelOptions]="{ standalone: true }"
+          (change)="setSubclasificacion3()"
+        >
+          <option
+            *ngFor="let clasif of subclasificaciones2; let i = index"
+            [ngValue]="subclasificaciones2[i]"
+          >
+            {{ clasif.codigo }}.-{{ clasif.descripcion }}
+          </option>
+        </select>
+      </label>
+      <label for="tipo" *ngIf="subclasificaciones3"
+        >Subclasificacion 3:
+        <select
+          class="lInput"
+          name="tipo"
+          [(ngModel)]="subclasificacion3"
+          [ngModelOptions]="{ standalone: true }"
+        >
+          <option
+            *ngFor="let clasif of subclasificaciones3; let i = index"
+            [ngValue]="subclasificaciones3[i]"
+          >
+            {{ clasif.codigo }}.-{{ clasif.descripcion }}
+          </option>
+        </select>
       </label>
       <label for="naturaleza"
         >Naturaleza:
@@ -363,10 +423,70 @@
       </label>
       <label for="tipo"
         >Codigo clasificador:
-				<select class="lInput" name="tipo" [(ngModel)]="clasificacion" [ngModelOptions]="{standalone: true}" (change)="setSubclasificacion()">
-					<option *ngFor="let clasificacion of clasificaciones" [value]="clasificacion.descripcion">{{clasificacion.codigo}}.-{{clasificacion.descripcion}}</option>
-				</select>
-
+        <select
+          class="lInput"
+          name="tipo"
+          [(ngModel)]="clasificacion"
+          [ngModelOptions]="{ standalone: true }"
+          (change)="setSubclasificacion()"
+        >
+          <option
+            *ngFor="let clasif of clasificaciones; let i = index"
+            [ngValue]="clasificaciones[i]"
+          >
+            {{ clasif.codigo }}.-{{ clasif.descripcion }}
+          </option>
+        </select>
+      </label>
+      <label for="tipo" *ngIf="subclasificaciones1"
+        >Subclasificacion 1:
+        <select
+          class="lInput"
+          name="tipo"
+          [(ngModel)]="subclasificacion1"
+          [ngModelOptions]="{ standalone: true }"
+          (change)="setSubclasificacion2()"
+        >
+          <option
+            *ngFor="let clasif of subclasificaciones1; let i = index"
+            [ngValue]="subclasificaciones1[i]"
+          >
+            {{ clasif.codigo }}.-{{ clasif.descripcion }}
+          </option>
+        </select>
+      </label>
+      <label for="tipo" *ngIf="subclasificaciones2"
+        >Subclasificacion 2:
+        <select
+          class="lInput"
+          name="tipo"
+          [(ngModel)]="subclasificacion2"
+          [ngModelOptions]="{ standalone: true }"
+          (change)="setSubclasificacion3()"
+        >
+          <option
+            *ngFor="let clasif of subclasificaciones2; let i = index"
+            [ngValue]="subclasificaciones2[i]"
+          >
+            {{ clasif.codigo }}.-{{ clasif.descripcion }}
+          </option>
+        </select>
+      </label>
+      <label for="tipo" *ngIf="subclasificaciones3"
+        >Subclasificacion 3:
+        <select
+          class="lInput"
+          name="tipo"
+          [(ngModel)]="subclasificacion3"
+          [ngModelOptions]="{ standalone: true }"
+        >
+          <option
+            *ngFor="let clasif of subclasificaciones3; let i = index"
+            [ngValue]="subclasificaciones3[i]"
+          >
+            {{ clasif.codigo }}.-{{ clasif.descripcion }}
+          </option>
+        </select>
       </label>
       <label for="naturaleza"
         >Naturaleza:

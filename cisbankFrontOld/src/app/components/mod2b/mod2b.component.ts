@@ -81,8 +81,8 @@ export class Mod2bComponent implements OnInit {
     this.currentMonth = parseInt(this.todayS.split("-")[1]);
     var year = this.today.getFullYear();
     this.currentYear = year;
-    for(let i = 2018; i <= year; i++){
-      this.tYears.push(i)
+    for (let i = 2018; i <= year; i++) {
+      this.tYears.push(i);
     }
     for (let i = 0; i <= 11; i++) {
       var date = new Date(year, i, 1);
@@ -99,16 +99,78 @@ export class Mod2bComponent implements OnInit {
   }
 
   clasificaciones: any;
-  subclasificaciones: any;
+  subclasificaciones1: any;
+  subclasificaciones2: any;
+  subclasificaciones3: any;
   clasificacion: any;
-  subclasificacion: any;
-  
-  setSubclasificacion(){
-    this.subclasificaciones = this.clasificacion.subclasificacion; 
+  subclasificacion1: any;
+  subclasificacion2: any;
+  subclasificacion3: any;
+
+  setSubclasificacion() {
+    if (this.clasificacion.subclasificacion1 && this.clasificacion.subclasificacion1.length) {
+      this.subclasificaciones1 = this.clasificacion.subclasificacion1;
+      this.subclasificacion1 = this.subclasificaciones1[0];
+    }else{
+      this.subclasificaciones1 = false;
+      this.subclasificacion1 = false;
+    }
+    if (this.subclasificacion1.subclasificacion2 && this.subclasificacion1.subclasificacion2.length) {
+      this.subclasificaciones2 = this.subclasificacion1.subclasificacion2;
+      this.subclasificacion2 = this.subclasificaciones2[0];
+    }else{
+      this.subclasificaciones2 = false;
+      this.subclasificacion2 = false;
+    }
+    if (this.subclasificacion2.subclasificacion3 && this.subclasificacion2.subclasificacion3.length) {
+      this.subclasificaciones3 = this.subclasificacion2.subclasificacion3;
+      this.subclasificacion3 = this.subclasificaciones3[0];
+    }else{
+      this.subclasificaciones3 = false;
+      this.subclasificacion3 = false;
+    }
   }
+
+  setSubclasificacion2() {
+    if (this.subclasificacion1.subclasificacion2 && this.subclasificacion1.subclasificacion2.length) {
+      this.subclasificaciones2 = this.subclasificacion1.subclasificacion2;
+      this.subclasificacion2 = this.subclasificaciones2[0];
+    }else{
+      this.subclasificaciones2 = false;
+      this.subclasificacion2 = false;
+    }
+    if (this.subclasificacion2.subclasificacion3  && this.subclasificacion2.subclasificacion3.length) {
+      this.subclasificaciones3 = this.subclasificacion2.subclasificacion3;
+      this.subclasificacion3 = this.subclasificaciones3[0];
+    }else{
+      this.subclasificaciones3 = false;
+      this.subclasificacion3 = false;
+    }  }
+
+  setSubclasificacion3() {
+    if (this.subclasificacion2.subclasificacion3 && this.subclasificacion2.subclasificacion3.length) {
+      this.subclasificaciones3 = this.subclasificacion2.subclasificacion3;
+      this.subclasificacion3 = this.subclasificaciones3[0];
+    }else{
+      this.subclasificaciones3 = false;
+      this.subclasificacion3 = false;
+    }  }
 
   async ngOnInit() {
     this.clasificaciones = await this.data.getClasificaciones();
+    this.clasificacion = this.clasificaciones[0];
+    if (this.clasificacion.subclasificacion1) {
+      this.subclasificaciones1 = this.clasificacion.subclasificacion1;
+      this.subclasificacion1 = this.subclasificaciones1[0];
+    }
+    if (this.subclasificacion1.subclasificacion2) {
+      this.subclasificaciones2 = this.subclasificacion1.subclasificacion2;
+      this.subclasificacion2 = this.subclasificaciones2[0];
+    }
+    if (this.subclasificacion2.subclasificacion3) {
+      this.subclasificaciones3 = this.subclasificacion2.subclasificacion3;
+      this.subclasificacion3 = this.subclasificaciones3[0];
+    }
     this.getState();
     this.acc = new FormGroup({
       desc: new FormControl("", [
@@ -158,9 +220,11 @@ export class Mod2bComponent implements OnInit {
   fechaFinal: Date;
 
   async filterMoves(type) {
-    if(!type){
-      if(!this.fechaInicial || this.fechaFinal){
-        alert("Por favor, seleccione una fecha inicial y una final para la consulta por rango de fechas");
+    if (!type) {
+      if (!this.fechaInicial || this.fechaFinal) {
+        alert(
+          "Por favor, seleccione una fecha inicial y una final para la consulta por rango de fechas"
+        );
         return;
       }
     }
@@ -242,7 +306,10 @@ export class Mod2bComponent implements OnInit {
       }
       return false;
     } else {
-      return (this.currentMonth == parseInt(date.split("-")[1]) && this.currentYear == parseInt(date.split("-")[0]));
+      return (
+        this.currentMonth == parseInt(date.split("-")[1]) &&
+        this.currentYear == parseInt(date.split("-")[0])
+      );
     }
   }
 

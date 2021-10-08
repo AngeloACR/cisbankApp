@@ -51,15 +51,78 @@ export class Mod2cComponent implements OnInit {
   constructor(private data: DataHandlerService, private datePipe: DatePipe, private fb: FormBuilder) {}
 
   clasificaciones: any;
-  subclasificaciones: any;
+  subclasificaciones1: any;
+  subclasificaciones2: any;
+  subclasificaciones3: any;
   clasificacion: any;
-  subclasificacion: any;
-  
-  setSubclasificacion(){
-    this.subclasificaciones = this.clasificacion.subclasificacion; 
+  subclasificacion1: any;
+  subclasificacion2: any;
+  subclasificacion3: any;
+
+  setSubclasificacion() {
+    if (this.clasificacion.subclasificacion1 && this.clasificacion.subclasificacion1.length) {
+      this.subclasificaciones1 = this.clasificacion.subclasificacion1;
+      this.subclasificacion1 = this.subclasificaciones1[0];
+    }else{
+      this.subclasificaciones1 = false;
+      this.subclasificacion1 = false;
+    }
+    if (this.subclasificacion1.subclasificacion2 && this.subclasificacion1.subclasificacion2.length) {
+      this.subclasificaciones2 = this.subclasificacion1.subclasificacion2;
+      this.subclasificacion2 = this.subclasificaciones2[0];
+    }else{
+      this.subclasificaciones2 = false;
+      this.subclasificacion2 = false;
+    }
+    if (this.subclasificacion2.subclasificacion3 && this.subclasificacion2.subclasificacion3.length) {
+      this.subclasificaciones3 = this.subclasificacion2.subclasificacion3;
+      this.subclasificacion3 = this.subclasificaciones3[0];
+    }else{
+      this.subclasificaciones3 = false;
+      this.subclasificacion3 = false;
+    }
   }
 
+  setSubclasificacion2() {
+    if (this.subclasificacion1.subclasificacion2 && this.subclasificacion1.subclasificacion2.length) {
+      this.subclasificaciones2 = this.subclasificacion1.subclasificacion2;
+      this.subclasificacion2 = this.subclasificaciones2[0];
+    }else{
+      this.subclasificaciones2 = false;
+      this.subclasificacion2 = false;
+    }
+    if (this.subclasificacion2.subclasificacion3  && this.subclasificacion2.subclasificacion3.length) {
+      this.subclasificaciones3 = this.subclasificacion2.subclasificacion3;
+      this.subclasificacion3 = this.subclasificaciones3[0];
+    }else{
+      this.subclasificaciones3 = false;
+      this.subclasificacion3 = false;
+    }  }
+
+  setSubclasificacion3() {
+    if (this.subclasificacion2.subclasificacion3 && this.subclasificacion2.subclasificacion3.length) {
+      this.subclasificaciones3 = this.subclasificacion2.subclasificacion3;
+      this.subclasificacion3 = this.subclasificaciones3[0];
+    }else{
+      this.subclasificaciones3 = false;
+      this.subclasificacion3 = false;
+    }  }
+
   async ngOnInit() {
+    this.clasificaciones = await this.data.getClasificaciones();
+    this.clasificacion = this.clasificaciones[0];
+    if (this.clasificacion.subclasificacion1) {
+      this.subclasificaciones1 = this.clasificacion.subclasificacion1;
+      this.subclasificacion1 = this.subclasificaciones1[0];
+    }
+    if (this.subclasificacion1.subclasificacion2) {
+      this.subclasificaciones2 = this.subclasificacion1.subclasificacion2;
+      this.subclasificacion2 = this.subclasificaciones2[0];
+    }
+    if (this.subclasificacion2.subclasificacion3) {
+      this.subclasificaciones3 = this.subclasificacion2.subclasificacion3;
+      this.subclasificacion3 = this.subclasificaciones3[0];
+    }
     this.clasificaciones = await this.data.getClasificaciones();
     this.acc = new FormGroup({
       desc: new FormControl("", [

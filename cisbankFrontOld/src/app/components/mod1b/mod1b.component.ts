@@ -75,8 +75,8 @@ export class Mod1bComponent implements OnInit {
     this.bank.controls["bBalance"].disable();
     let bCoin = bacc.bCoin;
     let bCode = bacc.bCode;
-    if(!bCoin) bCoin = "Bs"
-    if(!bCode) bCode = "0134"
+    if (!bCoin) bCoin = "Bs";
+    if (!bCode) bCode = "0134";
     this.bank.setValue({
       bAlias: bacc.bAlias,
       bCode,
@@ -121,7 +121,8 @@ export class Mod1bComponent implements OnInit {
       ? this.fBanco.bCode.errors.required
       : false;
 
-    let error = aux1 || aux2 || aux3 || aux4 || aux5 || aux6 || aux7 || aux8 || aux9;
+    let error =
+      aux1 || aux2 || aux3 || aux4 || aux5 || aux6 || aux7 || aux8 || aux9;
     return error;
   }
   tBox() {
@@ -183,11 +184,16 @@ export class Mod1bComponent implements OnInit {
   }
 
   deleteBank(event, bacc) {
-    console.log("Deleting bank");
-    this.data.deleteBank(bacc).subscribe((data) => {
-      // data is already a JSON object
-      this.data.updateBs();
-      window.location.reload();
-    });
+    if (bacc.tMoves && bacc.tMoves.length) {
+      alert(
+        "La cuenta seleccionada tiene movimientos asociados, elimine los movimientos para poder borrar la cuenta"
+      );
+    } else {
+      this.data.deleteBank(bacc).subscribe((data) => {
+        // data is already a JSON object
+        this.data.updateBs();
+        window.location.reload();
+      });
+    }
   }
 }

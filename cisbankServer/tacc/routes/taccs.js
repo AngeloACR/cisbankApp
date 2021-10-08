@@ -15,15 +15,21 @@ tAccRouter.post("/cTAcc", async (req, res, next) => {
   const tClasf = req.body.tClasf;
   const tType = req.body.tType;
   const tNature = req.body.tNature;
+  const subclasificacion1 = req.body.subclasificacion1;
+  const subclasificacion2 = req.body.subclasificacion2;
+  const subclasificacion3 = req.body.subclasificacion3;
 
   let tacc = {
     tName: tName,
+    subclasificacion1,
     tClasf: tClasf,
+    subclasificacion2,
     tNature,
+    subclasificacion3,
     tBalance: 0,
     tDebe: 0,
     tHaber: 0,
-    tType: tType
+    tType: tType,
   };
 
   let taccResponse = await TAcc.createTAcc(tacc);
@@ -96,11 +102,20 @@ tAccRouter.post("/uTAcc", (req, res, next) => {
   const tClasf = req.body.tClasf;
   const tNature = req.body.tNature;
   const tName = req.body.tName;
+  const subclasificacion1 = req.body.subclasificacion1;
+  const subclasificacion2 = req.body.subclasificacion2;
+  const subclasificacion3 = req.body.subclasificacion3;
+
+
+
 
   let tacc = new TAcc({
     tName: tName,
+    subclasificacion1,
     tNature,
+    subclasificacion2,
     tClasf: tClasf,
+    subclasificacion3,
     tType: tType,
   });
 
@@ -172,7 +187,6 @@ tAccRouter.post("/dTAcc", (req, res, next) => {
     });
   };
 
-
   var deleteTAcc = function (tacc, callback) {
     TAcc.deleteTAcc(tacc, (dErr, dtAcc) => {
       if (dErr) throw dErr;
@@ -184,22 +198,19 @@ tAccRouter.post("/dTAcc", (req, res, next) => {
     });
   };
 
-  async.waterfall(
-    [moveThing, getTAcc, deleteTAcc],
-    function (err, info) {
-      if (err) {
-        return res.json({
-          success: false,
-          msg: err,
-        });
-      } else {
-        return res.json({
-          success: true,
-          msg: "TAcc deleted",
-        });
-      }
+  async.waterfall([moveThing, getTAcc, deleteTAcc], function (err, info) {
+    if (err) {
+      return res.json({
+        success: false,
+        msg: err,
+      });
+    } else {
+      return res.json({
+        success: true,
+        msg: "TAcc deleted",
+      });
     }
-  );
+  });
 });
 
 tAccRouter.get("/gmTAccs", (req, res, next) => {

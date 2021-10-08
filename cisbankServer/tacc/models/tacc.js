@@ -12,8 +12,16 @@ const TAccSchema = mongoose.Schema({
 		required: true
 	},
 	tClasf: {
-		type: String,
-		required: true
+		type: String
+	},
+	subclasificacion1: {
+		type: String
+	},
+	subclasificacion2: {
+		type: String
+	},
+	subclasificacion3: {
+		type: String
 	},
 	tType: {
 		type: String,
@@ -70,6 +78,9 @@ module.exports.updateTAcc = function(tAcc, callback){
 	TAcc.findOneAndUpdate(query, 
     { $set: { 
 		"tClasf": tAcc.tClasf,
+		"subclasificacion1": tAcc.subclasificacion1,
+		"subclasificacion2": tAcc.subclasificacion2,
+		"subclasificacion3": tAcc.subclasificacion3,
 		"tType": tAcc.tType,
 		"tNature": tAcc.tNature,
     }},
