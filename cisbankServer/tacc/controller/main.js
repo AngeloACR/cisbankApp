@@ -27,7 +27,8 @@ const mainHandler = {
     try {
       let clasificacionesAux = [];
       await clasificacionUploader(req, res);
-      let filepath = `/home/angeloacr/Proyectos/cisbank/app/cisbankServer/uploads/clasificacion/${req.file.originalname}`;
+      let filepath = `/root/cisbankApp/cisbankServer/uploads/clasificacion/${req.file.originalname}`;
+      //let filepath = `/home/angeloacr/Proyectos/cisbank/app/cisbankServer/uploads/clasificacion/${req.file.originalname}`;
       fs.createReadStream(filepath)
         .pipe(csv())
         .on("data", (data) => clasificacionesAux.push(data))
