@@ -147,18 +147,17 @@ def updateMonths(tId, mId, myDB, newAmmount):
 
         mtQuery = {'tName': tId}
         mtacc = mtaccs.find_one(mtQuery)
-    	if not move['mSign']:
-    	    newDebe = mtacc['tDebe'] - move['mAmmount']  + newAmmount
-    	    tDebe = {"$set": {"tDebe": newDebe}}
-    	    mtaccs.update_one(mtQuery, tDebe)
-    	    newBalance = mtacc['tHaber']-newDebe
-    	else:
-    	    newHaber = mtacc['tHaber'] - move['mAmmount'] + newAmmount
-    	    tHaber = {"$set": {"tHaber": newHaber}}
-    	    mtaccs.update_one(mtQuery, tHaber)
-    	    newBalance = newHaber-mtacc['tDebe']
-        """ newBalance = mtacc['tBalance'] - move['mAmmount']
- """
+        if not move['mSign']:
+            newDebe = mtacc['tDebe'] - move['mAmmount'] + newAmmount
+            tDebe = {"$set": {"tDebe": newDebe}}
+            mtaccs.update_one(mtQuery, tDebe)
+            newBalance = mtacc['tHaber']-newDebe
+        else:
+            newHaber = mtacc['tHaber'] - move['mAmmount'] + newAmmount
+            tHaber = {"$set": {"tHaber": newHaber}}
+            mtaccs.update_one(mtQuery, tHaber)
+            newBalance = newHaber-mtacc['tDebe']
+
         mtBalance = {"$set": {"tBalance": newBalance}}
         mtaccs.update_one(mtQuery, mtBalance)
         mAmmount = {"$set": {"mAmmount": newAmmount}}
