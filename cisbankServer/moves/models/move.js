@@ -83,7 +83,7 @@ module.exports.updateMove = function (move, newAmmount, callback) {
   var myData;
 
   updateProcess.stdout.on("data", (data) => {
-    myData = data.toString();
+    myData = data;
   });
 
   updateProcess.on("close", (code) => {

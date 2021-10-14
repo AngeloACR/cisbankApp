@@ -240,8 +240,8 @@ export class Mod2bComponent implements OnInit {
       for (let move of aux) {
         mDate = new Date(move.mDate);
         move["mDateAux"] = mDate;
-        move.mDate = this.datePipe.transform(mDate, "yyyy-MM-dd");
         if (this.getFilter(move.mDate, type)) {
+          move.mDate = move.mDate.substring(0, 10);
           if (move.mSign) {
             move.mNature = "+";
             move.mMas = move.mAmmount;
@@ -281,6 +281,7 @@ export class Mod2bComponent implements OnInit {
   }
 
   getFilter(date, type) {
+        date = this.datePipe.transform(date, "yyyy-MM-dd");
     if (!type) {
       let auxInicial = this.datePipe.transform(this.fechaInicial, "yyyy-MM-dd");
       let auxFinal = this.datePipe.transform(this.fechaFinal, "yyyy-MM-dd");
