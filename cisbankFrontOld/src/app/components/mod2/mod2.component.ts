@@ -128,7 +128,6 @@ export class Mod2Component implements OnInit {
         // validaciones síncronas
         Validators.required,
       ]),
-      tipo: new FormControl(""),
       naturaleza: new FormControl(""),
       saldo: new FormControl(""),
     });
@@ -270,7 +269,6 @@ export class Mod2Component implements OnInit {
   flush() {
     this.acc.setValue({
       desc: "",
-      tipo: "",
       naturaleza: "",
       saldo: "",
     });

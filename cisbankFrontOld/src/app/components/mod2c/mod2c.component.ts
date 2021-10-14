@@ -171,7 +171,6 @@ export class Mod2cComponent implements OnInit {
     this.acc.controls["desc"].disable();
     this.acc.setValue({
       desc: tacc.tName,
-      tipo: tacc.tClasf,
       naturaleza: tacc.tNature,
       saldo: tacc.tBalance,
     });
@@ -227,7 +226,6 @@ export class Mod2cComponent implements OnInit {
 
   addAcc() {
     var acc = this.acc.value;
-    acc['tipo']=this.clasificacion;
     this.showT = true;
     this.data.createAcc(acc).subscribe((data) => {
       // data is already a JSON object
@@ -241,7 +239,6 @@ export class Mod2cComponent implements OnInit {
   updateAcc() {
     this.acc.controls["desc"].enable();
     var acc = this.acc.value;
-    acc['tipo']=this.clasificacion;
 
     this.showT = true;
     this.data.updateAcc(acc).subscribe((data) => {
@@ -270,7 +267,6 @@ export class Mod2cComponent implements OnInit {
   flush() {
     this.acc.setValue({
       desc: "",
-      tipo: "",
       naturaleza: "",
       saldo: "",
     });
